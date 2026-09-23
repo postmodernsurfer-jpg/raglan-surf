@@ -2,51 +2,103 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raglan Weather Widget</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raglan Surf + Weather Forecast</title>
 <style>
-  html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif}
-  .widget{display:inline-block;color:#fff;background:rgba(0,0,0,.55);padding:12px 16px;border-radius:8px;
-    text-shadow:0 1px 3px #000;line-height:1.15;min-width:260px;box-sizing:border-box}
-  .title{font-size:18px;font-weight:700;letter-spacing:.08em;margin-bottom:7px}
-  .main{display:flex;align-items:center;gap:10px}
-  .icon{font-size:30px}.temp{font-size:29px;font-weight:700}.condition{font-size:15px}
-  .details{margin-top:7px;font-size:14px;display:flex;gap:14px;flex-wrap:wrap}
-  .updated{margin-top:7px;font-size:10px;opacity:.75}
-  .error{font-size:13px}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif}
+.widget{box-sizing:border-box;width:100%;max-width:900px;color:#fff;background:rgba(0,0,0,.58);padding:14px 16px;border-radius:10px;text-shadow:0 1px 3px #000}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:12px}
+.header{font-size:20px;font-weight:700;letter-spacing:.08em}
+.clock{text-align:right;white-space:nowrap}
+.clock .time{font-size:20px;font-weight:700}
+.clock .zone{font-size:10px;opacity:.75;letter-spacing:.08em}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:8px}
+.day{background:rgba(255,255,255,.08);border-radius:7px;padding:10px 8px;min-height:130px;box-sizing:border-box}
+.date{font-weight:700;font-size:14px;letter-spacing:.05em;margin-bottom:6px}
+.weather{font-size:12px;margin-bottom:7px}
+.temps{font-size:14px;font-weight:700;margin-bottom:8px}
+.swell{font-size:14px;font-weight:700}
+.meta{font-size:11px;opacity:.9;margin-top:3px}
+.loading{font-size:14px;opacity:.8}
+.updated{font-size:10px;opacity:.65;margin-top:9px}
+@media(max-width:700px){
+ .grid{grid-template-columns:repeat(5,1fr);gap:4px}.day{padding:7px 4px}
+ .header{font-size:13px}.clock .time{font-size:15px}.date{font-size:11px}
+ .weather,.meta{font-size:9px}.temps,.swell{font-size:11px}
+}
 </style>
 </head>
 <body>
-<div class="widget" id="widget">
-  <div class="title">RAGLAN, NEW ZEALAND</div>
-  <div class="main">
-    <div class="icon" id="icon">•</div>
-    <div><div class="temp" id="temp">--°C</div><div class="condition" id="condition">Loading weather…</div></div>
+<div class="widget">
+  <div class="top">
+    <div class="header">RAGLAN, NEW ZEALAND • 5 DAY SURF + WEATHER</div>
+    <div class="clock"><div class="time" id="clock">--:--</div><div class="zone">RAGLAN LOCAL TIME</div></div>
   </div>
-  <div class="details">
-    <span>💨 <b id="wind">--</b></span>
-    <span>💧 <b id="humidity">--%</b></span>
-  </div>
-  <div class="updated" id="updated"></div>
+  <div id="grid" class="grid"><div class="loading">Loading forecast…</div></div>
+  <div id="updated" class="updated"></div>
 </div>
+
 <script>
-const LAT=-37.8016, LON=174.8711;
-const labels={0:["☀️","Clear"],1:["🌤️","Mainly clear"],2:["⛅","Partly cloudy"],3:["☁️","Overcast"],
-45:["🌫️","Fog"],48:["🌫️","Rime fog"],51:["🌦️","Light drizzle"],53:["🌦️","Drizzle"],55:["🌧️","Heavy drizzle"],
-61:["🌦️","Light rain"],63:["🌧️","Rain"],65:["🌧️","Heavy rain"],71:["🌨️","Light snow"],73:["🌨️","Snow"],75:["❄️","Heavy snow"],
-80:["🌦️","Rain showers"],81:["🌧️","Rain showers"],82:["⛈️","Heavy showers"],95:["⛈️","Thunderstorm"],96:["⛈️","Thunderstorm"],99:["⛈️","Thunderstorm"]};
-function dir(deg){const a=["N","NE","E","SE","S","SW","W","NW"];return a[Math.round(deg/45)%8]}
+const LAT=-37.8016,LON=174.8711,TZ="Pacific/Auckland";
+const weatherURL=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=6&hourly=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m&daily=temperature_2m_max,temperature_2m_min,weather_code,precipitation_probability_max,wind_speed_10m_max,wind_direction_10m_dominant`;
+const marineURL=`https://marine-api.open-meteo.com/v1/marine?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=6&hourly=wave_height,wave_direction,wave_period,swell_wave_height,swell_wave_direction,swell_wave_period`;
+
+const codes={
+0:["☀️","Clear"],1:["🌤️","Mainly clear"],2:["⛅","Partly cloudy"],3:["☁️","Overcast"],
+45:["🌫️","Fog"],48:["🌫️","Fog"],51:["🌦️","Drizzle"],53:["🌦️","Drizzle"],55:["🌧️","Drizzle"],
+61:["🌦️","Rain"],63:["🌧️","Rain"],65:["🌧️","Heavy rain"],71:["🌨️","Snow"],73:["🌨️","Snow"],75:["❄️","Heavy snow"],
+80:["🌦️","Showers"],81:["🌧️","Showers"],82:["⛈️","Heavy showers"],95:["⛈️","Thunderstorm"],96:["⛈️","Thunderstorm"],99:["⛈️","Thunderstorm"]
+};
+
+function dir(deg){if(deg==null)return"--";return["N","NE","E","SE","S","SW","W","NW"][Math.round(deg/45)%8]}
+function dayName(s){return new Date(s+"T12:00:00").toLocaleDateString("en-NZ",{weekday:"short"})}
+function mm(x){return x==null||isNaN(x)?"--":Math.round(x*10)/10}
+
+function updateClock(){
+  const now=new Date();
+  document.getElementById("clock").textContent=new Intl.DateTimeFormat("en-NZ",{
+    timeZone:TZ,hour:"numeric",minute:"2-digit",second:"2-digit",hour12:true
+  }).format(now);
+}
+updateClock();
+setInterval(updateClock,1000);
+
 async function load(){
  try{
-  const u=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m,wind_direction_10m&timezone=Pacific%2FAuckland`;
-  const d=await (await fetch(u,{cache:"no-store"})).json(), c=d.current, x=labels[c.weather_code]||["•","Weather"];
-  icon.textContent=x[0]; temp.textContent=Math.round(c.temperature_2m)+"°C"; condition.textContent=x[1];
-  wind.textContent=dir(c.wind_direction_10m)+" "+Math.round(c.wind_speed_10m)+" km/h";
-  humidity.textContent=Math.round(c.relative_humidity_2m)+"%";
-  updated.textContent="Updated "+new Date().toLocaleTimeString("en-NZ",{hour:"numeric",minute:"2-digit"});
- }catch(e){condition.textContent="Weather unavailable";updated.textContent="Retrying…"}
+  const [w,m]=await Promise.all([
+    fetch(weatherURL,{cache:"no-store"}).then(r=>r.json()),
+    fetch(marineURL,{cache:"no-store"}).then(r=>r.json())
+  ]);
+  const dates=w.daily.time.slice(0,5);
+  const cards=dates.map((date,di)=>{
+    const code=w.daily.weather_code[di], c=codes[code]||["•","Weather"];
+    const start=di*24,end=Math.min(start+24,m.hourly.time.length);
+    let best=-1,bestH=-1;
+    for(let i=start;i<end;i++){
+      const h=m.hourly.swell_wave_height[i];
+      if(h!=null && h>bestH){bestH=h;best=i}
+    }
+    if(best<0) best=start;
+    const sh=m.hourly.swell_wave_height[best], sp=m.hourly.swell_wave_period[best], sd=m.hourly.swell_wave_direction[best];
+    const wh=m.hourly.wave_height[best], wp=m.hourly.wave_period[best], wd=m.hourly.wave_direction[best];
+    return `<div class="day">
+      <div class="date">${dayName(date)} ${new Date(date+"T12:00:00").getDate()}</div>
+      <div class="weather">${c[0]} ${c[1]}<br>💧 ${w.daily.precipitation_probability_max[di]??"--"}% rain</div>
+      <div class="temps">${Math.round(w.daily.temperature_2m_max[di])}° / ${Math.round(w.daily.temperature_2m_min[di])}°C</div>
+      <div class="swell">🌊 ${mm(sh)}m @ ${sp==null?"--":Math.round(sp)}s</div>
+      <div class="meta">${dir(sd)} swell</div>
+      <div class="meta">🌊 Waves ${mm(wh)}m @ ${wp==null?"--":Math.round(wp)}s ${dir(wd)}</div>
+      <div class="meta">💨 ${Math.round(w.daily.wind_speed_10m_max[di])} km/h ${dir(w.daily.wind_direction_10m_dominant[di])}</div>
+    </div>`;
+  }).join("");
+  document.getElementById("grid").innerHTML=cards;
+  document.getElementById("updated").textContent="Forecast updated • "+new Intl.DateTimeFormat("en-NZ",{timeZone:TZ,hour:"numeric",minute:"2-digit",hour12:true}).format(new Date());
+ }catch(e){
+  document.getElementById("grid").innerHTML='<div class="loading">Forecast temporarily unavailable. Retrying…</div>';
+ }
 }
-load(); setInterval(load,300000);
+load();
+setInterval(load,300000);
 </script>
 </body>
 </html>
