@@ -5,129 +5,48 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Raglan Surf Cam</title>
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif}
-.bar{
- position:fixed;left:0;right:0;bottom:0;height:72px;color:#fff;overflow:hidden;
- background:linear-gradient(90deg,rgba(2,18,25,.96),rgba(3,45,58,.91) 50%,rgba(2,18,25,.96));
- border-top:1px solid rgba(70,220,240,.8);
- box-shadow:0 -5px 24px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1);
-}
-.bar:after{
- content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
- background:linear-gradient(90deg,transparent,rgba(30,210,235,.9),transparent);
-}
-.inner{position:relative;height:100%;display:flex;align-items:center;padding:0 28px}
-.brand{width:245px;flex:none;padding-right:24px;border-right:1px solid rgba(255,255,255,.2)}
-.name{font-size:23px;font-weight:800;letter-spacing:.24em;line-height:1}
-.sub{font-size:8px;letter-spacing:.34em;opacity:.58;margin-top:6px}
-.live{width:170px;flex:none;padding:0 24px;border-right:1px solid rgba(255,255,255,.17)}
-.liveLine{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.18em}
-.dot{width:8px;height:8px;border-radius:50%;background:#ff1644;box-shadow:0 0 9px rgba(255,22,68,.7)}
-.forecast{display:flex;align-items:center;justify-content:center;flex:1;height:100%;gap:0}
-.day{height:48px;min-width:250px;padding:0 34px;display:flex;align-items:center;justify-content:center;gap:18px;border-right:1px solid rgba(255,255,255,.18)}
-.day:last-child{border-right:0}
-.date{font-size:15px;font-weight:800;letter-spacing:.08em}
-.temp{font-size:16px;font-weight:700}
-.swell{font-size:17px;font-weight:800;white-space:nowrap}
-.wave{font-size:21px}
-.time{width:130px;flex:none;padding-left:18px;border-left:1px solid rgba(255,255,255,.17)}
-.clock{font-size:17px;font-weight:800}
-.zone{font-size:7px;letter-spacing:.16em;opacity:.5;margin-top:4px}
-.loading{font-size:11px;opacity:.6}
-@media(max-width:900px){
- .inner{padding:0 12px}.brand{width:175px}.name{font-size:18px}.sub{font-size:7px}
- .live{width:90px;padding:0 10px}.day{min-width:210px;padding:0 16px;gap:11px}
- .date{font-size:12px}.temp{font-size:13px}.swell{font-size:14px}.wave{font-size:18px}
- .time{width:95px;padding-left:10px}.clock{font-size:13px}
-}
-@media(max-width:650px){
- .bar{height:62px}.brand{width:125px}.name{font-size:14px;letter-spacing:.14em}.sub{font-size:5px}
- .live{display:none}.day{min-width:170px;padding:0 8px;gap:7px}.date{font-size:10px}.temp{font-size:11px}.swell{font-size:12px}.wave{font-size:15px}
- .time{width:70px}.clock{font-size:10px}
-}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif}
+.bar{position:fixed;left:0;right:0;bottom:0;height:78px;color:#fff;overflow:hidden;background:linear-gradient(90deg,rgba(2,18,25,.97),rgba(3,43,56,.92) 50%,rgba(2,18,25,.97));border-top:1px solid rgba(70,220,240,.82);box-shadow:0 -5px 24px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.1)}
+.bar:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,rgba(30,210,235,.9),transparent)}
+.inner{position:relative;height:100%;display:flex;align-items:center;padding:0 20px}
+.brand{width:205px;flex:none;padding-right:18px;border-right:1px solid rgba(255,255,255,.2)}.name{font-size:21px;font-weight:800;letter-spacing:.22em;line-height:1}.sub{font-size:7px;letter-spacing:.3em;opacity:.58;margin-top:5px}
+.live{width:105px;flex:none;padding:0 14px;border-right:1px solid rgba(255,255,255,.17)}.liveLine{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.16em}.dot{width:7px;height:7px;border-radius:50%;background:#ff1644;box-shadow:0 0 8px rgba(255,22,68,.7)}
+.forecast{display:flex;align-items:center;justify-content:center;flex:1;height:100%;min-width:0}.day{height:50px;flex:1;min-width:125px;padding:0 8px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.15)}.day:last-child{border-right:0}
+.top,.bottom{display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}.bottom{margin-top:5px;gap:6px}.date{font-size:9px;font-weight:800;letter-spacing:.1em;opacity:.75}.wind{font-size:10px;font-weight:700;opacity:.9}.temp{font-size:12px;font-weight:800}.swell{font-size:12px;font-weight:800}.wave{font-size:15px}
+.time{width:112px;flex:none;padding-left:14px;border-left:1px solid rgba(255,255,255,.17)}.clock{font-size:16px;font-weight:800;white-space:nowrap}.zone{font-size:6px;letter-spacing:.14em;opacity:.55;margin-top:4px}.loading{font-size:10px;opacity:.6}
+@media(max-width:1100px){.brand{width:155px}.name{font-size:17px}.sub{font-size:6px}.live{width:75px;padding:0 8px}.day{min-width:100px;padding:0 4px}.date{font-size:8px}.wind{font-size:8px}.temp,.swell{font-size:10px}.wave{font-size:13px}.time{width:82px}}
+@media(max-width:800px){.bar{height:68px}.inner{padding:0 8px}.brand{width:115px}.name{font-size:13px}.sub{font-size:5px}.live{display:none}.day{min-width:88px}.day:nth-child(n+6){display:none}.date{font-size:7px}.wind{font-size:7px}.temp,.swell{font-size:9px}.wave{font-size:11px}.time{width:70px;padding-left:6px}.clock{font-size:10px}}
+@media(max-width:560px){.brand{width:82px}.name{font-size:10px}.sub{display:none}.day{min-width:76px}.day:nth-child(n+5){display:none}.time{display:none}}
 </style>
 </head>
 <body>
-<div class="bar">
- <div class="inner">
-  <div class="brand">
-   <div class="name">RAGLAN</div>
-   <div class="sub">SURF CAM · NEW ZEALAND</div>
-  </div>
-
-  <div class="live">
-   <div class="liveLine"><span class="dot"></span> LIVE</div>
-  </div>
-
-  <div id="forecast" class="forecast">
-   <div class="loading">Loading forecast…</div>
-  </div>
-
-  <div class="time">
-   <div id="clock" class="clock">--:--</div>
-   <div class="zone">RAGLAN LOCAL</div>
-  </div>
- </div>
-</div>
-
+<div class="bar"><div class="inner">
+<div class="brand"><div class="name">RAGLAN</div><div class="sub">SURF CAM · NEW ZEALAND</div></div>
+<div class="live"><div class="liveLine"><span class="dot"></span> LIVE</div></div>
+<div id="forecast" class="forecast"><div class="loading">Loading forecast…</div></div>
+<div class="time"><div id="clock" class="clock">--:--</div><div class="zone">RAGLAN LOCAL TIME</div></div>
+</div></div>
 <script>
 const LAT=-37.8016,LON=174.8711,TZ="Pacific/Auckland";
-
-const WEATHER=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=3&daily=temperature_2m_max,temperature_2m_min`;
-const MARINE=`https://marine-api.open-meteo.com/v1/marine?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=3&hourly=swell_wave_height,swell_wave_period`;
-
-function updateClock(){
- document.getElementById("clock").textContent =
- new Intl.DateTimeFormat("en-NZ",{timeZone:TZ,hour:"numeric",minute:"2-digit",hour12:true}).format(new Date());
-}
-updateClock();
-setInterval(updateClock,1000);
-
-function dayName(date){
- return new Date(date+"T12:00:00").toLocaleDateString("en-NZ",{weekday:"short"}).toUpperCase();
-}
-
+const WEATHER=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=8&daily=temperature_2m_max,temperature_2m_min,weather_code,wind_speed_10m_max,wind_direction_10m_dominant`;
+const MARINE=`https://marine-api.open-meteo.com/v1/marine?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=8&hourly=swell_wave_height,swell_wave_period`;
+function dayName(s){return new Date(s+"T12:00:00").toLocaleDateString("en-NZ",{weekday:"short"}).toUpperCase()}
+function direction(d){if(d==null)return"--";return["N","NE","E","SE","S","SW","W","NW"][Math.round(d/45)%8]}
+function updateClock(){document.getElementById("clock").textContent=new Intl.DateTimeFormat("en-NZ",{timeZone:TZ,hour:"numeric",minute:"2-digit",hour12:true}).format(new Date())}
+updateClock();setInterval(updateClock,1000);
 async function load(){
  try{
-  const [w,m]=await Promise.all([
-   fetch(WEATHER,{cache:"no-store"}).then(r=>r.json()),
-   fetch(MARINE,{cache:"no-store"}).then(r=>r.json())
-  ]);
-
-  const cards=w.daily.time.slice(0,2).map((date,d)=>{
-   const start=d*24;
-   const end=Math.min(start+24,m.hourly.time.length);
-
-   // Pick the largest swell forecast during each day.
-   let best=start,bestHeight=-1;
-   for(let i=start;i<end;i++){
-    const h=m.hourly.swell_wave_height[i];
-    if(h!=null && h>bestHeight){bestHeight=h;best=i;}
-   }
-
-   const metres=m.hourly.swell_wave_height[best];
-   const feet=metres==null?"--":(metres*3.28084).toFixed(1);
-   const period=m.hourly.swell_wave_period[best];
-   const p=period==null?"--":Math.round(period);
-
-   return `
-    <div class="day">
-      <span class="date">${dayName(date)} ${new Date(date+"T12:00:00").getDate()}</span>
-      <span class="temp">${Math.round(w.daily.temperature_2m_max[d])}°</span>
-      <span class="wave">🌊</span>
-      <span class="swell">${feet}ft @ ${p}s</span>
-    </div>`;
+  const [w,m]=await Promise.all([fetch(WEATHER,{cache:"no-store"}).then(r=>r.json()),fetch(MARINE,{cache:"no-store"}).then(r=>r.json())]);
+  document.getElementById("forecast").innerHTML=w.daily.time.slice(0,7).map((date,d)=>{
+   const start=d*24,end=Math.min(start+24,m.hourly.time.length);let best=start,max=-1;
+   for(let i=start;i<end;i++){const h=m.hourly.swell_wave_height[i];if(h!=null&&h>max){max=h;best=i}}
+   const metres=m.hourly.swell_wave_height[best],feet=metres==null?"--":(metres*3.28084).toFixed(1);
+   const period=m.hourly.swell_wave_period[best],p=period==null?"--":Math.round(period);
+   const wind=Math.round(w.daily.wind_speed_10m_max[d]*0.539957),windDir=direction(w.daily.wind_direction_10m_dominant[d]);
+   return `<div class="day"><div class="top"><span class="date">${dayName(date)} ${new Date(date+"T12:00:00").getDate()}</span><span class="wind">↗ ${wind}kt ${windDir}</span></div><div class="bottom"><span class="temp">${Math.round(w.daily.temperature_2m_max[d])}°</span><span class="wave">🌊</span><span class="swell">${feet}ft @ ${p}s</span></div></div>`;
   }).join("");
-
-  document.getElementById("forecast").innerHTML=cards;
- }catch(e){
-  document.getElementById("forecast").innerHTML='<div class="loading">Forecast temporarily unavailable</div>';
- }
+ }catch(e){document.getElementById("forecast").innerHTML='<div class="loading">Forecast temporarily unavailable</div>'}
 }
-
-load();
-setInterval(load,300000);
+load();setInterval(load,300000);
 </script>
-</body>
-</html>
+</body></html>
