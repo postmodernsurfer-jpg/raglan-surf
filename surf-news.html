@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surf News Live</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#061114;color:#eef7f6;font-family:Arial,Helvetica,sans-serif;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+.news{width:100%;height:100%;max-width:1500px;min-height:600px;position:relative;overflow:hidden;background:radial-gradient(circle at 75% 25%,#123943 0,#09191d 38%,#061114 75%);padding:42px 58px}
+.top{display:flex;justify-content:space-between;align-items:flex-start}
+.ey{font-size:13px;letter-spacing:.32em;color:#7fa9ad;font-weight:800}.title{font-size:38px;font-weight:900;letter-spacing:.08em;margin-top:7px}.live{font-size:11px;letter-spacing:.2em;border:1px solid #35545a;border-radius:20px;padding:10px 14px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#df6b53;margin-right:7px}
+.story{position:absolute;left:58px;right:58px;top:180px;bottom:110px;display:flex;align-items:center;opacity:1;transition:opacity .45s ease,transform .45s ease;transform:translateY(0)}
+.story.fade{opacity:0;transform:translateY(12px)}
+.kicker{font-size:13px;letter-spacing:.2em;color:#83b5b7;font-weight:800;margin-bottom:18px}.headline{font-size:clamp(42px,5.2vw,82px);line-height:1.02;max-width:1050px;font-weight:900;letter-spacing:-.035em}.summary{font-size:20px;line-height:1.45;color:#a9bec0;max-width:900px;margin-top:22px}.meta{font-size:11px;letter-spacing:.12em;color:#6f898d;margin-top:24px;text-transform:uppercase}.read{display:inline-block;margin-top:28px;padding:12px 16px;border:1px solid #41636a;border-radius:5px;color:#dcebea;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.16em}
+.bottom{position:absolute;left:58px;right:58px;bottom:38px}.bar{height:4px;background:#1d353a;border-radius:4px;overflow:hidden}.progress{height:100%;width:0;background:#75a7a5;transition:width .1s linear}.foot{display:flex;justify-content:space-between;margin-top:10px;font-size:9px;letter-spacing:.18em;color:#617a7e}
+@media(max-width:700px){.news{padding:28px}.story{left:28px;right:28px;top:145px;bottom:95px}.bottom{left:28px;right:28px}.title{font-size:25px}.headline{font-size:40px}.summary{font-size:16px}}
+</style>
+</head>
+<body>
+<main class="news">
+  <div class="top">
+    <div><div class="ey">LIVE SURF INTELLIGENCE</div><div class="title">SURF NEWS</div></div>
+    <div class="live"><span class="dot"></span>LIVE</div>
+  </div>
+  <section id="story" class="story"></section>
+  <div class="bottom">
+    <div class="bar"><div id="progress" class="progress"></div></div>
+    <div class="foot"><span id="count">NEXT STORY IN 10</span><span>POSTMODERN SURFER</span></div>
+  </div>
+</main>
+<script>
+const FALLBACK=[
+ {source:"SURFLINE",title:"EPAC Signals: Hurricane Polo Threatens Baja, Big Island Watching Nolo; Odalys Swell?",summary:"Pacific tropics are active again, with multiple systems being watched for potential surf impacts.",url:"https://www.surfline.com/surf-news/epac-signals-hurricane-polo-threatens-baja-big-island-watching-nolo-odalys-swell/5u5b2HhBmePy5BFseGtIg3"},
+ {source:"SURFLINE",title:"WaveFax: Odalys Tees Up Fun SoCal Surf, Polo Could Send Something Stronger",summary:"A broad Pacific look at developing swells, tropical activity and surf opportunities across the basin.",url:"https://www.surfline.com/surf-news/wave-fax-south-pacific-tropics-september-americas/222708"},
+ {source:"STAB",title:"Quik Fest 2026 Outlook: The France You've Heard Myths About",summary:"A look at Hossegor, the Quiksilver Festival and the surf culture surrounding France's autumn season.",url:"https://stabmag.com/news/quik-fest-2026-outlook-the-france-youve-heard-myths-about/"}
+];
+let stories=[],index=0,timer=null,start=Date.now(),duration=10000;
+const $=id=>document.getElementById(id);
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function render(){
+ const s=stories[index%stories.length]||FALLBACK[0];
+ const el=$("story"); el.classList.add("fade");
+ setTimeout(()=>{
+  el.innerHTML='<div><div class="kicker">'+esc(s.source)+'</div><div class="headline">'+esc(s.title)+'</div><div class="summary">'+esc(s.summary||"Latest surf news and ocean stories.")+'</div><div class="meta">'+esc(s.date||"LATEST")+'</div><a class="read" href="'+esc(s.url)+'" target="_blank" rel="noopener">READ ORIGINAL STORY →</a></div>';
+  el.classList.remove("fade");
+ },450);
+ start=Date.now();
+}
+function tick(){
+ const elapsed=Date.now()-start, pct=Math.min(100,elapsed/duration*100), left=Math.max(0,Math.ceil((duration-elapsed)/1000));
+ $("progress").style.width=pct+"%"; $("count").textContent="NEXT STORY IN "+left;
+ if(elapsed>=duration){index=(index+1)%stories.length;render();}
+ requestAnimationFrame(tick);
+}
+async function load(){
+ try{
+  const r=await fetch("surf-news.json?ts="+Date.now(),{cache:"no-store"});
+  const data=await r.json();
+  if(Array.isArray(data.stories)&&data.stories.length) stories=data.stories;
+ }catch(e){}
+ if(!stories.length) stories=FALLBACK;
+ render(); requestAnimationFrame(tick);
+}
+load();
+</script>
+</body>
+</html>
