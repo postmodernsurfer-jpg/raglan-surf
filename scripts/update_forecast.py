@@ -1,4 +1,4 @@
-import json, urllib.request
+import json, urllib.request, urllib.parse
 from datetime import datetime, timezone
 
 LAT=-37.8016
@@ -20,7 +20,6 @@ def get(url):
     with urllib.request.urlopen(url, timeout=20) as r:
         return json.load(r)
 
-import urllib.parse
 m=get(marine_url)
 w=get(wind_url)
 
@@ -56,6 +55,7 @@ for i in range(start,end):
     wd=w["hourly"]["wind_direction_10m"][i]
     tide=m["hourly"]["sea_level_height_msl"][i]
     pct=50 if tide is None or tmax<=tmin else max(8,min(100,round((tide-tmin)/(tmax-tmin)*100)))
+    s=score(wave or 0,period or 0,wind if wind is not None else 99)
     rows.append({
         "time":times[i],
         "wave_ft":round(wave*3.28084+5) if wave is not None else None,
@@ -63,7 +63,7 @@ for i in range(start,end):
         "wind_kmh":round(wind) if wind is not None else None,
         "wind_dir":direction(wd),
         "tide_pct":pct,
-        "face":"😍" if score(wave or 0,period or 0,wind if wind is not None else 99)>=7 else "🙂" if score(wave or 0,period or 0,wind if wind is not None else 99)>=4 else "🤯"
+        "face":"😍" if s>=7 else "🙂" if s>=4 else "🤯"
     })
 
 with open("forecast.json","w",encoding="utf-8") as f:
