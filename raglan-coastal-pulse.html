@@ -43,7 +43,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 </div>
 <script>
 const weatherApi='https://api.open-meteo.com/v1/forecast?latitude=-37.8000&longitude=174.8833&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,weather_code&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,visibility&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset&temperature_unit=celsius&wind_speed_unit=kmh&timezone=Pacific%2FAuckland&forecast_days=7';
-const marineApi='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature,sea_level_height_msl&hourly=sea_level_height_msl&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
+const marineApi='https://marine-api.open-meteo.com/v1/marine?latitude=-37.8000&longitude=174.8833&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature,sea_level_height_msl&hourly=sea_level_height_msl&length_unit=imperial&timezone=Pacific%2FAuckland&forecast_days=7';
 const $=id=>document.getElementById(id);
 function direction(deg){if(!Number.isFinite(deg))return'--';const dirs=['N','NE','E','SE','S','SW','W','NW'];return dirs[Math.round(deg/45)%8]}
 function weather(code){if(code===0)return'Sunny';if([1,2,3].includes(code))return'Partly cloudy';if([45,48].includes(code))return'Fog / marine layer';if(code>=51&&code<=67)return'Rain';if(code>=80&&code<=82)return'Showers';if(code>=95)return'Thunderstorms';return'Coastal conditions'}
@@ -75,7 +75,7 @@ async function load(){
   const clockTimeEl=$('clockTime'), clockDateEl=$('clockDate');
   if(clockTimeEl){
     clockTimeEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(now);
-    clockDateEl.textContent='SANTA CRUZ · '+new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',weekday:'long',month:'long',day:'numeric'}).format(now).toUpperCase();
+    clockDateEl.textContent='RAGLAN · '+new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',weekday:'long',month:'long',day:'numeric'}).format(now).toUpperCase();
   }
   const sunrise=new Date(d.daily.sunrise[0]);
   const sunset=new Date(d.daily.sunset[0]);
