@@ -23,10 +23,12 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent
 </div>
 <script>
 function timeLabel(x){
- const m=String(x).match(/T(\d{2}):(\d{2})/);
- if(!m)return "--";
- let h=Number(m[1]); const ap=h>=12?"PM":"AM"; h=h%12||12;
- return h+":"+m[2]+" "+ap;
+ const s=String(x);
+ const hh=s.slice(11,13);
+ const mm=s.slice(14,16);
+ if(!hh || !mm)return "--";
+ let h=Number(hh); const ap=h>=12?"PM":"AM"; h=h%12||12;
+ return h+":"+mm+" "+ap;
 }
 async function load(){
  try{
