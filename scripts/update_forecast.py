@@ -1,5 +1,6 @@
 import json, urllib.request, urllib.parse
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 LAT=-37.8016
 LON=174.8711
@@ -24,10 +25,10 @@ m=get(marine_url)
 w=get(wind_url)
 
 times=m["hourly"]["time"]
-now=datetime.now(timezone.utc)
+now=datetime.now(ZoneInfo(TZ))
 start=0
 for i,t in enumerate(times):
-    dt=datetime.fromisoformat(t).replace(tzinfo=timezone.utc)
+    dt=datetime.fromisoformat(t).replace(tzinfo=ZoneInfo(TZ))
     if dt>=now:
         start=i
         break
