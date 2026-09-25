@@ -8,42 +8,51 @@
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#061114;color:#eef7f6;font-family:Arial,Helvetica,sans-serif;overflow:hidden}
 body{display:flex;align-items:center;justify-content:center}.screen{width:100%;height:100%;max-width:1500px;min-height:600px;position:relative;padding:42px 58px;background:radial-gradient(circle at 72% 28%,#123a44 0,#09191d 40%,#061114 78%)}
 .top{display:flex;justify-content:space-between;align-items:flex-start}.ey{font-size:13px;letter-spacing:.32em;color:#7fa9ad;font-weight:800}.title{font-size:36px;font-weight:900;letter-spacing:.08em;margin-top:7px}.live{font-size:11px;letter-spacing:.2em;border:1px solid #35545a;border-radius:20px;padding:10px 14px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#df6b53;margin-right:7px}
-.post{position:absolute;left:58px;right:58px;top:155px;bottom:110px;display:grid;grid-template-columns:290px 1fr;gap:42px;align-items:center;opacity:1;transition:opacity .45s ease,transform .45s ease}.post.fade{opacity:0;transform:translateY(12px)}
-.profile{width:230px;height:230px;border-radius:50%;border:2px solid #41636a;background:#0b252b;display:flex;align-items:center;justify-content:center;font-size:62px;font-weight:900;letter-spacing:-.05em;color:#9cc0c0;box-shadow:0 0 50px rgba(60,130,145,.12)}
-.handle{font-size:13px;letter-spacing:.18em;color:#83b5b7;font-weight:800;margin-bottom:12px}.name{font-size:54px;font-weight:900;line-height:1.02;letter-spacing:-.035em}.tour{font-size:13px;color:#789195;letter-spacing:.15em;margin-top:14px;text-transform:uppercase}.ig{display:inline-block;margin-top:28px;padding:13px 17px;border:1px solid #41636a;border-radius:5px;color:#e4efee;text-decoration:none;font-size:11px;font-weight:800;letter-spacing:.16em}.note{font-size:16px;line-height:1.5;color:#9eb4b7;max-width:720px;margin-top:22px}
+.post{position:absolute;left:58px;right:58px;top:120px;bottom:88px;display:flex;align-items:center;justify-content:center;opacity:1;transition:opacity .45s ease,transform .45s ease;transform:translateY(0)}.post.fade{opacity:0;transform:translateY(12px)}
+.post-wrap{width:min(600px,100%);text-align:center}.surfer-line{display:flex;justify-content:center;align-items:baseline;gap:14px;margin-bottom:12px}.surfer-line b{font-size:25px}.surfer-line span{font-size:11px;color:#83b5b7;letter-spacing:.12em}
+.instagram-media{max-height:650px;overflow:auto}.ig{display:inline-block;margin-top:10px;padding:10px 15px;border:1px solid #41636a;border-radius:5px;color:#e4efee;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.16em}
 .bottom{position:absolute;left:58px;right:58px;bottom:38px}.bar{height:4px;background:#1d353a;border-radius:4px;overflow:hidden}.progress{height:100%;width:0;background:#75a7a5}.foot{display:flex;justify-content:space-between;margin-top:10px;font-size:9px;letter-spacing:.18em;color:#617a7e}
-@media(max-width:700px){.screen{padding:28px}.post{left:28px;right:28px;top:145px;grid-template-columns:1fr;gap:20px}.profile{width:120px;height:120px;font-size:34px}.name{font-size:38px}.bottom{left:28px;right:28px}.title{font-size:25px}}
+@media(max-width:700px){.screen{padding:28px}.post{left:28px;right:28px;top:105px}.bottom{left:28px;right:28px}.title{font-size:25px}.surfer-line b{font-size:20px}}
 </style>
 </head>
 <body>
 <main class="screen">
 <div class="top"><div><div class="ey">LIVE SURF INTELLIGENCE</div><div class="title">PRO SURFERS / INSTAGRAM</div></div><div class="live"><span class="dot"></span>LIVE</div></div>
 <section id="post" class="post"></section>
-<div class="bottom"><div class="bar"><div id="progress" class="progress"></div></div><div class="foot"><span id="count">NEXT SURFER IN 10</span><span>POSTMODERN SURFER</span></div></div>
+<div class="bottom"><div class="bar"><div id="progress" class="progress"></div></div><div class="foot"><span id="count">NEXT POST IN 10</span><span>POSTMODERN SURFER</span></div></div>
 </main>
+<script async src="https://www.instagram.com/embed.js"></script>
 <script>
-const surfers=[
-{name:"John John Florence",handle:"@john_john_florence",initials:"JJF",tour:"Hawaii · Championship Tour",note:"Latest Instagram posts from two-time world champion John John Florence.",url:"https://www.instagram.com/john_john_florence/"},
-{name:"Jack Robinson",handle:"@jackrobinson",initials:"JR",tour:"Western Australia · Championship Tour",note:"Latest Instagram posts from Championship Tour surfer Jack Robinson.",url:"https://www.instagram.com/jackrobinson/"},
-{name:"Italo Ferreira",handle:"@italoferreira",initials:"IF",tour:"Brazil · Championship Tour",note:"Latest Instagram posts from Olympic gold medalist Italo Ferreira.",url:"https://www.instagram.com/italoferreira/"},
-{name:"Griffin Colapinto",handle:"@griffin_colapinto",initials:"GC",tour:"California · Championship Tour",note:"Latest Instagram posts from California's Griffin Colapinto.",url:"https://www.instagram.com/griffin_colapinto/"},
-{name:"Gabriel Medina",handle:"@gabrielmedina",initials:"GM",tour:"Brazil · Championship Tour",note:"Latest Instagram posts from three-time world champion Gabriel Medina.",url:"https://www.instagram.com/gabrielmedina/"},
-{name:"Filipe Toledo",handle:"@filipetoledo",initials:"FT",tour:"Brazil · Championship Tour",note:"Latest Instagram posts from two-time world champion Filipe Toledo.",url:"https://www.instagram.com/filipetoledo/"},
-{name:"Caroline Marks",handle:"@caroline_markss",initials:"CM",tour:"Florida · Championship Tour",note:"Latest Instagram posts from Olympic gold medalist Caroline Marks.",url:"https://www.instagram.com/caroline_markss/"},
-{name:"Caitlin Simmers",handle:"@caitlinsimmers",initials:"CS",tour:"California · Championship Tour",note:"Latest Instagram posts from Championship Tour surfer Caitlin Simmers.",url:"https://www.instagram.com/caitlinsimmers/"},
-{name:"Molly Picklum",handle:"@mollypicklum",initials:"MP",tour:"New South Wales · Championship Tour",note:"Latest Instagram posts from Australian Championship Tour surfer Molly Picklum.",url:"https://www.instagram.com/mollypicklum/"},
-{name:"Tyler Wright",handle:"@tylerwright",initials:"TW",tour:"Australia · Championship Tour",note:"Latest Instagram posts from two-time world champion Tyler Wright.",url:"https://www.instagram.com/tylerwright/"}
-];
-let i=0,start=Date.now(),duration=10000;
+let posts=[],i=0,start=Date.now(),duration=10000,rendering=false;
 const $=id=>document.getElementById(id);
-function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]))}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+async function loadPosts(){
+ try{
+  const r=await fetch('pro-surfers-instagram.json?ts='+Date.now(),{cache:'no-store'});
+  const d=await r.json();
+  if(Array.isArray(d.posts)) posts=d.posts.filter(x=>x.postUrl);
+ }catch(e){}
+ render();
+ requestAnimationFrame(tick);
+}
 function render(){
- const s=surfers[i],el=$("post");el.classList.add("fade");
- setTimeout(()=>{el.innerHTML='<div class="profile">'+esc(s.initials)+'</div><div><div class="handle">'+esc(s.handle)+'</div><div class="name">'+esc(s.name)+'</div><div class="tour">'+esc(s.tour)+'</div><div class="note">'+esc(s.note)+'</div><a class="ig" href="'+esc(s.url)+'" target="_blank" rel="noopener">OPEN INSTAGRAM →</a></div>';el.classList.remove("fade")},450);
+ if(!posts.length)return;
+ const p=posts[i%posts.length],el=$('post');
+ rendering=true;el.classList.add('fade');
+ setTimeout(()=>{
+   el.innerHTML='<div class="post-wrap"><div class="surfer-line"><b>'+esc(p.name)+'</b><span>'+esc(p.handle)+'</span></div><blockquote class="instagram-media" data-instgrm-permalink="'+esc(p.postUrl)+'" data-instgrm-version="14" data-instgrm-captioned style="background:#fff;border:0;border-radius:8px;margin:0 auto;max-width:540px;min-width:326px;width:100%"></blockquote><a class="ig" href="'+esc(p.postUrl)+'" target="_blank" rel="noopener">OPEN INSTAGRAM →</a></div>';
+   if(window.instgrm) window.instgrm.Embeds.process();
+   el.classList.remove('fade'); rendering=false;
+ },450);
  start=Date.now();
 }
-function tick(){const e=Date.now()-start,p=Math.min(100,e/duration*100),left=Math.max(0,Math.ceil((duration-e)/1000));$("progress").style.width=p+"%";$("count").textContent="NEXT SURFER IN "+left;if(e>=duration){i=(i+1)%surfers.length;render()}requestAnimationFrame(tick)}
-render();requestAnimationFrame(tick);
+function tick(){
+ const e=Date.now()-start,p=Math.min(100,e/duration*100),left=Math.max(0,Math.ceil((duration-e)/1000));
+ $('progress').style.width=p+'%';$('count').textContent='NEXT POST IN '+left;
+ if(e>=duration&&!rendering&&posts.length){i=(i+1)%posts.length;render()}
+ requestAnimationFrame(tick);
+}
+loadPosts();
 </script>
-</body>
+</body></body>
 </html>
