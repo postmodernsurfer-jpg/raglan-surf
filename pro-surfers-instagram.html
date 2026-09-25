@@ -23,36 +23,28 @@ body{display:flex;align-items:center;justify-content:center}.screen{width:100%;h
 </main>
 <script async src="https://www.instagram.com/embed.js"></script>
 <script>
-let posts=[],i=0,start=Date.now(),duration=10000,rendering=false;
+const surfers=[
+{name:"Gabriel Medina",handle:"@gabrielmedina",followers:"14.0M",initials:"GM",url:"https://www.instagram.com/gabrielmedina/"},
+{name:"Pedro Scooby",handle:"@pedroscooby",followers:"7.9M",initials:"PS",url:"https://www.instagram.com/pedroscooby/"},
+{name:"Kelly Slater",handle:"@kellyslater",followers:"3.4M",initials:"KS",url:"https://www.instagram.com/kellyslater/"},
+{name:"Bethany Hamilton",handle:"@bethanyhamilton",followers:"2.6M",initials:"BH",url:"https://www.instagram.com/bethanyhamilton/"},
+{name:"John John Florence",handle:"@john_john_florence",followers:"1.7M",initials:"JJF",url:"https://www.instagram.com/john_john_florence/"},
+{name:"Alana Blanchard",handle:"@alanarblanchard",followers:"1.6M",initials:"AB",url:"https://www.instagram.com/alanarblanchard/"},
+{name:"Kai Lenny",handle:"@kai_lenny",followers:"1.4M",initials:"KL",url:"https://www.instagram.com/kai_lenny/"},
+{name:"Jamie O'Brien",handle:"@whoisjob",followers:"1.3M",initials:"JOB",url:"https://www.instagram.com/whoisjob/"},
+{name:"Filipe Toledo",handle:"@filipetoledo",followers:"1.3M",initials:"FT",url:"https://www.instagram.com/filipetoledo/"},
+{name:"Mick Fanning",handle:"@mfanno",followers:"1.2M",initials:"MF",url:"https://www.instagram.com/mfanno/"}
+];
+let i=0,start=Date.now(),duration=10000;
 const $=id=>document.getElementById(id);
-function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
-async function loadPosts(){
- try{
-  const r=await fetch('pro-surfers-instagram.json?ts='+Date.now(),{cache:'no-store'});
-  const d=await r.json();
-  if(Array.isArray(d.posts)) posts=d.posts.filter(x=>x.postUrl);
- }catch(e){}
- render();
- requestAnimationFrame(tick);
-}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function render(){
- if(!posts.length)return;
- const p=posts[i%posts.length],el=$('post');
- rendering=true;el.classList.add('fade');
- setTimeout(()=>{
-   el.innerHTML='<div class="post-wrap"><div class="surfer-line"><b>'+esc(p.name)+'</b><span>'+esc(p.handle)+'</span></div><blockquote class="instagram-media" data-instgrm-permalink="'+esc(p.postUrl)+'" data-instgrm-version="14" data-instgrm-captioned style="background:#fff;border:0;border-radius:8px;margin:0 auto;max-width:540px;min-width:326px;width:100%"></blockquote><a class="ig" href="'+esc(p.postUrl)+'" target="_blank" rel="noopener">OPEN INSTAGRAM →</a></div>';
-   if(window.instgrm) window.instgrm.Embeds.process();
-   el.classList.remove('fade'); rendering=false;
- },450);
+ const s=surfers[i],el=$('post');el.classList.add('fade');
+ setTimeout(()=>{el.innerHTML='<div><div class="profile">'+esc(s.initials)+'</div><div class="handle">'+esc(s.handle)+'</div><div class="name">'+esc(s.name)+'</div><div class="followers">'+esc(s.followers)+' INSTAGRAM FOLLOWERS</div><div class="tour">PRO SURFER / SURF CULTURE</div><a class="ig" href="'+esc(s.url)+'" target="_blank" rel="noopener">VIEW INSTAGRAM →</a></div>';el.classList.remove('fade')},450);
  start=Date.now();
 }
-function tick(){
- const e=Date.now()-start,p=Math.min(100,e/duration*100),left=Math.max(0,Math.ceil((duration-e)/1000));
- $('progress').style.width=p+'%';$('count').textContent='NEXT POST IN '+left;
- if(e>=duration&&!rendering&&posts.length){i=(i+1)%posts.length;render()}
- requestAnimationFrame(tick);
-}
-loadPosts();
+function tick(){const e=Date.now()-start,p=Math.min(100,e/duration*100),left=Math.max(0,Math.ceil((duration-e)/1000));$('progress').style.width=p+'%';$('count').textContent='NEXT SURFER IN '+left;if(e>=duration){i=(i+1)%surfers.length;render()}requestAnimationFrame(tick)}
+render();requestAnimationFrame(tick);
 </script>
 </body></body>
 </html>
