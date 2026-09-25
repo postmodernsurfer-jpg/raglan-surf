@@ -13,8 +13,9 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 .live{font-size:10px;letter-spacing:.18em;border:1px solid #38535a;padding:8px 11px;border-radius:20px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#df6b53;margin-right:6px}
 .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:1px;background:#20363b}.panel{background:#09171a;padding:20px}
 .label{font-size:9px;letter-spacing:.2em;color:#718a8e}.temp{font-size:82px;font-weight:900;line-height:.9;letter-spacing:-.06em}.unit{font-size:25px;color:#789095;vertical-align:top}
-.condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:130px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden}
-.ocean svg{width:100%;height:100%}.ocean-title{position:absolute;left:13px;top:11px;font-size:9px;letter-spacing:.22em;color:#8eb7b7}.pulse{position:absolute;right:13px;bottom:11px;font-size:9px;letter-spacing:.18em;color:#8eb7b7}
+.condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:180px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden;padding:12px 13px}
+.ocean-title{font-size:9px;letter-spacing:.22em;color:#8eb7b7}.swell-forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;height:132px;align-items:end;margin-top:7px}.swell-day{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}.swell-day b{font-size:9px;letter-spacing:.1em;color:#9db8ba}.swell-height{font-size:15px;font-weight:900}.swell-bar-wrap{height:78px;width:100%;display:flex;align-items:flex-end;justify-content:center}.swell-bar{width:65%;min-height:5px;background:#6d9f9d;border-radius:4px 4px 1px 1px}.swell-period{font-size:8px;color:#718a8e}.swell-source{position:absolute;right:13px;top:12px;font-size:8px;letter-spacing:.14em;color:#718a8e}
+@media(max-width:700px){.swell-forecast{gap:4px}.swell-height{font-size:12px}.swell-bar{width:70%}}
 .score{display:flex;flex-direction:column;justify-content:center}.score-number{font-size:76px;font-weight:900;line-height:1;margin:7px 0}.state{font-size:13px;letter-spacing:.12em;font-weight:800;color:#8db7b5}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #20363b}.metric{padding:16px;border-right:1px solid #20363b}.metric:last-child{border-right:0}.value{font-size:22px;font-weight:800;margin-top:5px}.sub{font-size:9px;color:#718a8e;margin-top:3px}
 .forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:11px;color:#9cafb1;margin-top:6px}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
@@ -28,7 +29,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 <header class="head"><div><div class="ey">LIVE COASTAL INTELLIGENCE</div><div class="name">SANTA CRUZ / CALIFORNIA</div></div><div class="live"><span class="dot"></span>LIVE</div></header>
 <section class="hero">
 <div class="panel"><div class="label">AIR TEMPERATURE</div><div class="temp" id="temp">--<span class="unit">°F</span></div><div class="condition" id="condition">Loading coastal conditions…</div>
-<div class="ocean"><div class="ocean-title">PACIFIC OCEAN</div><svg viewBox="0 0 700 140" preserveAspectRatio="none" aria-label="Animated Pacific wave"><path id="wave1" d="M0 83 C75 42 125 116 205 72 S340 38 420 79 S550 123 625 68 S675 50 700 72 L700 140 L0 140Z" fill="rgba(82,153,159,.35)"/><path id="wave2" d="M0 91 C75 50 125 124 205 80 S340 46 420 87 S550 131 625 76 S675 58 700 80" fill="none" stroke="rgba(145,198,195,.78)" stroke-width="2"/></svg><div class="pulse">PACIFIC PULSE</div></div></div>
+<div class="ocean"><div class="ocean-title">7-DAY SWELL FORECAST</div><div class="swell-source">WAVE HEIGHT · SURF</div><div class="swell-forecast" id="swellForecast"></div></div></div>
 <div class="panel score"><div class="label">PACIFIC OCEAN</div><div class="score-number" id="score">--</div><div class="state" id="state">WAVE HEIGHT</div></div>
 </section>
 <section class="metrics">
@@ -73,11 +74,24 @@ async function load(){
   $('score').textContent=Number.isFinite(waveFt)?(waveFt<0.1?'FLAT':waveFt.toFixed(1)+' FT'):'--';
   $('state').textContent='WAVE HEIGHT';
   const days=d.daily.time;let html='';
+  const marineDailyUrl='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&hourly=swell_wave_height,swell_wave_period,wave_height,wave_period&daily=swell_wave_height_max,swell_wave_period_max,wave_height_max,wave_period_max&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
+  const md=await (await fetch(marineDailyUrl)).json();
+  const sf=document.getElementById('swellForecast');
+  const heights=md.daily.swell_wave_height_max.map(Number);
+  const maxH=Math.max(2,...heights);
+  sf.innerHTML=days.map((day,i)=>{
+    const date=new Date(day+'T12:00:00');
+    const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();
+    const h=heights[i];
+    const p=Number(md.daily.swell_wave_period_max[i]);
+    const pct=Math.max(5,Math.min(100,(h/maxH)*100));
+    return '<div class="swell-day"><b>'+name+'</b><div class="swell-height">'+(Number.isFinite(h)?h.toFixed(1)+' ft':'--')+'</div><div class="swell-bar-wrap"><div class="swell-bar" style="height:'+pct+'%"></div></div><div class="swell-period">'+(Number.isFinite(p)?p.toFixed(0)+'s':'--')+'</div></div>';
+  }).join('');
   days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=dayCode= d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
  }catch(e){$('condition').textContent='Live weather connection unavailable';$('state').textContent='DATA OFFLINE'}
 }
 load();setInterval(load,10*60*1000);
-let t=0;function animate(){t+=.018;const a=6*Math.sin(t),b=-5*Math.sin(t*.8);$('wave1').setAttribute('transform',`translate(${a},0)`);$('wave2').setAttribute('transform',`translate(${b},0)`);requestAnimationFrame(animate)}animate();
+
 </script>
 </body>
 </html>
