@@ -75,14 +75,14 @@ async function load(){
   const clockTimeEl=$('clockTime'), clockDateEl=$('clockDate');
   if(clockTimeEl){
     clockTimeEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(now);
-    clockDateEl.textContent='SANTA CRUZ · '+new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'long',month:'long',day:'numeric'}).format(now).toUpperCase();
+    clockDateEl.textContent='SANTA CRUZ · '+new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',weekday:'long',month:'long',day:'numeric'}).format(now).toUpperCase();
   }
   const sunrise=new Date(d.daily.sunrise[0]);
   const sunset=new Date(d.daily.sunset[0]);
   const dayStart=sunrise.getTime(), dayEnd=sunset.getTime(), nowMs=Date.now();
   const pct=Math.max(0,Math.min(100,((nowMs-dayStart)/(dayEnd-dayStart))*100));
   if($('skyFill')) $('skyFill').style.width=pct+'%'; if($('sunDot')) $('sunDot').style.left='calc('+pct+'% - 7px)';
-  const fmt=t=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date(t));
+  const fmt=t=>new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date(t));
   if($('sunrise')) $('sunrise').textContent=fmt(sunrise); if($('sunset')) $('sunset').textContent=fmt(sunset);
   if($('sunriseLabel')) $('sunriseLabel').textContent='SUNRISE '+fmt(sunrise); if($('sunsetLabel')) $('sunsetLabel').textContent='SUNSET '+fmt(sunset);
   const mins=Math.max(0,Math.round((sunset.getTime()-nowMs)/60000));
@@ -125,7 +125,7 @@ async function load(){
    const temp=$('temp'); if(temp) temp.innerHTML='--<span class="unit">°C</span>';
  }
 }
-load();setInterval(load,10*60*1000);setInterval(()=>{const el=document.getElementById('clockTime');if(el)el.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date())},1000);
+load();setInterval(load,10*60*1000);setInterval(()=>{const el=document.getElementById('clockTime');if(el)el.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'Pacific/Auckland',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date())},1000);
 
 </script>
 </body>
