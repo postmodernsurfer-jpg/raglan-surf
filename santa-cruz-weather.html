@@ -16,7 +16,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 .condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:180px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden;padding:12px 13px}
 .ocean-title{font-size:9px;letter-spacing:.22em;color:#8eb7b7}.swell-forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;height:132px;align-items:end;margin-top:7px}.swell-day{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}.swell-day b{font-size:9px;letter-spacing:.1em;color:#9db8ba}.swell-height{font-size:15px;font-weight:900}.swell-bar-wrap{height:78px;width:100%;display:flex;align-items:flex-end;justify-content:center}.swell-bar{width:65%;min-height:5px;background:#6d9f9d;border-radius:4px 4px 1px 1px}.swell-period{font-size:8px;color:#718a8e}.swell-source{position:absolute;right:13px;top:12px;font-size:8px;letter-spacing:.14em;color:#718a8e}
 @media(max-width:700px){.swell-forecast{gap:4px}.swell-height{font-size:12px}.swell-bar{width:70%}}
-.score{display:flex;flex-direction:column;justify-content:flex-start;padding:22px}.marine-head{font-size:10px;letter-spacing:.25em;color:#83a9aa;font-weight:700;margin-bottom:10px}.noaa-status{font-size:8px;letter-spacing:.12em;color:#718a8e;margin-bottom:10px}.noaa-box{height:230px;overflow:auto;background:#071215;border:1px solid #20363b;border-radius:8px;padding:12px}.noaa-text{font-size:10px;line-height:1.55;color:#b8c9ca;white-space:pre-wrap}.noaa-text strong{color:#edf6f5}.noaa-link{display:inline-block;margin-top:8px;font-size:8px;letter-spacing:.12em;color:#8eb7b7;text-decoration:none}
+.score{display:flex;flex-direction:column;justify-content:center}.score-number{font-size:76px;font-weight:900;line-height:1;margin:7px 0}.state{font-size:13px;letter-spacing:.12em;font-weight:800;color:#8db7b5}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #20363b}.metric{padding:16px;border-right:1px solid #20363b}.metric:last-child{border-right:0}.value{font-size:22px;font-weight:800;margin-top:5px}.sub{font-size:9px;color:#718a8e;margin-top:3px}
 .forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:11px;color:#9cafb1;margin-top:6px}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
 .foot{padding:0 15px 13px;font-size:8px;letter-spacing:.18em;color:#526b6e;text-transform:uppercase}
@@ -30,7 +30,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 <section class="hero">
 <div class="panel"><div class="label">AIR TEMPERATURE</div><div class="temp" id="temp">--<span class="unit">°F</span></div><div class="condition" id="condition">Loading coastal conditions…</div>
 <div class="ocean"><div class="ocean-title">7-DAY SWELL FORECAST</div><div class="swell-source">WAVE HEIGHT · SURF</div><div class="swell-forecast" id="swellForecast"></div></div></div>
-<div class="panel score"><div class="marine-head">SANTA CRUZ MARINE FORECAST</div><div class="noaa-status" id="noaaStatus">LIVE · NOAA / NATIONAL WEATHER SERVICE</div><div class="noaa-box"><div class="noaa-text" id="noaaText">Loading NOAA marine forecast…</div></div><a class="noaa-link" href="https://marine.weather.gov/MapClick.php?FcstType=text&TextType=2&lat=36.9375&lg=english&lon=-122.036&unit=0" target="_blank">OPEN FULL NOAA FORECAST ↗</a></div>
+<div class="panel score"><div class="label">PACIFIC OCEAN</div><div class="score-number" id="score">--</div><div class="state" id="state">WAVE HEIGHT</div></div>
 </section>
 <section class="metrics">
 <div class="metric"><div class="label">WIND</div><div class="value" id="wind">--</div><div class="sub" id="gust">LIVE WIND</div></div>
@@ -71,21 +71,8 @@ async function load(){
   $('swell').textContent=swellText;
   $('period').textContent=periodText;
   $('water').textContent=Number.isFinite(waterF)?Math.round(waterF)+'°F':'--';
-  const noaaUrl='https://marine.weather.gov/MapClick.php?FcstType=text&TextType=2&lat=36.9375&lg=english&lon=-122.036&unit=0';
-  try{
-    const nr=await fetch(noaaUrl);
-    if(!nr.ok) throw new Error('NOAA unavailable');
-    const nt=await nr.text();
-    const doc=new DOMParser().parseFromString(nt,'text/html');
-    const main=doc.querySelector('main')||doc.querySelector('#maincontent')||doc.body;
-    let txt=main.innerText||main.textContent||'';
-    txt=txt.replace(/\\s+\\n/g,'\\n').replace(/\\n{3,}/g,'\\n\\n').trim();
-    $('noaaText').textContent=txt;
-    $('noaaStatus').textContent='LIVE · NOAA / NATIONAL WEATHER SERVICE · UPDATED '+new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  }catch(e){
-    $('noaaText').textContent='NOAA marine forecast could not be loaded in the browser. Use the full NOAA forecast link below.';
-    $('noaaStatus').textContent='NOAA LIVE LINK';
-  }
+  $('score').textContent=Number.isFinite(waveFt)?(waveFt<0.1?'FLAT':waveFt.toFixed(1)+' FT'):'--';
+  $('state').textContent='WAVE HEIGHT';
   const days=d.daily.time;let html='';
   const marineDailyUrl='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&hourly=swell_wave_height,swell_wave_period,wave_height,wave_period&daily=swell_wave_height_max,swell_wave_period_max,wave_height_max,wave_period_max&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
   const md=await (await fetch(marineDailyUrl)).json();
