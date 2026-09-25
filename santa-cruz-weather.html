@@ -16,7 +16,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 .condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:180px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden;padding:12px 13px}
 .ocean-title{font-size:9px;letter-spacing:.22em;color:#8eb7b7}.swell-forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;height:132px;align-items:end;margin-top:7px}.swell-day{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}.swell-day b{font-size:9px;letter-spacing:.1em;color:#9db8ba}.swell-height{font-size:15px;font-weight:900}.swell-bar-wrap{height:78px;width:100%;display:flex;align-items:flex-end;justify-content:center}.swell-bar{width:65%;min-height:5px;background:#6d9f9d;border-radius:4px 4px 1px 1px}.swell-period{font-size:8px;color:#718a8e}.swell-source{position:absolute;right:13px;top:12px;font-size:8px;letter-spacing:.14em;color:#718a8e}
 @media(max-width:700px){.swell-forecast{gap:4px}.swell-height{font-size:12px}.swell-bar{width:70%}}
-.score{display:flex;flex-direction:column;justify-content:center}.score-number{font-size:76px;font-weight:900;line-height:1;margin:7px 0}.state{font-size:13px;letter-spacing:.12em;font-weight:800;color:#8db7b5}
+.score{padding:24px}.clock-head{font-size:10px;letter-spacing:.25em;color:#83a9aa;font-weight:700}.clock-time{font-size:58px;font-weight:900;line-height:1;margin:16px 0 4px;letter-spacing:-.04em}.clock-date{font-size:10px;letter-spacing:.16em;color:#718a8e}.sky-track{height:7px;background:#20383e;border-radius:5px;margin:20px 0 8px;position:relative;overflow:hidden}.sky-fill{height:100%;width:50%;background:#6d9f9d;border-radius:5px}.sun-dot{position:absolute;top:-4px;width:15px;height:15px;border-radius:50%;background:#edf6f5;box-shadow:0 0 10px rgba(237,246,245,.5)}.sky-labels{display:flex;justify-content:space-between;font-size:8px;color:#718a8e}.clock-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:22px}.clock-item .label{margin-bottom:4px}.clock-value{font-size:18px;font-weight:800}.clock-sub{font-size:8px;color:#718a8e;margin-top:3px}.moon{font-size:24px;margin-bottom:2px}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #20363b}.metric{padding:16px;border-right:1px solid #20363b}.metric:last-child{border-right:0}.value{font-size:22px;font-weight:800;margin-top:5px}.sub{font-size:9px;color:#718a8e;margin-top:3px}
 .forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:11px;color:#9cafb1;margin-top:6px}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
 .foot{padding:0 15px 13px;font-size:8px;letter-spacing:.18em;color:#526b6e;text-transform:uppercase}
@@ -43,7 +43,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 </div>
 <script>
 const weatherApi='https://api.open-meteo.com/v1/forecast?latitude=36.9741&longitude=-122.0308&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,weather_code&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,visibility&daily=temperature_2m_max,temperature_2m_min,weather_code&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FLos_Angeles&forecast_days=7';
-const marineApi='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature,sea_level_height_msl&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
+const marineApi='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature,sea_level_height_msl&daily=sunrise,sunset,moonrise,moonset,moon_phase,moon_illumination&hourly=sea_level_height_msl&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
 const $=id=>document.getElementById(id);
 function direction(deg){if(!Number.isFinite(deg))return'--';const dirs=['N','NE','E','SE','S','SW','W','NW'];return dirs[Math.round(deg/45)%8]}
 function weather(code){if(code===0)return'Sunny';if([1,2,3].includes(code))return'Partly cloudy';if([45,48].includes(code))return'Fog / marine layer';if(code>=51&&code<=67)return'Rain';if(code>=80&&code<=82)return'Showers';if(code>=95)return'Thunderstorms';return'Coastal conditions'}
@@ -71,6 +71,29 @@ async function load(){
   $('swell').textContent=swellText;
   $('period').textContent=periodText;
   $('water').textContent=Number.isFinite(waterF)?Math.round(waterF)+'°F':'--';
+  const now=new Date();
+  const localTime=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(now);
+  const localDate=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'long',month:'long',day:'numeric'}).format(now);
+  $('clockTime').textContent=localTime;
+  $('clockDate').textContent='SANTA CRUZ · '+localDate.toUpperCase();
+  const sunrise=new Date(m.daily.sunrise[0]);
+  const sunset=new Date(m.daily.sunset[0]);
+  const dayStart=sunrise.getTime(), dayEnd=sunset.getTime(), nowMs=Date.now();
+  const pct=Math.max(0,Math.min(100,((nowMs-dayStart)/(dayEnd-dayStart))*100));
+  $('skyFill').style.width=pct+'%'; $('sunDot').style.left='calc('+pct+'% - 7px)';
+  const fmt=t=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date(t));
+  $('sunrise').textContent=fmt(sunrise); $('sunset').textContent=fmt(sunset);
+  $('sunriseLabel').textContent='SUNRISE '+fmt(sunrise); $('sunsetLabel').textContent='SUNSET '+fmt(sunset);
+  const mins=Math.max(0,Math.round((sunset.getTime()-nowMs)/60000));
+  $('sunsetCountdown').textContent=nowMs<sunset.getTime()?(mins+' MIN UNTIL SUNSET'):'SUNSET PASSED';
+  const phase=Number(m.daily.moon_phase[0]||0); const illum=Number(m.daily.moon_illumination[0]||0);
+  const moons=['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'];
+  $('moon').textContent=moons[Math.round(phase*8)%8];
+  $('moonInfo').textContent=Math.round(illum*100)+'% ILLUMINATED';
+  const tideTimes=m.hourly.time.map((t,i)=>({t:new Date(t).getTime(),v:Number(m.hourly.sea_level_height_msl[i])})).filter(x=>x.t>=nowMs&&Number.isFinite(x.v));
+  let hi=tideTimes.find((x,i,a)=>i>0&&i<a.length-1&&x.v>=a[i-1].v&&x.v>=a[i+1].v);
+  $('highTide').textContent=hi?fmt(hi.t):'--';
+
   $('score').textContent=Number.isFinite(waveFt)?(waveFt<0.1?'FLAT':waveFt.toFixed(1)+' FT'):'--';
   $('state').textContent='WAVE HEIGHT';
   const days=d.daily.time;let html='';
@@ -90,7 +113,7 @@ async function load(){
   days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=dayCode= d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
  }catch(e){$('condition').textContent='Live weather connection unavailable';$('state').textContent='DATA OFFLINE'}
 }
-load();setInterval(load,10*60*1000);
+load();setInterval(load,10*60*1000);setInterval(()=>{const el=document.getElementById('clockTime');if(el)el.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date())},1000);
 
 </script>
 </body>
