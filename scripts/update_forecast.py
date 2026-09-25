@@ -6,7 +6,7 @@ LON=174.8711
 TZ="Pacific/Auckland"
 
 marine_url=(
-    "https://marine-api.open-meteo.com/v1/forecast"
+    "https://marine-api.open-meteo.com/v1/marine"
     f"?latitude={LAT}&longitude={LON}&timezone={urllib.parse.quote(TZ)}"
     "&forecast_days=2&hourly=wave_height,wave_period,sea_level_height_msl"
 )
