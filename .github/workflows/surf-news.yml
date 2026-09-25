@@ -1,0 +1,77 @@
+name: Update Surf News
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch latest surf news
+        env:
+          PYTHONUNBUFFERED: "1"
+        run: |
+          python - <<'PY'
+          import json, re, urllib.parse, urllib.request, xml.etree.ElementTree as ET
+          from datetime import datetime, timezone
+          from email.utils import parsedate_to_datetime
+
+          query = urllib.parse.quote('surfing OR surf forecast OR surfboard')
+          url = f'https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en'
+          req = urllib.request.Request(url, headers={'User-Agent':'Mozilla/5.0'})
+          data = urllib.request.urlopen(req, timeout=30).read()
+          root = ET.fromstring(data)
+
+          stories=[]
+          seen=set()
+          for item in root.findall('./channel/item'):
+              title=(item.findtext('title') or '').strip()
+              link=(item.findtext('link') or '').strip()
+              pub=(item.findtext('pubDate') or '').strip()
+              desc=re.sub(r'<[^>]+>',' ',item.findtext('description') or '')
+              desc=re.sub(r'\\s+',' ',desc).strip()
+              if not title or not link or title.lower() in seen:
+                  continue
+              seen.add(title.lower())
+              source_el=item.find('{http://search.yahoo.com/mrss/}source')
+              source=(source_el.text if source_el is not None else 'SURF NEWS') or 'SURF NEWS'
+              if ' - ' in title:
+                  clean_title=title.rsplit(' - ',1)[0].strip()
+              else:
+                  clean_title=title
+              try:
+                  dt=parsedate_to_datetime(pub).astimezone(timezone.utc)
+                  date=dt.strftime('%b %d, %Y').upper()
+              except Exception:
+                  date=''
+              stories.append({
+                  'source':source.upper(),
+                  'title':clean_title,
+                  'summary':desc[:220],
+                  'date':date,
+                  'url':link
+              })
+              if len(stories)>=20:
+                  break
+
+          if stories:
+              out={'updated':datetime.now(timezone.utc).isoformat(),'stories':stories}
+              with open('surf-news.json','w',encoding='utf-8') as f:
+                  json.dump(out,f,ensure_ascii=False,indent=2)
+          PY
+
+      - name: Commit updated feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add surf-news.json
+          git diff --cached --quiet || git commit -m "Update surf news feed"
+          git push
