@@ -30,7 +30,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 <section class="hero">
 <div class="panel"><div class="label">AIR TEMPERATURE</div><div class="temp" id="temp">--<span class="unit">°F</span></div><div class="condition" id="condition">Loading coastal conditions…</div>
 <div class="ocean"><div class="ocean-title">7-DAY SWELL FORECAST</div><div class="swell-source">WAVE HEIGHT · SURF</div><div class="swell-forecast" id="swellForecast"></div></div></div>
-<div class="panel score"><div class="label">PACIFIC OCEAN</div><div class="score-number" id="score">--</div><div class="state" id="state">WAVE HEIGHT</div></div>
+<div class="panel score"><div class="clock-head">SANTA CRUZ COASTAL CLOCK</div><div class="clock-time" id="clockTime">--:--</div><div class="clock-date" id="clockDate">SANTA CRUZ · CALIFORNIA</div><div class="sky-track"><div class="sky-fill" id="skyFill"></div><div class="sun-dot" id="sunDot"></div></div><div class="sky-labels"><span id="sunriseLabel">SUNRISE --</span><span id="sunsetLabel">SUNSET --</span></div><div class="clock-grid"><div class="clock-item"><div class="label">SUNSET</div><div class="clock-value" id="sunset">--</div><div class="clock-sub" id="sunsetCountdown">--</div></div><div class="clock-item"><div class="label">SUNRISE</div><div class="clock-value" id="sunrise">--</div><div class="clock-sub">NEXT MORNING</div></div><div class="clock-item"><div class="label">MOON</div><div class="moon" id="moon">--</div><div class="clock-sub" id="moonInfo">--</div></div><div class="clock-item"><div class="label">NEXT HIGH TIDE</div><div class="clock-value" id="highTide">--</div><div class="clock-sub">COASTAL TIDE</div></div></div></div>
 </section>
 <section class="metrics">
 <div class="metric"><div class="label">WIND</div><div class="value" id="wind">--</div><div class="sub" id="gust">LIVE WIND</div></div>
@@ -72,30 +72,30 @@ async function load(){
   $('period').textContent=periodText;
   $('water').textContent=Number.isFinite(waterF)?Math.round(waterF)+'°F':'--';
   const now=new Date();
-  const localTime=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(now);
-  const localDate=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'long',month:'long',day:'numeric'}).format(now);
-  $('clockTime').textContent=localTime;
-  $('clockDate').textContent='SANTA CRUZ · '+localDate.toUpperCase();
+  const clockTimeEl=$('clockTime'), clockDateEl=$('clockDate');
+  if(clockTimeEl){
+    clockTimeEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(now);
+    clockDateEl.textContent='SANTA CRUZ · '+new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'long',month:'long',day:'numeric'}).format(now).toUpperCase();
+  }
   const sunrise=new Date(m.daily.sunrise[0]);
   const sunset=new Date(m.daily.sunset[0]);
   const dayStart=sunrise.getTime(), dayEnd=sunset.getTime(), nowMs=Date.now();
   const pct=Math.max(0,Math.min(100,((nowMs-dayStart)/(dayEnd-dayStart))*100));
-  $('skyFill').style.width=pct+'%'; $('sunDot').style.left='calc('+pct+'% - 7px)';
+  if($('skyFill')) $('skyFill').style.width=pct+'%'; if($('sunDot')) $('sunDot').style.left='calc('+pct+'% - 7px)';
   const fmt=t=>new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',hour12:true}).format(new Date(t));
-  $('sunrise').textContent=fmt(sunrise); $('sunset').textContent=fmt(sunset);
-  $('sunriseLabel').textContent='SUNRISE '+fmt(sunrise); $('sunsetLabel').textContent='SUNSET '+fmt(sunset);
+  if($('sunrise')) $('sunrise').textContent=fmt(sunrise); if($('sunset')) $('sunset').textContent=fmt(sunset);
+  if($('sunriseLabel')) $('sunriseLabel').textContent='SUNRISE '+fmt(sunrise); if($('sunsetLabel')) $('sunsetLabel').textContent='SUNSET '+fmt(sunset);
   const mins=Math.max(0,Math.round((sunset.getTime()-nowMs)/60000));
-  $('sunsetCountdown').textContent=nowMs<sunset.getTime()?(mins+' MIN UNTIL SUNSET'):'SUNSET PASSED';
+  if($('sunsetCountdown')) $('sunsetCountdown').textContent=nowMs<sunset.getTime()?(mins+' MIN UNTIL SUNSET'):'SUNSET PASSED';
   const phase=Number(m.daily.moon_phase[0]||0); const illum=Number(m.daily.moon_illumination[0]||0);
   const moons=['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'];
-  $('moon').textContent=moons[Math.round(phase*8)%8];
-  $('moonInfo').textContent=Math.round(illum*100)+'% ILLUMINATED';
+  if($('moon')) $('moon').textContent=moons[Math.round(phase*8)%8];
+  if($('moonInfo')) $('moonInfo').textContent=Math.round(illum*100)+'% ILLUMINATED';
   const tideTimes=m.hourly.time.map((t,i)=>({t:new Date(t).getTime(),v:Number(m.hourly.sea_level_height_msl[i])})).filter(x=>x.t>=nowMs&&Number.isFinite(x.v));
   let hi=tideTimes.find((x,i,a)=>i>0&&i<a.length-1&&x.v>=a[i-1].v&&x.v>=a[i+1].v);
-  $('highTide').textContent=hi?fmt(hi.t):'--';
+  if($('highTide')) $('highTide').textContent=hi?fmt(hi.t):'--';
 
-  $('score').textContent=Number.isFinite(waveFt)?(waveFt<0.1?'FLAT':waveFt.toFixed(1)+' FT'):'--';
-  $('state').textContent='WAVE HEIGHT';
+
   const days=d.daily.time;let html='';
   const marineDailyUrl='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&hourly=swell_wave_height,swell_wave_period,wave_height,wave_period&daily=swell_wave_height_max,swell_wave_period_max,wave_height_max,wave_period_max&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
   const md=await (await fetch(marineDailyUrl)).json();
