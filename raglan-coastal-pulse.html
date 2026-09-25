@@ -92,8 +92,10 @@ async function load(){
   const moonPhase=phase<0?phase+1:phase;
   const illum=(1-Math.cos(moonPhase*2*Math.PI))/2;
   const moons=['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'];
-  if($('moon')) $('moon').textContent=moons[Math.round(moonPhase*8)%8];
-  if($('moonInfo')) $('moonInfo').textContent=Math.round(illum*100)+'% ILLUMINATED';
+  const moonNames=['NEW MOON','WAXING CRESCENT','FIRST QUARTER','WAXING GIBBOUS','FULL MOON','WANING GIBBOUS','THIRD QUARTER','WANING CRESCENT'];
+  const moonIndex=Math.floor(moonPhase*8)%8;
+  if($('moon')) $('moon').textContent=moons[moonIndex];
+  if($('moonInfo')) $('moonInfo').textContent=moonNames[moonIndex]+' · '+Math.round(illum*100)+'% ILLUMINATED';
   const tideTimes=m.hourly.time.map((t,i)=>({t:new Date(t).getTime(),v:Number(m.hourly.sea_level_height_msl[i])})).filter(x=>x.t>=nowMs&&Number.isFinite(x.v));
   let hi=tideTimes.find((x,i,a)=>i>0&&i<a.length-1&&x.v>=a[i-1].v&&x.v>=a[i+1].v);
   let lo=tideTimes.find((x,i,a)=>i>0&&i<a.length-1&&x.v<=a[i-1].v&&x.v<=a[i+1].v);
