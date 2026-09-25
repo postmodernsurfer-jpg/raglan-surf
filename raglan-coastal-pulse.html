@@ -12,13 +12,13 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 .ey{font-size:10px;letter-spacing:.3em;color:#83a9aa;font-weight:700}.name{font-size:28px;font-weight:900;letter-spacing:.08em;margin-top:4px}
 .live{font-size:10px;letter-spacing:.18em;border:1px solid #38535a;padding:8px 11px;border-radius:20px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#df6b53;margin-right:6px}
 .hero{display:grid;grid-template-columns:1.25fr .75fr;gap:1px;background:#20363b}.panel{background:#09171a;padding:20px}
-.label{font-size:9px;letter-spacing:.2em;color:#718a8e}.temp{font-size:82px;font-weight:900;line-height:.9;letter-spacing:-.06em}.unit{font-size:25px;color:#789095;vertical-align:top}
+.label{font-size:9px;letter-spacing:.2em;color:#718a8e}.temp{font-size:82px;font-weight:900;line-height:.9;letter-spacing:-.06em}.unit{font-size:25px;color:#789095;vertical-align:top}.secondary-unit{font-size:16px;margin-left:4px;white-space:nowrap}
 .condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:180px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden;padding:12px 13px}
 .ocean-title{font-size:9px;letter-spacing:.22em;color:#8eb7b7}.swell-forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;height:132px;align-items:end;margin-top:7px}.swell-day{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}.swell-day b{font-size:9px;letter-spacing:.1em;color:#9db8ba}.swell-height{font-size:15px;font-weight:900}.swell-bar-wrap{height:78px;width:100%;display:flex;align-items:flex-end;justify-content:center}.swell-bar{width:65%;min-height:5px;background:#6d9f9d;border-radius:4px 4px 1px 1px}.swell-period{font-size:8px;color:#718a8e}.swell-source{position:absolute;right:13px;top:12px;font-size:8px;letter-spacing:.14em;color:#718a8e}
 @media(max-width:700px){.swell-forecast{gap:4px}.swell-height{font-size:12px}.swell-bar{width:70%}}
 .score{padding:24px}.clock-head{font-size:10px;letter-spacing:.25em;color:#83a9aa;font-weight:700}.clock-time{font-size:58px;font-weight:900;line-height:1;margin:16px 0 4px;letter-spacing:-.04em}.clock-date{font-size:10px;letter-spacing:.16em;color:#718a8e}.sky-track{height:7px;background:#20383e;border-radius:5px;margin:20px 0 8px;position:relative;overflow:hidden}.sky-fill{height:100%;width:50%;background:#6d9f9d;border-radius:5px}.sun-dot{position:absolute;top:-4px;width:15px;height:15px;border-radius:50%;background:#edf6f5;box-shadow:0 0 10px rgba(237,246,245,.5)}.sky-labels{display:flex;justify-content:space-between;font-size:8px;color:#718a8e}.clock-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:22px}.clock-item .label{margin-bottom:4px}.clock-value{font-size:18px;font-weight:800}.clock-sub{font-size:8px;color:#718a8e;margin-top:3px}.moon{font-size:24px;margin-bottom:2px}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #20363b}.metric{padding:16px;border-right:1px solid #20363b}.metric:last-child{border-right:0}.value{font-size:22px;font-weight:800;margin-top:5px}.sub{font-size:9px;color:#718a8e;margin-top:3px}
-.forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:11px;color:#9cafb1;margin-top:6px}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
+.forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:10px;color:#9cafb1;margin-top:6px;line-height:1.45}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
 .foot{padding:0 15px 13px;font-size:8px;letter-spacing:.18em;color:#526b6e;text-transform:uppercase}
 @media(max-width:700px){.hero{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.forecast{grid-template-columns:repeat(4,1fr)}.name{font-size:20px}.temp{font-size:62px}}
 @media(max-width:420px){.forecast{grid-template-columns:repeat(2,1fr)}}
@@ -54,7 +54,7 @@ async function load(){
   if(!wr.ok||!mr.ok)throw new Error('coastal data unavailable');
   const d=await wr.json(); const m=await mr.json();
   const c=d.current; const o=m.current;
-  $('temp').innerHTML=Math.round(c.temperature_2m)+'<span class="unit">°C</span>'; $('condition').textContent=weather(c.weather_code)+' · Raglan coast';
+  $('temp').innerHTML=Math.round(c.temperature_2m)+'<span class="unit">°C</span><span class="unit secondary-unit"> / '+Math.round(c.temperature_2m*9/5+32)+'°F</span>'; $('condition').textContent=weather(c.weather_code)+' · Raglan coast';
   const wind=Math.round(c.wind_speed_10m);$('wind').textContent=direction(c.wind_direction_10m)+' '+wind+' km/h';
   const humidity=c.relative_humidity_2m;
   $('gust').textContent='Humidity '+humidity+'%';
@@ -70,7 +70,7 @@ async function load(){
   const periodText=Number.isFinite(swellPeriod)?swellPeriod.toFixed(1)+' sec'+(Number.isFinite(o.swell_wave_direction)?' · '+direction(o.swell_wave_direction):''):'HEIGHT / PERIOD';
   $('swell').textContent=swellText;
   $('period').textContent=periodText;
-  $('water').textContent=Number.isFinite(waterCelsius)?Math.round(waterCelsius)+'°C':'--';
+  $('water').textContent=Number.isFinite(waterCelsius)?Math.round(waterCelsius)+'°C / '+Math.round(waterCelsius*9/5+32)+'°F':'--';
   const now=new Date();
   const clockTimeEl=$('clockTime'), clockDateEl=$('clockDate');
   if(clockTimeEl){
@@ -120,7 +120,7 @@ async function load(){
     const pct=Math.max(5,Math.min(100,(h/maxH)*100));
     return '<div class="swell-day"><b>'+name+'</b><div class="swell-height">'+(Number.isFinite(h)?h.toFixed(1)+' ft':'--')+'</div><div class="swell-bar-wrap"><div class="swell-bar" style="height:'+pct+'%"></div></div><div class="swell-period">'+(Number.isFinite(p)?p.toFixed(0)+'s':'--')+'</div></div>';
   }).join('');
-  days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
+  days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}°C / ${Math.round(d.daily.temperature_2m_min[i])}°C · ${Math.round(d.daily.temperature_2m_max[i]*9/5+32)}°F / ${Math.round(d.daily.temperature_2m_min[i]*9/5+32)}°F</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
  }catch(e){
    console.error(e);
    $('condition').textContent='Live weather connection unavailable';
