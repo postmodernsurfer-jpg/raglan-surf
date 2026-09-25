@@ -42,8 +42,8 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 <div class="foot">SANTA CRUZ COASTAL PULSE · WEATHER · WIND · SWELL · TIDES · OCEAN</div>
 </div>
 <script>
-const weatherApi='https://api.open-meteo.com/v1/forecast?latitude=36.9741&longitude=-122.0308&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,weather_code&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,visibility&daily=temperature_2m_max,temperature_2m_min,weather_code&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FLos_Angeles&forecast_days=7';
-const marineApi='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature,sea_level_height_msl&daily=sunrise,sunset,moonrise,moonset,moon_phase,moon_illumination&hourly=sea_level_height_msl&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
+const weatherApi='https://api.open-meteo.com/v1/forecast?latitude=36.9741&longitude=-122.0308&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,weather_code&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,visibility&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FLos_Angeles&forecast_days=7';
+const marineApi='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature,sea_level_height_msl&hourly=sea_level_height_msl&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
 const $=id=>document.getElementById(id);
 function direction(deg){if(!Number.isFinite(deg))return'--';const dirs=['N','NE','E','SE','S','SW','W','NW'];return dirs[Math.round(deg/45)%8]}
 function weather(code){if(code===0)return'Sunny';if([1,2,3].includes(code))return'Partly cloudy';if([45,48].includes(code))return'Fog / marine layer';if(code>=51&&code<=67)return'Rain';if(code>=80&&code<=82)return'Showers';if(code>=95)return'Thunderstorms';return'Coastal conditions'}
@@ -77,8 +77,8 @@ async function load(){
     clockTimeEl.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(now);
     clockDateEl.textContent='SANTA CRUZ · '+new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',weekday:'long',month:'long',day:'numeric'}).format(now).toUpperCase();
   }
-  const sunrise=new Date(m.daily.sunrise[0]);
-  const sunset=new Date(m.daily.sunset[0]);
+  const sunrise=new Date(d.daily.sunrise[0]);
+  const sunset=new Date(d.daily.sunset[0]);
   const dayStart=sunrise.getTime(), dayEnd=sunset.getTime(), nowMs=Date.now();
   const pct=Math.max(0,Math.min(100,((nowMs-dayStart)/(dayEnd-dayStart))*100));
   if($('skyFill')) $('skyFill').style.width=pct+'%'; if($('sunDot')) $('sunDot').style.left='calc('+pct+'% - 7px)';
@@ -87,9 +87,12 @@ async function load(){
   if($('sunriseLabel')) $('sunriseLabel').textContent='SUNRISE '+fmt(sunrise); if($('sunsetLabel')) $('sunsetLabel').textContent='SUNSET '+fmt(sunset);
   const mins=Math.max(0,Math.round((sunset.getTime()-nowMs)/60000));
   if($('sunsetCountdown')) $('sunsetCountdown').textContent=nowMs<sunset.getTime()?(mins+' MIN UNTIL SUNSET'):'SUNSET PASSED';
-  const phase=Number(m.daily.moon_phase[0]||0); const illum=Number(m.daily.moon_illumination[0]||0);
+  const jd=(nowMs/86400000)+2440587.5;
+  const phase=((jd-2451550.1)/29.530588853)%1;
+  const moonPhase=phase<0?phase+1:phase;
+  const illum=(1-Math.cos(moonPhase*2*Math.PI))/2;
   const moons=['🌑','🌒','🌓','🌔','🌕','🌖','🌗','🌘'];
-  if($('moon')) $('moon').textContent=moons[Math.round(phase*8)%8];
+  if($('moon')) $('moon').textContent=moons[Math.round(moonPhase*8)%8];
   if($('moonInfo')) $('moonInfo').textContent=Math.round(illum*100)+'% ILLUMINATED';
   const tideTimes=m.hourly.time.map((t,i)=>({t:new Date(t).getTime(),v:Number(m.hourly.sea_level_height_msl[i])})).filter(x=>x.t>=nowMs&&Number.isFinite(x.v));
   let hi=tideTimes.find((x,i,a)=>i>0&&i<a.length-1&&x.v>=a[i-1].v&&x.v>=a[i+1].v);
@@ -111,7 +114,11 @@ async function load(){
     return '<div class="swell-day"><b>'+name+'</b><div class="swell-height">'+(Number.isFinite(h)?h.toFixed(1)+' ft':'--')+'</div><div class="swell-bar-wrap"><div class="swell-bar" style="height:'+pct+'%"></div></div><div class="swell-period">'+(Number.isFinite(p)?p.toFixed(0)+'s':'--')+'</div></div>';
   }).join('');
   days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=dayCode= d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
- }catch(e){$('condition').textContent='Live weather connection unavailable';$('state').textContent='DATA OFFLINE'}
+ }catch(e){
+   console.error(e);
+   $('condition').textContent='Live weather connection unavailable';
+   const temp=$('temp'); if(temp) temp.innerHTML='--<span class="unit">°F</span>';
+ }
 }
 load();setInterval(load,10*60*1000);setInterval(()=>{const el=document.getElementById('clockTime');if(el)el.textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true}).format(new Date())},1000);
 
