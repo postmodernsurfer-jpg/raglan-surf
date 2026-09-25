@@ -16,7 +16,7 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;pad
 .condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:180px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden;padding:12px 13px}
 .ocean-title{font-size:9px;letter-spacing:.22em;color:#8eb7b7}.swell-forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;height:132px;align-items:end;margin-top:7px}.swell-day{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px}.swell-day b{font-size:9px;letter-spacing:.1em;color:#9db8ba}.swell-height{font-size:15px;font-weight:900}.swell-bar-wrap{height:78px;width:100%;display:flex;align-items:flex-end;justify-content:center}.swell-bar{width:65%;min-height:5px;background:#6d9f9d;border-radius:4px 4px 1px 1px}.swell-period{font-size:8px;color:#718a8e}.swell-source{position:absolute;right:13px;top:12px;font-size:8px;letter-spacing:.14em;color:#718a8e}
 @media(max-width:700px){.swell-forecast{gap:4px}.swell-height{font-size:12px}.swell-bar{width:70%}}
-.score{padding:18px 20px}.marine-head{font-size:10px;letter-spacing:.24em;color:#83a9aa;font-weight:700}.marine-status{font-size:8px;letter-spacing:.1em;color:#718a8e;margin-top:6px}.swell-live{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}.swell-main{font-size:42px;font-weight:900;line-height:1}.swell-main small{font-size:14px;color:#8db7b5}.swell-detail{font-size:9px;color:#9cafb1;line-height:1.7}.radar-head{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:.16em;color:#8eb7b7;margin:8px 0}.radar{height:205px;background:#071215;border:1px solid #20363b;border-radius:9px;overflow:hidden;position:relative}.radar-map{position:absolute;inset:0}.radar-map .leaflet-control-attribution{font-size:7px}.radar-time{position:absolute;left:10px;bottom:8px;z-index:500;background:rgba(7,18,21,.85);padding:5px 7px;border-radius:5px;font-size:8px;color:#b8c9ca}.radar-dot{position:absolute;left:50%;top:57%;width:9px;height:9px;border:2px solid #fff;border-radius:50%;background:#df6b53;z-index:500;box-shadow:0 0 0 3px rgba(223,107,83,.2)}.radar-credit{font-size:7px;color:#718a8e;margin-top:5px}
+.score{display:flex;flex-direction:column;justify-content:center}.score-number{font-size:76px;font-weight:900;line-height:1;margin:7px 0}.state{font-size:13px;letter-spacing:.12em;font-weight:800;color:#8db7b5}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #20363b}.metric{padding:16px;border-right:1px solid #20363b}.metric:last-child{border-right:0}.value{font-size:22px;font-weight:800;margin-top:5px}.sub{font-size:9px;color:#718a8e;margin-top:3px}
 .forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:11px;color:#9cafb1;margin-top:6px}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
 .foot{padding:0 15px 13px;font-size:8px;letter-spacing:.18em;color:#526b6e;text-transform:uppercase}
@@ -73,13 +73,7 @@ async function load(){
   $('water').textContent=Number.isFinite(waterF)?Math.round(waterF)+'°F':'--';
   $('score').textContent=Number.isFinite(waveFt)?(waveFt<0.1?'FLAT':waveFt.toFixed(1)+' FT'):'--';
   $('state').textContent='WAVE HEIGHT';
-  $('liveWave').innerHTML=Number.isFinite(waveFt)?waveFt.toFixed(1)+'<small> FT</small>':'--';
-  $('liveDir').textContent=Number.isFinite(o.swell_wave_direction)?direction(o.swell_wave_direction):'--';
-  $('livePeriod').textContent=Number.isFinite(swellPeriod)?swellPeriod.toFixed(1)+' SEC':'--';
-  $('liveWater').textContent=Number.isFinite(waterF)?Math.round(waterF)+'°F':'--';
-
   const days=d.daily.time;let html='';
-
   const marineDailyUrl='https://marine-api.open-meteo.com/v1/marine?latitude=36.9741&longitude=-122.0308&hourly=swell_wave_height,swell_wave_period,wave_height,wave_period&daily=swell_wave_height_max,swell_wave_period_max,wave_height_max,wave_period_max&length_unit=imperial&timezone=America%2FLos_Angeles&forecast_days=7';
   const md=await (await fetch(marineDailyUrl)).json();
   const sf=document.getElementById('swellForecast');
@@ -96,28 +90,7 @@ async function load(){
   days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=dayCode= d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
  }catch(e){$('condition').textContent='Live weather connection unavailable';$('state').textContent='DATA OFFLINE'}
 }
-async function loadRadar(){
- try{
-  const rr=await fetch('https://api.rainviewer.com/public/weather-maps.json');
-  if(!rr.ok)throw new Error('radar unavailable');
-  const rd=await rr.json();
-  const frames=(rd.radar&&rd.radar.past)||[];
-  if(!frames.length)throw new Error('no radar frames');
-  const frame=frames[frames.length-1];
-  const host=rd.host;
-  const radarUrl=host+frame.path+'/512/6/36.9741/-122.0308/2/1_1.png';
-  const map=document.getElementById('radarMap');
-  map.innerHTML='<img src="'+radarUrl+'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Live precipitation radar">';
-  const when=new Date(frame.time*1000);
-  const stamp=when.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
-  $('radarStamp').textContent=stamp;
-  $('radarTime').textContent='RADAR '+stamp;
- }catch(e){
-  $('radarStamp').textContent='OFFLINE';
-  $('radarTime').textContent='RADAR UNAVAILABLE';
- }
-}
-load();setInterval(load,10*60*1000);loadRadar();setInterval(loadRadar,5*60*1000);
+load();setInterval(load,10*60*1000);
 
 </script>
 </body>
