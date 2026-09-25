@@ -58,7 +58,7 @@ for i in range(start,end):
     s=score(wave or 0,period or 0,wind if wind is not None else 99)
     rows.append({
         "time":times[i],
-        "wave_ft":round(wave*3.28084+5) if wave is not None else None,
+        "wave_ft":round(wave*3.28084) if wave is not None else None,
         "period":round(period) if period is not None else None,
         "wind_kmh":round(wind) if wind is not None else None,
         "wind_dir":direction(wd),
