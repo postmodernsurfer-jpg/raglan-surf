@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Santa Cruz Coastal Pulse</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;background:#071215;color:#edf6f5;font-family:Arial,Helvetica,sans-serif}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+.hud{width:min(1180px,100%);background:#071215;border:1px solid #29464d;border-radius:18px;overflow:hidden}
+.head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #20363b}
+.ey{font-size:10px;letter-spacing:.3em;color:#83a9aa;font-weight:700}.name{font-size:28px;font-weight:900;letter-spacing:.08em;margin-top:4px}
+.live{font-size:10px;letter-spacing:.18em;border:1px solid #38535a;padding:8px 11px;border-radius:20px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#df6b53;margin-right:6px}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:1px;background:#20363b}.panel{background:#09171a;padding:20px}
+.label{font-size:9px;letter-spacing:.2em;color:#718a8e}.temp{font-size:82px;font-weight:900;line-height:.9;letter-spacing:-.06em}.unit{font-size:25px;color:#789095;vertical-align:top}
+.condition{margin-top:10px;font-size:13px;color:#9cafb1}.ocean{height:130px;margin-top:18px;background:#09242b;border:1px solid #1e4650;border-radius:13px;position:relative;overflow:hidden}
+.ocean svg{width:100%;height:100%}.ocean-title{position:absolute;left:13px;top:11px;font-size:9px;letter-spacing:.22em;color:#8eb7b7}.pulse{position:absolute;right:13px;bottom:11px;font-size:9px;letter-spacing:.18em;color:#8eb7b7}
+.score{display:flex;flex-direction:column;justify-content:center}.score-number{font-size:76px;font-weight:900;line-height:1;margin:7px 0}.state{font-size:13px;letter-spacing:.12em;font-weight:800;color:#8db7b5}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #20363b}.metric{padding:16px;border-right:1px solid #20363b}.metric:last-child{border-right:0}.value{font-size:22px;font-weight:800;margin-top:5px}.sub{font-size:9px;color:#718a8e;margin-top:3px}
+.forecast{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;padding:12px}.day{background:#0b1b1f;border:1px solid #20373d;border-radius:10px;padding:10px}.day b{font-size:10px;letter-spacing:.1em}.temps{font-size:11px;color:#9cafb1;margin-top:6px}.meter{height:4px;background:#20383e;border-radius:4px;margin-top:9px;overflow:hidden}.meter i{display:block;height:100%;background:#6d9f9d;border-radius:4px}
+.foot{padding:0 15px 13px;font-size:8px;letter-spacing:.18em;color:#526b6e;text-transform:uppercase}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.forecast{grid-template-columns:repeat(4,1fr)}.name{font-size:20px}.temp{font-size:62px}}
+@media(max-width:420px){.forecast{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="hud">
+<header class="head"><div><div class="ey">LIVE COASTAL INTELLIGENCE</div><div class="name">SANTA CRUZ / CALIFORNIA</div></div><div class="live"><span class="dot"></span>LIVE</div></header>
+<section class="hero">
+<div class="panel"><div class="label">AIR TEMPERATURE</div><div class="temp" id="temp">--<span class="unit">°F</span></div><div class="condition" id="condition">Loading coastal conditions…</div>
+<div class="ocean"><div class="ocean-title">PACIFIC OCEAN</div><svg viewBox="0 0 700 140" preserveAspectRatio="none" aria-label="Animated Pacific wave"><path id="wave1" d="M0 83 C75 42 125 116 205 72 S340 38 420 79 S550 123 625 68 S675 50 700 72 L700 140 L0 140Z" fill="rgba(82,153,159,.35)"/><path id="wave2" d="M0 91 C75 50 125 124 205 80 S340 46 420 87 S550 131 625 76 S675 58 700 80" fill="none" stroke="rgba(145,198,195,.78)" stroke-width="2"/></svg><div class="pulse">PACIFIC PULSE</div></div></div>
+<div class="panel score"><div class="label">SANTA CRUZ PULSE</div><div class="score-number" id="score">--</div><div class="state" id="state">COASTAL CONDITIONS</div></div>
+</section>
+<section class="metrics">
+<div class="metric"><div class="label">WIND</div><div class="value" id="wind">--</div><div class="sub" id="gust">LIVE WIND</div></div>
+<div class="metric"><div class="label">SWELL</div><div class="value" id="swell">--</div><div class="sub" id="period">HEIGHT / PERIOD</div></div>
+<div class="metric"><div class="label">WATER</div><div class="value" id="water">--</div><div class="sub">PACIFIC OCEAN</div></div>
+<div class="metric"><div class="label">MARINE</div><div class="value" id="marine">--</div><div class="sub" id="visibility">COASTAL VISIBILITY</div></div>
+</section>
+<section class="forecast" id="forecast"></section>
+<div class="foot">SANTA CRUZ COASTAL PULSE · WEATHER · WIND · SWELL · TIDES · OCEAN</div>
+</div>
+<script>
+const api='https://api.open-meteo.com/v1/forecast?latitude=36.9741&longitude=-122.0308&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,weather_code&hourly=temperature_2m,wind_speed_10m,wind_direction_10m,precipitation_probability,visibility&daily=temperature_2m_max,temperature_2m_min,weather_code&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FLos_Angeles&forecast_days=7';
+const $=id=>document.getElementById(id);
+function direction(deg){if(!Number.isFinite(deg))return'--';const dirs=['N','NE','E','SE','S','SW','W','NW'];return dirs[Math.round(deg/45)%8]}
+function weather(code){if(code===0)return'Sunny';if([1,2,3].includes(code))return'Partly cloudy';if([45,48].includes(code))return'Fog / marine layer';if(code>=51&&code<=67)return'Rain';if(code>=80&&code<=82)return'Showers';if(code>=95)return'Thunderstorms';return'Coastal conditions'}
+function clamp(n,a,b){return Math.max(a,Math.min(b,n))}
+async function load(){
+ try{
+  const r=await fetch(api);if(!r.ok)throw new Error('weather unavailable');const d=await r.json();
+  const c=d.current; $('temp').innerHTML=Math.round(c.temperature_2m)+'<span class="unit">°F</span>'; $('condition').textContent=weather(c.weather_code)+' · Santa Cruz coast';
+  const wind=Math.round(c.wind_speed_10m);$('wind').textContent=direction(c.wind_direction_10m)+' '+wind+' mph';
+  const humidity=c.relative_humidity_2m;
+  $('gust').textContent='Humidity '+humidity+'%';
+  const code=c.weather_code;let marine=([45,48].includes(code))?'FOG':(humidity>88?'HAZY':'CLEAR');$('marine').textContent=marine;
+  $('visibility').textContent=marine==='FOG'?'MARINE LAYER':'COASTAL VISIBILITY';
+  const score=clamp(Math.round(92-wind*.8-(humidity>90?12:0)-(code>=51?15:0)),35,96);$('score').textContent=score;
+  $('state').textContent=score>=80?'COAST IS ALIVE':score>=65?'GOOD COASTAL DAY':'ACTIVE WEATHER';
+  const days=d.daily.time;let html='';
+  days.forEach((day,i)=>{const date=new Date(day+'T12:00:00');const name=i===0?'TODAY':date.toLocaleDateString('en-US',{weekday:'short'}).toUpperCase();const code=dayCode= d.daily.weather_code[i];const pct=clamp(95-(code>=51?30:0)-(code>=80?20:0)-(i?i*2:0),35,95);html+=`<div class="day"><b>${name}</b><div class="temps">${Math.round(d.daily.temperature_2m_max[i])}° / ${Math.round(d.daily.temperature_2m_min[i])}°</div><div class="sub">${weather(code)}</div><div class="meter"><i style="width:${pct}%"></i></div></div>`});$('forecast').innerHTML=html;
+ }catch(e){$('condition').textContent='Live weather connection unavailable';$('state').textContent='DATA OFFLINE'}
+}
+load();setInterval(load,10*60*1000);
+let t=0;function animate(){t+=.018;const a=6*Math.sin(t),b=-5*Math.sin(t*.8);$('wave1').setAttribute('transform',`translate(${a},0)`);$('wave2').setAttribute('transform',`translate(${b},0)`);requestAnimationFrame(animate)}animate();
+</script>
+</body>
+</html>
