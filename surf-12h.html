@@ -3,115 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="color-scheme" content="dark">
 <title>Raglan 12 Hour Surf</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent!important;font-family:Arial,Helvetica,sans-serif;color:#fff}
-body{-webkit-font-smoothing:antialiased}
 .panel{width:100%;height:100%;padding:8px;border-radius:10px;background:rgba(2,18,25,.82);border:1px solid rgba(70,220,240,.55);box-shadow:0 5px 18px rgba(0,0,0,.25)}
-.header{text-align:center;margin-bottom:6px}
-.title{font-size:16px;font-weight:900;letter-spacing:.12em}
-.sub{font-size:7px;opacity:.7;letter-spacing:.18em;margin-top:2px}
+.header{text-align:center;margin-bottom:6px}.title{font-size:16px;font-weight:900;letter-spacing:.12em}.sub{font-size:7px;opacity:.7;letter-spacing:.18em;margin-top:2px}
 .rows{height:calc(100% - 38px);display:flex;flex-direction:column;gap:3px}
 .row{display:grid;grid-template-columns:28px 48px minmax(0,1fr) 38px;align-items:center;gap:4px;min-height:0;flex:1;padding:3px 5px;border-radius:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.08)}
-.face{font-size:22px;text-align:center;line-height:1}
-.time{font-size:9px;font-weight:800;opacity:.85;white-space:nowrap}
-.wave{font-size:14px;font-weight:900;line-height:1.05;white-space:nowrap}
-.meta{font-size:8px;font-weight:700;line-height:1.25;opacity:.9;white-space:nowrap}
-.tide{display:flex;justify-content:center;align-items:center;height:100%}
-.glass{position:relative;width:20px;height:27px;border:2px solid rgba(255,255,255,.8);border-top:0;border-radius:0 0 5px 5px;overflow:hidden}
-.water{position:absolute;left:0;right:0;bottom:0;background:#12a8ff}
-.water:before{content:"";position:absolute;left:-8px;right:-8px;top:-2px;height:5px;background:rgba(255,255,255,.35);border-radius:50%}
-.tideText{font-size:6px;opacity:.7;text-align:center;margin-top:1px}
-.loading{text-align:center;opacity:.7;font-size:10px;padding-top:20px}
-.error{text-align:center;opacity:.8;font-size:9px;padding:15px}
+.face{font-size:22px;text-align:center;line-height:1}.time{font-size:9px;font-weight:800;opacity:.85;white-space:nowrap}.wave{font-size:14px;font-weight:900;line-height:1.05;white-space:nowrap}.meta{font-size:8px;font-weight:700;line-height:1.25;opacity:.9;white-space:nowrap}
+.tide{display:flex;justify-content:center;align-items:center;height:100%}.glass{position:relative;width:20px;height:27px;border:2px solid rgba(255,255,255,.8);border-top:0;border-radius:0 0 5px 5px;overflow:hidden}.water{position:absolute;left:0;right:0;bottom:0;background:#12a8ff}.water:before{content:"";position:absolute;left:-8px;right:-8px;top:-2px;height:5px;background:rgba(255,255,255,.35);border-radius:50%}.tideText{font-size:6px;opacity:.7;text-align:center;margin-top:1px}
+.loading,.error{text-align:center;opacity:.7;font-size:10px;padding-top:20px}
 </style>
 </head>
 <body>
 <div class="panel">
-  <div class="header">
-    <div class="title">RAGLAN, NZ</div>
-    <div class="sub">12 HOUR SURF FORECAST</div>
-  </div>
-  <div id="rows" class="rows"><div class="loading">Loading live surf forecast...</div></div>
+<div class="header"><div class="title">RAGLAN, NZ</div><div class="sub">12 HOUR SURF FORECAST</div></div>
+<div id="rows" class="rows"><div class="loading">Loading forecast...</div></div>
 </div>
-
 <script>
-const LAT=-37.8016,LON=174.8711,TZ="Pacific/Auckland";
-const MARINE="https://marine-api.open-meteo.com/v1/forecast?latitude="+LAT+"&longitude="+LON+"&timezone="+encodeURIComponent(TZ)+"&forecast_days=2&hourly=wave_height,wave_period,sea_level_height_msl";
-const WIND="https://api.open-meteo.com/v1/forecast?latitude="+LAT+"&longitude="+LON+"&timezone="+encodeURIComponent(TZ)+"&forecast_days=2&hourly=wind_speed_10m,wind_direction_10m";
-
-function dir(deg){
-  if(deg==null)return "--";
-  return ["N","NE","E","SE","S","SW","W","NW"][Math.round(deg/45)%8];
-}
-function face(score){
-  return score>=7?"😍":score>=4?"🙂":"🤯";
-}
-function tidePct(v,min,max){
-  if(v==null||!Number.isFinite(min)||!Number.isFinite(max)||max<=min)return 50;
-  return Math.max(8,Math.min(100,Math.round((v-min)/(max-min)*100)));
-}
-function score(wave,period,wind){
-  let s=0;
-  if(wave>=1.2)s+=3;else if(wave>=0.7)s+=2;else s+=1;
-  if(period>=12)s+=3;else if(period>=10)s+=2;else if(period>=8)s+=1;
-  if(wind<=12)s+=2;else if(wind<=20)s+=1;else s-=2;
-  return s;
-}
-function hourLabel(iso){
-  return new Intl.DateTimeFormat("en-NZ",{timeZone:TZ,hour:"numeric",hour12:true}).format(new Date(iso));
-}
-
-async function getJSON(url){
-  const r=await fetch(url,{cache:"no-store",mode:"cors"});
-  if(!r.ok)throw new Error("HTTP "+r.status);
-  return await r.json();
-}
-
+function timeLabel(x){return new Intl.DateTimeFormat("en-NZ",{timeZone:"Pacific/Auckland",hour:"numeric",hour12:true}).format(new Date(x))}
 async function load(){
-  const rows=document.getElementById("rows");
-  try{
-    const [m,w]=await Promise.all([getJSON(MARINE),getJSON(WIND)]);
-    if(!m.hourly||!w.hourly)throw new Error("No forecast data");
-
-    const now=Date.now();
-    let start=0;
-    for(let i=0;i<m.hourly.time.length;i++){
-      if(new Date(m.hourly.time[i]).getTime()>=now){start=i;break;}
-    }
-    const end=Math.min(start+12,m.hourly.time.length);
-    const tideVals=m.hourly.sea_level_height_msl.slice(start,end).filter(v=>Number.isFinite(v));
-    const tmin=tideVals.length?Math.min(...tideVals):0;
-    const tmax=tideVals.length?Math.max(...tideVals):1;
-
-    let html="";
-    for(let i=start;i<end;i++){
-      const waveM=m.hourly.wave_height[i];
-      const period=m.hourly.wave_period[i];
-      const wind=w.hourly.wind_speed_10m[i];
-      const windDir=w.hourly.wind_direction_10m[i];
-      const waveFt=Number.isFinite(waveM)?waveM*3.28084+5:null;
-      const s=score(waveM||0,period||0,wind==null?99:wind);
-      const pct=tidePct(m.hourly.sea_level_height_msl[i],tmin,tmax);
-
-      html+=
-        '<div class="row">'+
-        '<div class="face">'+face(s)+'</div>'+
-        '<div class="time">'+hourLabel(m.hourly.time[i])+'</div>'+
-        '<div><div class="wave">WAVE '+(waveFt==null?"--":Math.round(waveFt))+' FT</div>'+
-        '<div class="meta">'+(period==null?"--":Math.round(period))+'s · WIND '+(wind==null?"--":Math.round(wind))+' km/h '+dir(windDir)+'</div></div>'+
-        '<div class="tide"><div><div class="glass"><div class="water" style="height:'+pct+'%"></div></div><div class="tideText">TIDE</div></div></div>'+
-        '</div>';
-    }
-    rows.innerHTML=html||'<div class="error">No forecast data</div>';
-  }catch(e){
-    rows.innerHTML='<div class="error">LIVE FORECAST UNAVAILABLE<br><small>Refresh the source in Upstream</small></div>';
+ try{
+  const r=await fetch("./forecast.json?"+Date.now(),{cache:"no-store"});
+  if(!r.ok)throw new Error("data");
+  const d=await r.json();
+  let out="";
+  for(const x of d.rows){
+   out+='<div class="row"><div class="face">'+x.face+'</div><div class="time">'+timeLabel(x.time)+'</div><div><div class="wave">WAVE '+(x.wave_ft??"--")+' FT</div><div class="meta">'+(x.period??"--")+'s · WIND '+(x.wind_kmh??"--")+' km/h '+(x.wind_dir??"--")+'</div></div><div class="tide"><div><div class="glass"><div class="water" style="height:'+x.tide_pct+'%"></div></div><div class="tideText">TIDE</div></div></div></div>';
   }
+  document.getElementById("rows").innerHTML=out||'<div class="error">No forecast data</div>';
+ }catch(e){document.getElementById("rows").innerHTML='<div class="error">LIVE FORECAST UNAVAILABLE<br><small>Forecast data is updating</small></div>'}
 }
-load();
-setInterval(load,300000);
+load();setInterval(load,300000);
 </script>
 </body>
 </html>
