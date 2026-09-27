@@ -1,15 +1,6 @@
 {
-  "updated_utc": "2026-09-27T06:53:06.770535+00:00",
+  "updated_utc": "2026-09-27T07:07:48.146347+00:00",
   "rows": [
-    {
-      "time": "2026-09-27T20:00",
-      "wave_ft": 11,
-      "period": 8,
-      "wind_kmh": 32,
-      "wind_dir": "SW",
-      "tide_pct": 71,
-      "face": "🤯"
-    },
     {
       "time": "2026-09-27T21:00",
       "wave_ft": 11,
@@ -23,7 +14,7 @@
       "time": "2026-09-27T22:00",
       "wave_ft": 11,
       "period": 8,
-      "wind_kmh": 33,
+      "wind_kmh": 34,
       "wind_dir": "SW",
       "tide_pct": 100,
       "face": "🤯"
@@ -32,7 +23,7 @@
       "time": "2026-09-27T23:00",
       "wave_ft": 11,
       "period": 9,
-      "wind_kmh": 32,
+      "wind_kmh": 34,
       "wind_dir": "SW",
       "tide_pct": 99,
       "face": "🤯"
@@ -50,7 +41,7 @@
       "time": "2026-09-28T01:00",
       "wave_ft": 11,
       "period": 9,
-      "wind_kmh": 31,
+      "wind_kmh": 32,
       "wind_dir": "SW",
       "tide_pct": 64,
       "face": "🤯"
@@ -68,7 +59,7 @@
       "time": "2026-09-28T03:00",
       "wave_ft": 11,
       "period": 9,
-      "wind_kmh": 33,
+      "wind_kmh": 32,
       "wind_dir": "SW",
       "tide_pct": 18,
       "face": "🤯"
@@ -77,7 +68,7 @@
       "time": "2026-09-28T04:00",
       "wave_ft": 11,
       "period": 9,
-      "wind_kmh": 32,
+      "wind_kmh": 30,
       "wind_dir": "SW",
       "tide_pct": 8,
       "face": "🤯"
@@ -104,9 +95,18 @@
       "time": "2026-09-28T07:00",
       "wave_ft": 11,
       "period": 9,
-      "wind_kmh": 27,
+      "wind_kmh": 26,
       "wind_dir": "SW",
       "tide_pct": 32,
+      "face": "🤯"
+    },
+    {
+      "time": "2026-09-28T08:00",
+      "wave_ft": 11,
+      "period": 9,
+      "wind_kmh": 27,
+      "wind_dir": "SW",
+      "tide_pct": 58,
       "face": "🤯"
     }
   ]
