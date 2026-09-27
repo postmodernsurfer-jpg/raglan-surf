@@ -1,19 +1,19 @@
 {
-  "updated": "2026-09-27T08:43:56.924016+00:00",
+  "updated": "2026-09-27T09:16:34.102729+00:00",
   "stories": [
-    {
-      "source": "SURF NEWS",
-      "title": "Chun's Surf Report, Surf Forecast and Surf Cam",
-      "summary": "Chun's Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
-      "date": "SEP 27, 2026",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5yczdjTW5rWnQ2clktbmRyOFV3cWhiZGhiTjdTd3czWTdfVWtuMDFfVlFCYUo5YVMtTFZfbE8xWXhTU0o1WGNJU1p1cU5lSTJvVTIzdmI5V0JGdzNMeGpub3gwWEo0M09iYmptUHJ4M01TY3BiNTBn?oc=5"
-    },
     {
       "source": "SURF NEWS",
       "title": "Kauai Surf Forecast for September 27, 2026",
       "summary": "Kauai Surf Forecast for September 27, 2026 &nbsp;&nbsp; Kauai Now",
       "date": "SEP 27, 2026",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZkx6dUJBQjVYREpfcF9OMFNRZzNMMktVR0tLWThVLXRyXzFBcEJRckpwTGg4SmVDNzhZZDFJcUF2bkVSSTFXTzBlT21qLXdMaWVEVVdMX0N4Z0UxUENESzBfTEFOS2c4NzhfX0FQd29wUkFUc09NS0JEZWFNdS1WdGhqTzI?oc=5"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Chun's Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Chun's Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "SEP 27, 2026",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5yczdjTW5rWnQ2clktbmRyOFV3cWhiZGhiTjdTd3czWTdfVWtuMDFfVlFCYUo5YVMtTFZfbE8xWXhTU0o1WGNJU1p1cU5lSTJvVTIzdmI5V0JGdzNMeGpub3gwWEo0M09iYmptUHJ4M01TY3BiNTBn?oc=5"
     },
     {
       "source": "SURF NEWS",
@@ -73,13 +73,6 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for September 21, 2026",
-      "summary": "Kauai Surf Forecast for September 21, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "SEP 21, 2026",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZm1ZV1l3Z0tLdS0wWjVVWkhmTDc1ZTVkSDlJdV9ENERXMDEzQ0FFVlM3akU0S2FydDJjYjdwX0NVcGZGeTJDbC10YVphMVRnRG5XTkJjZ29PUWhGYUlUaEtLMkwyeWZlOHNjSldOX3YtOUlUWmYyNy1jTVFVQVpja2FZWWE?oc=5"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Nine Palms Surf Report and Surf Forecast",
       "summary": "Nine Palms Surf Report and Surf Forecast &nbsp;&nbsp; Surfline",
       "date": "SEP 24, 2026",
@@ -94,10 +87,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for September 19, 2026",
-      "summary": "Kauai Surf Forecast for September 19, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "SEP 19, 2026",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWktCZG13NjR0QlY0bGJIanJESFN0Z0I2QWJQSEszeFloYjJtdVNlbEEyaGNwSlR0WGZzSVFlaXlqcElUUGVjTDdndHFxN2NILTFnb1dzbDlSa3Fsb01wQWdRM2NvVWVTSG9fNjQ5LWNpRnVWM0l1WGc4bnBWRW9FOWZFUlQ?oc=5"
+      "title": "Kauai Surf Forecast for September 21, 2026",
+      "summary": "Kauai Surf Forecast for September 21, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "SEP 21, 2026",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZm1ZV1l3Z0tLdS0wWjVVWkhmTDc1ZTVkSDlJdV9ENERXMDEzQ0FFVlM3akU0S2FydDJjYjdwX0NVcGZGeTJDbC10YVphMVRnRG5XTkJjZ29PUWhGYUlUaEtLMkwyeWZlOHNjSldOX3YtOUlUWmYyNy1jTVFVQVpja2FZWWE?oc=5"
     },
     {
       "source": "SURF NEWS",
@@ -115,10 +108,17 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for September 18, 2026",
-      "summary": "Kauai Surf Forecast for September 18, 2026 &nbsp;&nbsp; Kauai Now",
+      "title": "Kauai Surf Forecast for September 19, 2026",
+      "summary": "Kauai Surf Forecast for September 19, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "SEP 19, 2026",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWktCZG13NjR0QlY0bGJIanJESFN0Z0I2QWJQSEszeFloYjJtdVNlbEEyaGNwSlR0WGZzSVFlaXlqcElUUGVjTDdndHFxN2NILTFnb1dzbDlSa3Fsb01wQWdRM2NvVWVTSG9fNjQ5LWNpRnVWM0l1WGc4bnBWRW9FOWZFUlQ?oc=5"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Maui Surf Forecast for September 18, 2026",
+      "summary": "Maui Surf Forecast for September 18, 2026 &nbsp;&nbsp; Maui Now",
       "date": "SEP 18, 2026",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVDI2TXdmenJJdGJDMkxKcVh1SXVtLW1qbjRvbjlETXVFTVczcmhwcmFsSzFjd256eUdFMFprMXU0ZGJpbEszQUhZWjFVWU94emFEdUtic2xPTldJOHpmRGVYWThCNlV1dHp2TWYwT04tVjV1SWdsT1hQckFuV1FLV3V0NGU?oc=5"
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5QbnhmM282bW5Ea2dLaTJGWmdrYm5MQTBRTTdheVpCcEtsMWtVOXlyWFFhek1KWEN0ZXNldXp5MGVfaHQ1Y1FkYnlPUVJOXzVYaHhqemR2cXRxOWdQZ0VERnh2b0NzVGgyMWhZZldGUnUxekJmTEVrWHBXdVQ?oc=5"
     },
     {
       "source": "SURF NEWS",
