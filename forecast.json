@@ -1,22 +1,13 @@
 {
-  "updated_utc": "2026-09-29T22:57:26.833530+00:00",
+  "updated_utc": "2026-09-29T23:12:02.643384+00:00",
   "rows": [
-    {
-      "time": "2026-09-30T12:00",
-      "wave_ft": 8,
-      "period": 12,
-      "wind_kmh": 10,
-      "wind_dir": "SW",
-      "tide_pct": 100,
-      "face": "😍"
-    },
     {
       "time": "2026-09-30T13:00",
       "wave_ft": 8,
       "period": 12,
       "wind_kmh": 11,
       "wind_dir": "SW",
-      "tide_pct": 95,
+      "tide_pct": 100,
       "face": "😍"
     },
     {
@@ -25,7 +16,7 @@
       "period": 12,
       "wind_kmh": 10,
       "wind_dir": "SW",
-      "tide_pct": 80,
+      "tide_pct": 83,
       "face": "😍"
     },
     {
@@ -34,7 +25,7 @@
       "period": 12,
       "wind_kmh": 11,
       "wind_dir": "SW",
-      "tide_pct": 56,
+      "tide_pct": 59,
       "face": "😍"
     },
     {
@@ -43,7 +34,7 @@
       "period": 12,
       "wind_kmh": 12,
       "wind_dir": "SW",
-      "tide_pct": 31,
+      "tide_pct": 33,
       "face": "😍"
     },
     {
@@ -52,7 +43,7 @@
       "period": 12,
       "wind_kmh": 12,
       "wind_dir": "SW",
-      "tide_pct": 11,
+      "tide_pct": 12,
       "face": "😍"
     },
     {
@@ -79,7 +70,7 @@
       "period": 12,
       "wind_kmh": 7,
       "wind_dir": "SW",
-      "tide_pct": 17,
+      "tide_pct": 18,
       "face": "😍"
     },
     {
@@ -88,7 +79,7 @@
       "period": 12,
       "wind_kmh": 6,
       "wind_dir": "SW",
-      "tide_pct": 41,
+      "tide_pct": 43,
       "face": "😍"
     },
     {
@@ -97,7 +88,7 @@
       "period": 12,
       "wind_kmh": 6,
       "wind_dir": "SW",
-      "tide_pct": 67,
+      "tide_pct": 70,
       "face": "😍"
     },
     {
@@ -106,7 +97,16 @@
       "period": 12,
       "wind_kmh": 5,
       "wind_dir": "S",
-      "tide_pct": 86,
+      "tide_pct": 90,
+      "face": "😍"
+    },
+    {
+      "time": "2026-10-01T00:00",
+      "wave_ft": 7,
+      "period": 12,
+      "wind_kmh": 4,
+      "wind_dir": "S",
+      "tide_pct": 100,
       "face": "😍"
     }
   ]
