@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surf Trivia</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif;color:#fff}
+body{display:flex;align-items:flex-end;justify-content:center;padding:14px}
+.card{position:relative;width:100%;max-width:1100px;min-height:100px;padding:18px 24px 17px;border-radius:12px;background:rgba(5,20,29,.88);border:1px solid rgba(255,255,255,.25);box-shadow:0 4px 18px rgba(0,0,0,.25);overflow:hidden}
+.header{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:2.5px;color:#79d9fa}
+.dot{width:7px;height:7px;border-radius:50%;background:#79d9fa;flex:0 0 auto}
+.category{position:absolute;right:24px;top:17px;font-size:10px;letter-spacing:1.3px;color:#a9c0ca;text-transform:uppercase}
+.fact{font-size:20px;line-height:1.32;font-weight:700;margin-top:9px;max-width:930px}
+.number{font-size:10px;color:#91aab5;margin-top:8px}
+.progress{position:absolute;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.1)}
+.progress i{display:block;height:100%;width:100%;background:#79d9fa;transform-origin:left;animation:run 14s linear forwards}
+.content{transition:opacity .35s ease,transform .35s ease}
+.content.out{opacity:0;transform:translateY(6px)}
+@keyframes run{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-width:600px){.card{padding:14px 16px}.fact{font-size:16px}.category{display:none}}
+@media(prefers-reduced-motion:reduce){.content{transition:none}.progress i{animation:none}}
+</style>
+</head>
+<body>
+<section class="card" aria-label="Surf trivia overlay">
+<div class="content" id="content">
+<div class="header"><span class="dot"></span>SURF TRIVIA</div>
+<div class="category" id="category">SURF HISTORY</div>
+<div class="fact" id="fact">Loading surf trivia…</div>
+<div class="number" id="number">RANDOM FACT</div>
+</div>
+<div class="progress"><i id="progress"></i></div>
+</section>
+<script>
+(()=>{'use strict';
+const facts=[
+["SURF HISTORY","Ancient Polynesians rode waves long before modern surfing existed. Surfing was deeply connected to culture, community and status in Hawai‘i."],
+["SURF HISTORY","Duke Kahanamoku helped popularize surfing internationally in the early 20th century and is widely known as the father of modern surfing."],
+["SURF HISTORY","Duke Kahanamoku was also an Olympic swimming champion, winning six Olympic medals between 1912 and 1932."],
+["SURF HISTORY","The word 'surf' appeared in English in the 17th century, while the practice of riding waves is far older."],
+["SURF HISTORY","The first recorded surfing photographs were made in Hawai‘i in the late 19th century."],
+["SURF HISTORY","The Waikīkī area of O‘ahu became one of the world's most important centers for spreading modern surfing."],
+["SURF HISTORY","In the 1950s and 1960s, lighter foam-and-fiberglass boards helped transform surfing and made boards dramatically easier to handle."],
+["SURF HISTORY","The shortboard revolution of the late 1960s changed surfing from long, trim-oriented lines toward tighter turns and more progressive maneuvers."],
+["SURF HISTORY","The first World Surfing Championships were held at Manly Beach, Australia, in 1964."],
+["SURF HISTORY","The International Professional Surfers organization, founded in 1976, became the Association of Surfing Professionals and later evolved into the WSL."],
+["SURF HISTORY","The first official World Surf League season dates to 1976, when the professional tour was known as the IPS."],
+["SURF HISTORY","The Triple Crown of Surfing was established in Hawai‘i in 1983 and became one of the sport's most famous event series."],
+["SURF HISTORY","Bells Beach in Victoria, Australia, has hosted professional surfing competition since the 1960s."],
+["SURF HISTORY","The famous Bells Beach trophy is shaped like a bell, connecting the event directly to the beach's name."],
+["SURF HISTORY","Pipeline on O‘ahu's North Shore is famous for its shallow reef, hollow barrels and powerful winter waves."],
+["SURF HISTORY","Teahupo‘o is famous for waves breaking over an extremely shallow reef, producing unusually thick-looking barrels."],
+["SURF HISTORY","Mavericks became famous for big-wave surfing in Northern California after surfers began riding the break in the 1970s."],
+["SURF HISTORY","Mavericks is named after a dog called Maverick, who was brought to the beach by surfers in the 1960s."],
+["SURF HISTORY","The Banzai Pipeline was named after the construction company Banzai Pipeline, not after the surf break itself."],
+["SURF HISTORY","Waimea Bay helped establish modern big-wave surfing as a major part of surf culture."],
+["SURFERS","Kelly Slater won his first world surfing title in 1992."],
+["SURFERS","Kelly Slater became the youngest men's world champion when he won his first title at age 20."],
+["SURFERS","Kelly Slater's 11 world titles are the record for men's professional surfing."],
+["SURFERS","Layne Beachley won seven women's world titles during her professional career."],
+["SURFERS","Stephanie Gilmore won eight women's world titles, making her one of the most successful surfers in professional history."],
+["SURFERS","Tom Curren won three world titles and was known for an exceptionally smooth and powerful style."],
+["SURFERS","Mark Richards won four consecutive world titles from 1979 through 1982."],
+["SURFERS","Gerry Lopez became closely associated with Pipeline and earned the nickname 'Mr. Pipeline'."],
+["SURFERS","Laird Hamilton was one of the surfers who helped push tow-in surfing into the mainstream in the 1990s."],
+["SURFERS","Tow-in surfing allowed surfers to enter waves too large and fast to paddle into under their own power."],
+["SURFERS","Mick Fanning won three men's world titles: 2007, 2009 and 2013."],
+["SURFERS","John John Florence won his first men's world title in 2016."],
+["SURFERS","John John Florence won his second men's world title in 2017."],
+["SURFERS","Carissa Moore won five women's world titles before retiring from the Championship Tour."],
+["SURFERS","Carissa Moore won the first Olympic women's surfing gold medal at Tokyo 2020, held in 2021."],
+["SURFERS","Italo Ferreira won the first Olympic men's surfing gold medal at Tokyo 2020, held in 2021."],
+["SURFERS","Gabriel Medina became the first Brazilian men's world champion in 2014."],
+["SURFERS","Filipe Toledo won the men's world title in 2022 and 2023."],
+["SURFERS","The first surfing Olympic Games were held at Tokyo 2020, with the competition taking place at Tsurigasaki Beach."],
+["BOARDS","Traditional Hawaiian surfboards could be extremely long and heavy compared with most modern shortboards."],
+["BOARDS","The modern thruster, a three-fin setup, was developed in the early 1980s and became one of the most influential surfboard designs ever."],
+["BOARDS","Simon Anderson popularized the three-fin thruster after winning the 1981 Bells Beach Classic on one."],
+["BOARDS","A surfboard's rocker is the curve from nose to tail. More rocker generally helps turning and fitting into steeper waves."],
+["BOARDS","A surfboard's rail is the edge running along the sides of the board."],
+["BOARDS","A surfboard's leash was developed to keep the board attached to the surfer after a wipeout."],
+["SCIENCE","Wave period is the time between successive wave crests. Longer-period swells generally carry more energy and travel faster in deep water."],
+["SCIENCE","Wind-generated ocean waves are created when energy from moving air transfers into the water."],
+["SCIENCE","As waves enter shallower water, they slow down and grow taller as their energy is compressed into a smaller depth."],
+["SCIENCE","Swell direction describes the direction the waves are coming from, not the direction they travel toward."],
+["SCIENCE","A wave's height, period and direction all affect how a surf break behaves."],
+["SURF CULTURE","Surfing became one of the major cultural symbols associated with Southern California after spreading there in the early 20th century."],
+["SURF CULTURE","The Beach Boys helped bring the California surf lifestyle into mainstream American pop culture during the 1960s."],
+["SURF CULTURE","The 1964 film 'The Endless Summer' introduced audiences around the world to surfers traveling in search of waves."],
+["SURF CULTURE","Bruce Brown directed 'The Endless Summer', which became one of the most influential surf films ever made."],
+["SURF CULTURE","The original 'Endless Summer' followed Mike Hynson and Robert August as they traveled around the world looking for summer."],
+["SURF CULTURE","Surf magazines played a major role in documenting surf culture, contests, equipment and the world's best waves."],
+["SURF TERMS","A 'goofy-foot' surfer rides with the right foot forward, while a 'regular-foot' surfer rides with the left foot forward."],
+["SURF TERMS","A 'barrel' is a section of a wave where the lip pitches over and creates a hollow tube."],
+["SURF TERMS","A 'duck dive' lets a surfer push a shortboard underwater to get beneath an approaching wave."],
+["SURF TERMS","A 'bottom turn' is the turn made near the bottom of a wave that sets up the surfer's next maneuver."],
+["SURF TERMS","A 'cutback' redirects a surfer back toward the breaking part of the wave after moving toward the shoulder."],
+["SURF TERMS","A 'closeout' is a wave that breaks across most or all of its face at once, leaving little usable open shoulder."],
+["SURF TERMS","A 'set' is a group of larger waves that arrives together within a swell."],
+["SURF TERMS","A 'lineup' is the area where surfers wait for waves at a surf break."],
+["SURF TERMS","A 'peak' is the part of a wave where the wave begins breaking first and from which surfers can take off."],
+["SURF TERMS","A 'left' breaks toward the surfer's left when looking from the perspective of a surfer riding the wave."],
+["SURF TERMS","A 'right' breaks toward the surfer's right when looking from the perspective of a surfer riding the wave."]
+];
+let current=-1,used=[];
+const $=id=>document.getElementById(id);
+function pick(){if(used.length>=facts.length-1)used=[];let i;do{i=Math.floor(Math.random()*facts.length)}while(i===current||used.includes(i));used.push(i);current=i;return facts[i]}
+function show(){const c=$('content');c.classList.add('out');setTimeout(()=>{const f=pick();$('category').textContent=f[0];$('fact').textContent=f[1];$('number').textContent='RANDOM FACT · '+String(used.length).padStart(2,'0');c.classList.remove('out');const p=$('progress');p.style.animation='none';void p.offsetWidth;p.style.animation='run 14s linear forwards'},350)}
+show();setInterval(show,14000);
+})();
+</script>
+</body></html>
