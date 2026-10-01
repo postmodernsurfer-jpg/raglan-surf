@@ -1,88 +1,128 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Live Surf Trivia</title>
+<title>Live Surf Trivia Q&A</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif;color:#fff}
 body{display:flex;align-items:flex-end;justify-content:center;padding:14px}
-.card{width:100%;max-width:1150px;min-height:100px;padding:16px 24px 15px;border-radius:10px;background:rgba(4,19,28,.90);border:1px solid rgba(121,217,250,.35);box-shadow:0 4px 18px rgba(0,0,0,.28);position:relative;overflow:hidden}
-.header{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:900;letter-spacing:2.2px;color:#79d9fa}.dot{width:7px;height:7px;border-radius:50%;background:#79d9fa;box-shadow:0 0 8px #79d9fa}
-.category{position:absolute;right:24px;top:15px;font-size:9px;letter-spacing:1.2px;color:#9db5bf;text-transform:uppercase}
-.fact{font-size:19px;line-height:1.3;font-weight:700;margin-top:8px;max-width:1030px}.source{font-size:9px;color:#8ea5ae;margin-top:7px;letter-spacing:.5px}
-.content{transition:opacity .3s ease,transform .3s ease}.out{opacity:0;transform:translateY(5px)}
-.progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}.progress i{display:block;height:100%;width:100%;background:#79d9fa;transform-origin:left}
-@media(max-width:650px){body{padding:7px}.card{padding:12px 15px}.fact{font-size:15px}.category{display:none}}
+.card{width:100%;max-width:1150px;min-height:104px;padding:15px 24px 14px;border-radius:10px;background:rgba(4,19,28,.92);border:1px solid rgba(121,217,250,.35);box-shadow:0 4px 18px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.header{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:900;letter-spacing:2.2px;color:#79d9fa}
+.dot{width:7px;height:7px;border-radius:50%;background:#79d9fa;box-shadow:0 0 8px #79d9fa}
+.category{position:absolute;right:24px;top:14px;font-size:9px;letter-spacing:1.2px;color:#9db5bf;text-transform:uppercase}
+.label{font-size:9px;font-weight:900;letter-spacing:1.5px;color:#79d9fa;margin-top:8px}
+.text{font-size:19px;line-height:1.28;font-weight:700;margin-top:3px;max-width:1050px}
+.source{font-size:8px;color:#849ca5;margin-top:6px;letter-spacing:.4px}
+.content{transition:opacity .28s ease,transform .28s ease}.out{opacity:0;transform:translateY(5px)}
+.progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}.progress i{display:block;height:100%;width:0;background:#79d9fa}
+@media(max-width:650px){body{padding:7px}.card{padding:11px 15px}.text{font-size:15px}.category{display:none}}
 </style></head>
 <body><section class="card"><div class="content" id="content">
-<div class="header"><span class="dot"></span>LIVE SURF TRIVIA</div>
-<div class="category" id="category">LOADING</div><div class="fact" id="fact">Loading global surf and ocean stories…</div><div class="source" id="source"></div>
+<div class="header"><span class="dot"></span>SURF TRIVIA</div>
+<div class="category" id="category">LOADING</div>
+<div class="label" id="label">QUESTION</div>
+<div class="text" id="text">Loading surf trivia…</div>
+<div class="source" id="source"></div>
 </div><div class="progress"><i id="progress"></i></div></section>
 <script>
 (()=>{'use strict';
 const staticFacts=[
-['PIPELINE','Pipeline on Oahu’s North Shore is famous for powerful hollow waves breaking over a shallow reef.','SURFLINE SPOT GUIDE'],
-['TEAHUPOO','Teahupo’o faces directly into Southern Hemisphere swells and has very little continental shelf to weaken incoming energy.','SURFLINE SPOT GUIDE'],
-['MAVERICKS','Mavericks became famous for big-wave surfing on California’s Half Moon Bay coast and is exposed to large northwest swells.','SURF HISTORY'],
-['CLOUDBREAK','Cloudbreak in Fiji is a powerful reef break that can produce long, heavy left-hand barrels.','SURF HISTORY'],
-['JEFFREYS BAY','Jeffreys Bay in South Africa is famous for long, fast right-hand point-break waves.','SURF HISTORY'],
-['BELLS BEACH','Bells Beach in Victoria, Australia, is a large point-break setup with several connected surf zones including Bells Bowl and Winkipop.','SURFLINE SPOT GUIDE'],
-['Jaws','Peahi, commonly called Jaws, is a Maui big-wave break known for enormous winter swells and tow-in surfing.','SURF HISTORY'],
-['NAZARE','Nazaré, Portugal, is amplified by an underwater canyon that helps focus and increase incoming swell energy.','OCEAN SCIENCE'],
-['TRESTLES','Lower Trestles in Southern California is famous for high-performance right and left-hand waves breaking over a cobblestone reef.','SURF HISTORY'],
-['RINCON','Rincon on the California coast is known for long right-hand point-break waves when winter northwest swells arrive.','SURF HISTORY'],
-['PUERTO ESCONDIDO','Playa Zicatela at Puerto Escondido is famous for powerful beach-break barrels and large south swells.','SURF HISTORY'],
-['WAIMEA','Waimea Bay on Oahu helped establish big-wave surfing as a major part of modern surf culture.','SURF HISTORY'],
-['SUNSET BEACH','Sunset Beach on Oahu’s North Shore handles a broad range of winter swell directions and can become extremely powerful.','SURF HISTORY'],
-['HAWAIIAN NORTH SHORE','Oahu’s North Shore is one of the world’s most important winter surf regions, with Pipeline, Sunset and Waimea among its famous breaks.','SURF HISTORY'],
-['MARGARET RIVER','Margaret River in Western Australia is exposed to powerful Indian Ocean swells and has numerous reef and beach breaks.','SURF HISTORY'],
-['MUNDAKA','Mundaka in northern Spain is famous for a long, powerful left-hand river-mouth wave when the sandbar and swell align.','SURF HISTORY'],
-['SUPERTUBES','Supertubes at Jeffreys Bay is known for long, fast, highly lined-up right-hand waves.','SURF HISTORY'],
-['LAGUNDri BAY','LagunDrI Bay in Indonesia is a famous left-hand reef break on Nias that can produce long barrels.','SURF HISTORY'],
-['ULUWATU','Uluwatu on Bali is a collection of reef breaks exposed to powerful Southern Hemisphere swells.','SURF HISTORY'],
-['PADANG PADANG','Padang Padang in Bali is a famous hollow left that comes alive on larger Indian Ocean swells.','SURF HISTORY'],
-['MALIBU','Malibu is one of California’s best-known point breaks and became an important part of Southern California surf history.','SURF HISTORY'],
-['HALEIWA','Haleiwa’s Ali’i Beach Park sits at the northern end of Oahu’s North Shore and can receive powerful winter surf.','SURF HISTORY'],
-['SUNSET BEACH NZ','Sunset Beach near Raglan is one of the region’s better-known surf areas, while Manu Bay is the area’s iconic point break.','NEW ZEALAND'],
-['MANU BAY','Manu Bay at Raglan is famous for long left-hand point-break waves and was featured in the film Endless Summer II.','NEW ZEALAND'],
-['SNAPPER ROCKS','Snapper Rocks on Australia’s Gold Coast is a famous right-hand point break and part of the Superbank system.','AUSTRALIA'],
-['KIRRA','Kirra on Australia’s Gold Coast became legendary for long, hollow right-hand barrels when sand and swell conditions align.','AUSTRALIA'],
-['MEREWETHER','Merewether Beach in Newcastle, Australia, is a major surf destination and home to a long-running professional contest.','AUSTRALIA'],
-['TRESTLES','Trestles is named for the railroad trestle bridge near the surf break and is one of California’s best-known performance waves.','CALIFORNIA'],
-['STEAMER LANE','Steamer Lane in Santa Cruz is a famous California surf zone with several reef breaks near Lighthouse Point.','CALIFORNIA'],
-['OBERGER','Oberon Bay and the breaks around Victoria’s Great Ocean Road can receive powerful Southern Ocean swells.','AUSTRALIA'],
-['CAPE FEAR','Cape Fear near Sydney is a powerful reef break known for heavy waves when large east and southeast swells arrive.','AUSTRALIA']
+['PIPELINE','What famous Oahu surf break is known for powerful hollow waves breaking over a shallow reef?','Pipeline on Oahu’s North Shore.','SURF HISTORY'],
+['TEAHUPOO','Why is Teahupo’o famous among big-wave surfers?','It produces extremely thick, powerful barrels over a very shallow reef.','SURF SPOT'],
+['MAVERICKS','Where is the famous big-wave surf break Mavericks located?','Near Half Moon Bay on the Northern California coast.','CALIFORNIA'],
+['CLOUDBREAK','What country is home to the famous reef break Cloudbreak?','Fiji.','SURF SPOT'],
+['JEFFREYS BAY','What type of wave is Jeffreys Bay famous for?','Long, fast right-hand point-break waves.','SURF SPOT'],
+['BELLS BEACH','In what Australian state is Bells Beach located?','Victoria.','AUSTRALIA'],
+['JAWS','What is the Hawaiian big-wave break Peahi commonly called?','Jaws.','HAWAII'],
+['NAZARE','What underwater feature helps amplify the waves at Nazaré, Portugal?','A deep underwater canyon focuses and increases incoming swell energy.','OCEAN SCIENCE'],
+['TRESTLES','What famous Southern California surf spot is known for high-performance right and left-hand waves?','Lower Trestles.','CALIFORNIA'],
+['RINCON','What kind of wave is Rincon in California famous for?','A long right-hand point-break wave.','CALIFORNIA'],
+['PUERTO ESCONDIDO','What makes Playa Zicatela at Puerto Escondido famous?','Powerful beach-break barrels and large south swells.','MEXICO'],
+['WAIMEA','Which Hawaiian bay helped establish modern big-wave surfing?','Waimea Bay on Oahu.','HAWAII'],
+['MUNDAKA','What type of wave is Mundaka in northern Spain famous for?','A long, powerful left-hand river-mouth wave.','EUROPE'],
+['ULUWATU','On which Indonesian island is the famous surf zone Uluwatu?','Bali.','INDONESIA'],
+['PADANG PADANG','What kind of wave is Padang Padang in Bali known for?','A powerful, hollow left-hand reef wave.','INDONESIA'],
+['SNAPPER ROCKS','What famous Australian surf zone is part of the Gold Coast Superbank?','Snapper Rocks.','AUSTRALIA'],
+['KIRRA','What is Kirra on Australia’s Gold Coast famous for?','Long, hollow right-hand barrels when conditions align.','AUSTRALIA'],
+['MANU BAY','What famous New Zealand surf break is located at Raglan?','Manu Bay, a long left-hand point break.','NEW ZEALAND'],
+['STEAMER LANE','Where is Steamer Lane?','Santa Cruz, California, near Lighthouse Point.','CALIFORNIA'],
+['MALIBU','What type of wave is Malibu in Southern California famous for?','A long, classic point-break wave.','CALIFORNIA'],
+['EL NINO','What ocean-atmosphere pattern can dramatically change surf and weather around the Pacific?','El Niño, a warming of central and eastern tropical Pacific waters accompanied by atmospheric changes.','OCEAN & WEATHER'],
+['LA NINA','What is the opposite phase of El Niño called?','La Niña, characterized by cooler-than-average central and eastern tropical Pacific waters.','OCEAN & WEATHER'],
+['SWELL PERIOD','What does swell period measure?','The time between successive wave crests.','OCEAN SCIENCE'],
+['LONG PERIOD','Why can a longer-period swell produce more powerful waves at a surf break?','Long-period waves carry more energy and travel faster in deep water before shoaling near shore.','OCEAN SCIENCE'],
+['DUKE KAHANAMOKU','Who is widely known as the father of modern surfing?','Duke Kahanamoku, the Hawaiian Olympic swimming champion who helped popularize surfing internationally.','SURF HISTORY'],
+['ENDLESS SUMMER','What famous 1964 surf film followed surfers around the world searching for endless summer?','The Endless Summer, directed by Bruce Brown.','SURF FILMS'],
+['THRUSTER','What is a thruster surfboard?','A three-fin surfboard setup that became one of the most influential modern designs.','SURFBOARDS'],
+['GOOFY FOOT','Which foot is forward for a goofy-foot surfer?','The right foot.','SURF TERMS'],
+['REGULAR FOOT','Which foot is forward for a regular-foot surfer?','The left foot.','SURF TERMS'],
+['BARREL','What is a barrel in surfing?','A section of a wave where the lip pitches over and forms a hollow tube around the surfer.','SURF TERMS'],
+['DUCK DIVE','What maneuver lets a shortboard surfer get beneath an approaching wave?','A duck dive.','SURF TERMS'],
+['BOTTOM TURN','What maneuver near the bottom of the wave sets up many surfing turns?','The bottom turn.','SURF TERMS'],
+['CUTBACK','What maneuver redirects a surfer back toward the breaking part of the wave?','A cutback.','SURF TERMS'],
+['CLOSEOUT','What is a closeout wave?','A wave that breaks across most or all of its face at once, leaving little open shoulder.','SURF TERMS'],
+['KELLY SLATER','How many men’s world surfing titles has Kelly Slater won?','Eleven, the record for men’s professional surfing.','SURFERS'],
+['STEPHANIE GILMORE','How many women’s world titles did Stephanie Gilmore win?','Eight.','SURFERS'],
+['MARK RICHARDS','How many consecutive world titles did Mark Richards win from 1979 through 1982?','Four consecutive titles.','SURFERS'],
+['CARISSA MOORE','Who won the first Olympic women’s surfing gold medal?','Carissa Moore at Tokyo 2020, held in 2021.','OLYMPIC SURFING'],
+['ITALO FERREIRA','Who won the first Olympic men’s surfing gold medal?','Italo Ferreira at Tokyo 2020, held in 2021.','OLYMPIC SURFING'],
+['JOHN JOHN FLORENCE','When did John John Florence win his first men’s world title?','2016.','SURFERS']
 ];
 
-let live=[], pool=[], index=-1;
+let items=[], index=-1, mode='question', live=[];
 const $=id=>document.getElementById(id);
 function shuffle(a){return a.slice().sort(()=>Math.random()-.5)}
+function parseNews(stories){
+ return (stories||[]).map(s=>{
+  const title=(s.title||'').trim();
+  const summary=(s.summary||'').replace(/\s+/g,' ').trim();
+  const blob=(title+' '+summary).toLowerCase();
+  let q='What is happening in this recent surf or ocean story?';
+  if(blob.includes('el niño')||blob.includes('enso')) q='What is the latest surf or ocean story involving El Niño or ENSO?';
+  else if(blob.includes('swell')||blob.includes('wave')) q='What is the latest development in this recent swell or wave story?';
+  else if(blob.includes('pipeline')) q='What is the latest news involving Pipeline?';
+  else if(blob.includes('mavericks')) q='What is the latest news involving Mavericks?';
+  else if(blob.includes('teahupo')) q='What is the latest news involving Teahupo’o?';
+  else if(blob.includes('cloudbreak')) q='What is the latest news involving Cloudbreak?';
+  else if(blob.includes('nazare')) q='What is the latest news involving Nazaré?';
+  else if(blob.includes('wsl')||blob.includes('world surf')) q='What is the latest professional surfing story?';
+  const answer=summary?title+' — '+summary:title;
+  return {category:s.category||'SURF NEWS',question:q,answer,source:(s.source||'SURF NEWS')+(s.date?' · '+s.date:'')};
+ });
+}
 async function getNews(){
  try{
   const r=await fetch('https://postmodernsurfer-jpg.github.io/raglan-surf/surf-news.json?x='+Date.now(),{cache:'no-store'});
-  const j=await r.json(); live=(j.stories||[]).map(s=>({
-   category:s.category||'SURF NEWS',
-   fact:s.title+(s.summary?' — '+s.summary:''),
-   source:(s.source||'SURF NEWS')+(s.date?' · '+s.date:'')
-  })); build();
- }catch(e){build()}
+  const j=await r.json();live=parseNews(j.stories);build();
+ }catch(e){if(!items.length)build()}
 }
 function build(){
- const stat=staticFacts.map(x=>({category:x[0],fact:x[1],source:x[2]}));
- pool=shuffle([...live,...stat,...live]);
- if(index>=pool.length-1)index=-1;
- showNext();
+ const evergreen=staticFacts.map(x=>({category:x[0],question:x[1],answer:x[2],source:x[3]}));
+ items=shuffle([...live,...evergreen,...live]);
+ index=-1;mode='question';show();
 }
-function showNext(){
- if(!pool.length)return;
+function show(){
+ if(!items.length)return;
+ const f=items[index=(index+1)%items.length];
  const c=$('content');c.classList.add('out');
  setTimeout(()=>{
-  index=(index+1)%pool.length;const f=pool[index];
   $('category').textContent=f.category;
-  $('fact').textContent=f.fact;
-  $('source').textContent=f.source;
+  $('label').textContent='QUESTION';
+  $('text').textContent=f.question;
+  $('source').textContent='';
   c.classList.remove('out');
-  const p=$('progress');p.style.transition='none';p.style.width='0';void p.offsetWidth;p.style.transition='width 14s linear';p.style.width='100%';
+  const p=$('progress');p.style.transition='none';p.style.width='0';void p.offsetWidth;p.style.transition='width 5s linear';p.style.width='100%';
+  setTimeout(()=>answer(f),5100);
  },300);
 }
-getNews();setInterval(showNext,14300);setInterval(getNews,30*60*1000);
+function answer(f){
+ const c=$('content');c.classList.add('out');
+ setTimeout(()=>{
+  $('label').textContent='ANSWER';
+  $('text').textContent=f.answer;
+  $('source').textContent=f.source||'';
+  c.classList.remove('out');
+  const p=$('progress');p.style.transition='none';p.style.width='0';void p.offsetWidth;p.style.transition='width 9s linear';p.style.width='100%';
+ },300);
+}
+getNews();setInterval(show,14300);setInterval(getNews,30*60*1000);
 })();
 </script></body></html>
