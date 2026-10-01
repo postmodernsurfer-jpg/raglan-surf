@@ -1,115 +1,88 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Surf Trivia</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Surf Trivia</title>
 <style>
-:root{color-scheme:dark}
-*{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif;color:#fff}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif;color:#fff}
 body{display:flex;align-items:flex-end;justify-content:center;padding:14px}
-.card{position:relative;width:100%;max-width:1100px;min-height:100px;padding:18px 24px 17px;border-radius:12px;background:rgba(5,20,29,.88);border:1px solid rgba(255,255,255,.25);box-shadow:0 4px 18px rgba(0,0,0,.25);overflow:hidden}
-.header{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:2.5px;color:#79d9fa}
-.dot{width:7px;height:7px;border-radius:50%;background:#79d9fa;flex:0 0 auto}
-.category{position:absolute;right:24px;top:17px;font-size:10px;letter-spacing:1.3px;color:#a9c0ca;text-transform:uppercase}
-.fact{font-size:20px;line-height:1.32;font-weight:700;margin-top:9px;max-width:930px}
-.number{font-size:10px;color:#91aab5;margin-top:8px}
-.progress{position:absolute;left:0;bottom:0;height:3px;width:100%;background:rgba(255,255,255,.1)}
-.progress i{display:block;height:100%;width:100%;background:#79d9fa;transform-origin:left;animation:run 14s linear forwards}
-.content{transition:opacity .35s ease,transform .35s ease}
-.content.out{opacity:0;transform:translateY(6px)}
-@keyframes run{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@media(max-width:600px){.card{padding:14px 16px}.fact{font-size:16px}.category{display:none}}
-@media(prefers-reduced-motion:reduce){.content{transition:none}.progress i{animation:none}}
-</style>
-</head>
-<body>
-<section class="card" aria-label="Surf trivia overlay">
-<div class="content" id="content">
-<div class="header"><span class="dot"></span>SURF TRIVIA</div>
-<div class="category" id="category">SURF HISTORY</div>
-<div class="fact" id="fact">Loading surf trivia…</div>
-<div class="number" id="number">RANDOM FACT</div>
-</div>
-<div class="progress"><i id="progress"></i></div>
-</section>
+.card{width:100%;max-width:1150px;min-height:100px;padding:16px 24px 15px;border-radius:10px;background:rgba(4,19,28,.90);border:1px solid rgba(121,217,250,.35);box-shadow:0 4px 18px rgba(0,0,0,.28);position:relative;overflow:hidden}
+.header{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:900;letter-spacing:2.2px;color:#79d9fa}.dot{width:7px;height:7px;border-radius:50%;background:#79d9fa;box-shadow:0 0 8px #79d9fa}
+.category{position:absolute;right:24px;top:15px;font-size:9px;letter-spacing:1.2px;color:#9db5bf;text-transform:uppercase}
+.fact{font-size:19px;line-height:1.3;font-weight:700;margin-top:8px;max-width:1030px}.source{font-size:9px;color:#8ea5ae;margin-top:7px;letter-spacing:.5px}
+.content{transition:opacity .3s ease,transform .3s ease}.out{opacity:0;transform:translateY(5px)}
+.progress{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}.progress i{display:block;height:100%;width:100%;background:#79d9fa;transform-origin:left}
+@media(max-width:650px){body{padding:7px}.card{padding:12px 15px}.fact{font-size:15px}.category{display:none}}
+</style></head>
+<body><section class="card"><div class="content" id="content">
+<div class="header"><span class="dot"></span>LIVE SURF TRIVIA</div>
+<div class="category" id="category">LOADING</div><div class="fact" id="fact">Loading global surf and ocean stories…</div><div class="source" id="source"></div>
+</div><div class="progress"><i id="progress"></i></div></section>
 <script>
 (()=>{'use strict';
-const facts=[
-["SURF HISTORY","Ancient Polynesians rode waves long before modern surfing existed. Surfing was deeply connected to culture, community and status in Hawai‘i."],
-["SURF HISTORY","Duke Kahanamoku helped popularize surfing internationally in the early 20th century and is widely known as the father of modern surfing."],
-["SURF HISTORY","Duke Kahanamoku was also an Olympic swimming champion, winning six Olympic medals between 1912 and 1932."],
-["SURF HISTORY","The word 'surf' appeared in English in the 17th century, while the practice of riding waves is far older."],
-["SURF HISTORY","The first recorded surfing photographs were made in Hawai‘i in the late 19th century."],
-["SURF HISTORY","The Waikīkī area of O‘ahu became one of the world's most important centers for spreading modern surfing."],
-["SURF HISTORY","In the 1950s and 1960s, lighter foam-and-fiberglass boards helped transform surfing and made boards dramatically easier to handle."],
-["SURF HISTORY","The shortboard revolution of the late 1960s changed surfing from long, trim-oriented lines toward tighter turns and more progressive maneuvers."],
-["SURF HISTORY","The first World Surfing Championships were held at Manly Beach, Australia, in 1964."],
-["SURF HISTORY","The International Professional Surfers organization, founded in 1976, became the Association of Surfing Professionals and later evolved into the WSL."],
-["SURF HISTORY","The first official World Surf League season dates to 1976, when the professional tour was known as the IPS."],
-["SURF HISTORY","The Triple Crown of Surfing was established in Hawai‘i in 1983 and became one of the sport's most famous event series."],
-["SURF HISTORY","Bells Beach in Victoria, Australia, has hosted professional surfing competition since the 1960s."],
-["SURF HISTORY","The famous Bells Beach trophy is shaped like a bell, connecting the event directly to the beach's name."],
-["SURF HISTORY","Pipeline on O‘ahu's North Shore is famous for its shallow reef, hollow barrels and powerful winter waves."],
-["SURF HISTORY","Teahupo‘o is famous for waves breaking over an extremely shallow reef, producing unusually thick-looking barrels."],
-["SURF HISTORY","Mavericks became famous for big-wave surfing in Northern California after surfers began riding the break in the 1970s."],
-["SURF HISTORY","Mavericks is named after a dog called Maverick, who was brought to the beach by surfers in the 1960s."],
-["SURF HISTORY","The Banzai Pipeline was named after the construction company Banzai Pipeline, not after the surf break itself."],
-["SURF HISTORY","Waimea Bay helped establish modern big-wave surfing as a major part of surf culture."],
-["SURFERS","Kelly Slater won his first world surfing title in 1992."],
-["SURFERS","Kelly Slater became the youngest men's world champion when he won his first title at age 20."],
-["SURFERS","Kelly Slater's 11 world titles are the record for men's professional surfing."],
-["SURFERS","Layne Beachley won seven women's world titles during her professional career."],
-["SURFERS","Stephanie Gilmore won eight women's world titles, making her one of the most successful surfers in professional history."],
-["SURFERS","Tom Curren won three world titles and was known for an exceptionally smooth and powerful style."],
-["SURFERS","Mark Richards won four consecutive world titles from 1979 through 1982."],
-["SURFERS","Gerry Lopez became closely associated with Pipeline and earned the nickname 'Mr. Pipeline'."],
-["SURFERS","Laird Hamilton was one of the surfers who helped push tow-in surfing into the mainstream in the 1990s."],
-["SURFERS","Tow-in surfing allowed surfers to enter waves too large and fast to paddle into under their own power."],
-["SURFERS","Mick Fanning won three men's world titles: 2007, 2009 and 2013."],
-["SURFERS","John John Florence won his first men's world title in 2016."],
-["SURFERS","John John Florence won his second men's world title in 2017."],
-["SURFERS","Carissa Moore won five women's world titles before retiring from the Championship Tour."],
-["SURFERS","Carissa Moore won the first Olympic women's surfing gold medal at Tokyo 2020, held in 2021."],
-["SURFERS","Italo Ferreira won the first Olympic men's surfing gold medal at Tokyo 2020, held in 2021."],
-["SURFERS","Gabriel Medina became the first Brazilian men's world champion in 2014."],
-["SURFERS","Filipe Toledo won the men's world title in 2022 and 2023."],
-["SURFERS","The first surfing Olympic Games were held at Tokyo 2020, with the competition taking place at Tsurigasaki Beach."],
-["BOARDS","Traditional Hawaiian surfboards could be extremely long and heavy compared with most modern shortboards."],
-["BOARDS","The modern thruster, a three-fin setup, was developed in the early 1980s and became one of the most influential surfboard designs ever."],
-["BOARDS","Simon Anderson popularized the three-fin thruster after winning the 1981 Bells Beach Classic on one."],
-["BOARDS","A surfboard's rocker is the curve from nose to tail. More rocker generally helps turning and fitting into steeper waves."],
-["BOARDS","A surfboard's rail is the edge running along the sides of the board."],
-["BOARDS","A surfboard's leash was developed to keep the board attached to the surfer after a wipeout."],
-["SCIENCE","Wave period is the time between successive wave crests. Longer-period swells generally carry more energy and travel faster in deep water."],
-["SCIENCE","Wind-generated ocean waves are created when energy from moving air transfers into the water."],
-["SCIENCE","As waves enter shallower water, they slow down and grow taller as their energy is compressed into a smaller depth."],
-["SCIENCE","Swell direction describes the direction the waves are coming from, not the direction they travel toward."],
-["SCIENCE","A wave's height, period and direction all affect how a surf break behaves."],
-["SURF CULTURE","Surfing became one of the major cultural symbols associated with Southern California after spreading there in the early 20th century."],
-["SURF CULTURE","The Beach Boys helped bring the California surf lifestyle into mainstream American pop culture during the 1960s."],
-["SURF CULTURE","The 1964 film 'The Endless Summer' introduced audiences around the world to surfers traveling in search of waves."],
-["SURF CULTURE","Bruce Brown directed 'The Endless Summer', which became one of the most influential surf films ever made."],
-["SURF CULTURE","The original 'Endless Summer' followed Mike Hynson and Robert August as they traveled around the world looking for summer."],
-["SURF CULTURE","Surf magazines played a major role in documenting surf culture, contests, equipment and the world's best waves."],
-["SURF TERMS","A 'goofy-foot' surfer rides with the right foot forward, while a 'regular-foot' surfer rides with the left foot forward."],
-["SURF TERMS","A 'barrel' is a section of a wave where the lip pitches over and creates a hollow tube."],
-["SURF TERMS","A 'duck dive' lets a surfer push a shortboard underwater to get beneath an approaching wave."],
-["SURF TERMS","A 'bottom turn' is the turn made near the bottom of a wave that sets up the surfer's next maneuver."],
-["SURF TERMS","A 'cutback' redirects a surfer back toward the breaking part of the wave after moving toward the shoulder."],
-["SURF TERMS","A 'closeout' is a wave that breaks across most or all of its face at once, leaving little usable open shoulder."],
-["SURF TERMS","A 'set' is a group of larger waves that arrives together within a swell."],
-["SURF TERMS","A 'lineup' is the area where surfers wait for waves at a surf break."],
-["SURF TERMS","A 'peak' is the part of a wave where the wave begins breaking first and from which surfers can take off."],
-["SURF TERMS","A 'left' breaks toward the surfer's left when looking from the perspective of a surfer riding the wave."],
-["SURF TERMS","A 'right' breaks toward the surfer's right when looking from the perspective of a surfer riding the wave."]
+const staticFacts=[
+['PIPELINE','Pipeline on Oahu’s North Shore is famous for powerful hollow waves breaking over a shallow reef.','SURFLINE SPOT GUIDE'],
+['TEAHUPOO','Teahupo’o faces directly into Southern Hemisphere swells and has very little continental shelf to weaken incoming energy.','SURFLINE SPOT GUIDE'],
+['MAVERICKS','Mavericks became famous for big-wave surfing on California’s Half Moon Bay coast and is exposed to large northwest swells.','SURF HISTORY'],
+['CLOUDBREAK','Cloudbreak in Fiji is a powerful reef break that can produce long, heavy left-hand barrels.','SURF HISTORY'],
+['JEFFREYS BAY','Jeffreys Bay in South Africa is famous for long, fast right-hand point-break waves.','SURF HISTORY'],
+['BELLS BEACH','Bells Beach in Victoria, Australia, is a large point-break setup with several connected surf zones including Bells Bowl and Winkipop.','SURFLINE SPOT GUIDE'],
+['Jaws','Peahi, commonly called Jaws, is a Maui big-wave break known for enormous winter swells and tow-in surfing.','SURF HISTORY'],
+['NAZARE','Nazaré, Portugal, is amplified by an underwater canyon that helps focus and increase incoming swell energy.','OCEAN SCIENCE'],
+['TRESTLES','Lower Trestles in Southern California is famous for high-performance right and left-hand waves breaking over a cobblestone reef.','SURF HISTORY'],
+['RINCON','Rincon on the California coast is known for long right-hand point-break waves when winter northwest swells arrive.','SURF HISTORY'],
+['PUERTO ESCONDIDO','Playa Zicatela at Puerto Escondido is famous for powerful beach-break barrels and large south swells.','SURF HISTORY'],
+['WAIMEA','Waimea Bay on Oahu helped establish big-wave surfing as a major part of modern surf culture.','SURF HISTORY'],
+['SUNSET BEACH','Sunset Beach on Oahu’s North Shore handles a broad range of winter swell directions and can become extremely powerful.','SURF HISTORY'],
+['HAWAIIAN NORTH SHORE','Oahu’s North Shore is one of the world’s most important winter surf regions, with Pipeline, Sunset and Waimea among its famous breaks.','SURF HISTORY'],
+['MARGARET RIVER','Margaret River in Western Australia is exposed to powerful Indian Ocean swells and has numerous reef and beach breaks.','SURF HISTORY'],
+['MUNDAKA','Mundaka in northern Spain is famous for a long, powerful left-hand river-mouth wave when the sandbar and swell align.','SURF HISTORY'],
+['SUPERTUBES','Supertubes at Jeffreys Bay is known for long, fast, highly lined-up right-hand waves.','SURF HISTORY'],
+['LAGUNDri BAY','LagunDrI Bay in Indonesia is a famous left-hand reef break on Nias that can produce long barrels.','SURF HISTORY'],
+['ULUWATU','Uluwatu on Bali is a collection of reef breaks exposed to powerful Southern Hemisphere swells.','SURF HISTORY'],
+['PADANG PADANG','Padang Padang in Bali is a famous hollow left that comes alive on larger Indian Ocean swells.','SURF HISTORY'],
+['MALIBU','Malibu is one of California’s best-known point breaks and became an important part of Southern California surf history.','SURF HISTORY'],
+['HALEIWA','Haleiwa’s Ali’i Beach Park sits at the northern end of Oahu’s North Shore and can receive powerful winter surf.','SURF HISTORY'],
+['SUNSET BEACH NZ','Sunset Beach near Raglan is one of the region’s better-known surf areas, while Manu Bay is the area’s iconic point break.','NEW ZEALAND'],
+['MANU BAY','Manu Bay at Raglan is famous for long left-hand point-break waves and was featured in the film Endless Summer II.','NEW ZEALAND'],
+['SNAPPER ROCKS','Snapper Rocks on Australia’s Gold Coast is a famous right-hand point break and part of the Superbank system.','AUSTRALIA'],
+['KIRRA','Kirra on Australia’s Gold Coast became legendary for long, hollow right-hand barrels when sand and swell conditions align.','AUSTRALIA'],
+['MEREWETHER','Merewether Beach in Newcastle, Australia, is a major surf destination and home to a long-running professional contest.','AUSTRALIA'],
+['TRESTLES','Trestles is named for the railroad trestle bridge near the surf break and is one of California’s best-known performance waves.','CALIFORNIA'],
+['STEAMER LANE','Steamer Lane in Santa Cruz is a famous California surf zone with several reef breaks near Lighthouse Point.','CALIFORNIA'],
+['OBERGER','Oberon Bay and the breaks around Victoria’s Great Ocean Road can receive powerful Southern Ocean swells.','AUSTRALIA'],
+['CAPE FEAR','Cape Fear near Sydney is a powerful reef break known for heavy waves when large east and southeast swells arrive.','AUSTRALIA']
 ];
-let current=-1,used=[];
+
+let live=[], pool=[], index=-1;
 const $=id=>document.getElementById(id);
-function pick(){if(used.length>=facts.length-1)used=[];let i;do{i=Math.floor(Math.random()*facts.length)}while(i===current||used.includes(i));used.push(i);current=i;return facts[i]}
-function show(){const c=$('content');c.classList.add('out');setTimeout(()=>{const f=pick();$('category').textContent=f[0];$('fact').textContent=f[1];$('number').textContent='RANDOM FACT · '+String(used.length).padStart(2,'0');c.classList.remove('out');const p=$('progress');p.style.animation='none';void p.offsetWidth;p.style.animation='run 14s linear forwards'},350)}
-show();setInterval(show,14000);
+function shuffle(a){return a.slice().sort(()=>Math.random()-.5)}
+async function getNews(){
+ try{
+  const r=await fetch('https://postmodernsurfer-jpg.github.io/raglan-surf/surf-news.json?x='+Date.now(),{cache:'no-store'});
+  const j=await r.json(); live=(j.stories||[]).map(s=>({
+   category:s.category||'SURF NEWS',
+   fact:s.title+(s.summary?' — '+s.summary:''),
+   source:(s.source||'SURF NEWS')+(s.date?' · '+s.date:'')
+  })); build();
+ }catch(e){build()}
+}
+function build(){
+ const stat=staticFacts.map(x=>({category:x[0],fact:x[1],source:x[2]}));
+ pool=shuffle([...live,...stat,...live]);
+ if(index>=pool.length-1)index=-1;
+ showNext();
+}
+function showNext(){
+ if(!pool.length)return;
+ const c=$('content');c.classList.add('out');
+ setTimeout(()=>{
+  index=(index+1)%pool.length;const f=pool[index];
+  $('category').textContent=f.category;
+  $('fact').textContent=f.fact;
+  $('source').textContent=f.source;
+  c.classList.remove('out');
+  const p=$('progress');p.style.transition='none';p.style.width='0';void p.offsetWidth;p.style.transition='width 14s linear';p.style.width='100%';
+ },300);
+}
+getNews();setInterval(showNext,14300);setInterval(getNews,30*60*1000);
 })();
-</script>
-</body></html>
+</script></body></html>
