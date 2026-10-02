@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-10-02T07:01:16.388197+00:00",
+  "updated_utc": "2026-10-02T07:25:18.864784+00:00",
   "rows": [
     {
       "time": "2026-10-02T21:00",
       "wave_ft": 5,
       "period": 10,
-      "wind_kmh": 18,
+      "wind_kmh": 20,
       "wind_dir": "SW",
       "tide_pct": 8,
       "face": "🙂"
@@ -14,25 +14,25 @@
       "time": "2026-10-02T22:00",
       "wave_ft": 5,
       "period": 9,
-      "wind_kmh": 19,
+      "wind_kmh": 21,
       "wind_dir": "SW",
       "tide_pct": 21,
-      "face": "🙂"
+      "face": "🤯"
     },
     {
       "time": "2026-10-02T23:00",
       "wave_ft": 5,
       "period": 9,
-      "wind_kmh": 20,
+      "wind_kmh": 21,
       "wind_dir": "SW",
       "tide_pct": 48,
-      "face": "🙂"
+      "face": "🤯"
     },
     {
       "time": "2026-10-03T00:00",
       "wave_ft": 5,
       "period": 9,
-      "wind_kmh": 21,
+      "wind_kmh": 22,
       "wind_dir": "SW",
       "tide_pct": 74,
       "face": "🤯"
@@ -41,7 +41,7 @@
       "time": "2026-10-03T01:00",
       "wave_ft": 5,
       "period": 9,
-      "wind_kmh": 22,
+      "wind_kmh": 21,
       "wind_dir": "SW",
       "tide_pct": 92,
       "face": "🤯"
@@ -68,7 +68,7 @@
       "time": "2026-10-03T04:00",
       "wave_ft": 6,
       "period": 9,
-      "wind_kmh": 21,
+      "wind_kmh": 23,
       "wind_dir": "SW",
       "tide_pct": 82,
       "face": "🤯"
@@ -77,19 +77,19 @@
       "time": "2026-10-03T05:00",
       "wave_ft": 6,
       "period": 9,
-      "wind_kmh": 20,
+      "wind_kmh": 22,
       "wind_dir": "SW",
       "tide_pct": 59,
-      "face": "🙂"
+      "face": "🤯"
     },
     {
       "time": "2026-10-03T06:00",
       "wave_ft": 5,
       "period": 9,
-      "wind_kmh": 20,
+      "wind_kmh": 22,
       "wind_dir": "SW",
       "tide_pct": 34,
-      "face": "🙂"
+      "face": "🤯"
     },
     {
       "time": "2026-10-03T07:00",
@@ -104,7 +104,7 @@
       "time": "2026-10-03T08:00",
       "wave_ft": 5,
       "period": 9,
-      "wind_kmh": 19,
+      "wind_kmh": 18,
       "wind_dir": "SW",
       "tide_pct": 8,
       "face": "🙂"
