@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-05T12:54:37.887744+00:00",
+  "updated": "2026-10-05T13:23:43.646829+00:00",
   "stories": [
     {
       "source": "SURF NEWS",
@@ -28,7 +28,7 @@
     {
       "source": "SURF NEWS",
       "title": "Hawaii County Surf Forecast for October 03, 2026",
-      "summary": "Hawaii County Surf Forecast for October 03, 2026 &nbsp;&nbsp; Big Island Now",
+      "summary": "Hawaii County Surf Forecast for October 03, 2026 &nbsp;&nbsp; bigislandnow.com",
       "date": "OCT 03, 2026",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPVmR5SW1jWmY4dUtFdHBCQnBFbkVjREVJYVpyclA2WlE3M1pkSFdXWnBsMnR6a0FMcDVYRWVnQW5UQTZtMDJNa2pRQUFyQ1lIaEtEdkdBNW9sbW1PWFN6LUZGbXhJeWQ2emljS3VDek5OSXE3YWozR01mdW15MFNINVJQQXlLaHRGbmJWNA?oc=5",
       "category": "SURF NEWS"
@@ -67,11 +67,11 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "The Hook Surf Report, Surf Forecast and Surf Cam",
-      "summary": "The Hook Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "title": "Ocean Beach Pier Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Ocean Beach Pier Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "OCT 03, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5QSWNIY2FBa044elpwek9vNkN3ZmFlYlNUS2tEcXFrZWtzYkxrMDdhaEtsSkdhb0l4RXlKNXFSUlRSMzZWdXpXUXlCUWJOcXRONnVWdjhJakZlbUpMVUpuVVBLNktvMlFTSjNUV0pfZjFKdmsyQmdLU2xR?oc=5",
-      "category": "SURF NEWS"
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOanJ6Mmdycy1Ta19ad2xnOTNPWVhTWU0zS2tjcjhtdWoyTFJncU0wa0hTUTN0YzVWa2lfZUdiclFpVzU0YS1ueFdzWExJdHViamZ5TFBQdGJ2SVh5S29MSUtnUm1vUEc3WDc0VTJycTQzeW0wRERBWVFWMXc3V2FacXllX2M?oc=5",
+      "category": "OCEAN & WEATHER"
     },
     {
       "source": "SURF NEWS",
@@ -84,9 +84,17 @@
     {
       "source": "SURF NEWS",
       "title": "Hawaii County Surf Forecast for October 02, 2026",
-      "summary": "Hawaii County Surf Forecast for October 02, 2026 &nbsp;&nbsp; Big Island Now",
+      "summary": "Hawaii County Surf Forecast for October 02, 2026 &nbsp;&nbsp; bigislandnow.com",
       "date": "OCT 02, 2026",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNZURvTG8xei1KdW5sOTV2aExDWkZTQzBnSVk4UVhZVDhuaGJoMG02d2h4YUlpd3JDN09IYVRTVWM1MDh6TFp3R1NCdlZPOG1GdGtNMWVJTlFVcUZYN1dCZkcxX0RnOEFKbHFGQUU2a1hiQ0pXZ2lULXB4Q3Z4aE5sR1l1S2VxTFRQN21sXw?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "The Hook Surf Report, Surf Forecast and Surf Cam",
+      "summary": "The Hook Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "OCT 03, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5QSWNIY2FBa044elpwek9vNkN3ZmFlYlNUS2tEcXFrZWtzYkxrMDdhaEtsSkdhb0l4RXlKNXFSUlRSMzZWdXpXUXlCUWJOcXRONnVWdjhJakZlbUpMVUpuVVBLNktvMlFTSjNUV0pfZjFKdmsyQmdLU2xR?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -163,10 +171,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Hawaii County Surf Forecast for September 27, 2026",
-      "summary": "Hawaii County Surf Forecast for September 27, 2026 &nbsp;&nbsp; Big Island Now",
-      "date": "SEP 27, 2026",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPN2d2aHdDVU5iM3pZc05XYjFEX2NkSFJpU2o4V0NTczdfUVM0b0E4VV81VHUzUVYwYlBPeUJhcXIwd1AwSEFQOGZnMEVpeDBtaGo4a1ZDTEY2cU0wLXVQQ0ZUMlUxRTVCTzlwejM3QU5rU2lGS0doUnhTQUV5TWFubVZqOURCZTNFSVFzcHBnTQ?oc=5",
+      "title": "Maui Surf Forecast for September 21, 2026",
+      "summary": "Maui Surf Forecast for September 21, 2026 &nbsp;&nbsp; Maui Now",
+      "date": "SEP 21, 2026",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBYRGd1TEFmLWpmSzB6cmQza3pYWVZ4OGlvYmNQT3hpX0xQdkMxNkR6a294Z3JNVG5leG96X2tEMHdTYjRCVEJxdEpkbzlncndJWlpxa1l4VE4xWlZhNjhOQXVVMUxlbERCZ0ZfNDk0Q2dfX1g0ZFItYlRIa0c?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -187,10 +195,26 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Kauai Surf Forecast for September 27, 2026",
+      "summary": "Kauai Surf Forecast for September 27, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "SEP 26, 2026",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZkx6dUJBQjVYREpfcF9OMFNRZzNMMktVR0tLWThVLXRyXzFBcEJRckpwTGg4SmVDNzhZZDFJcUF2bkVSSTFXTzBlT21qLXdMaWVEVVdMX0N4Z0UxUENESzBfTEFOS2c4NzhfX0FQd29wUkFUc09NS0JEZWFNdS1WdGhqTzI?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for September 19, 2026",
       "summary": "Maui Surf Forecast for September 19, 2026 &nbsp;&nbsp; Maui Now",
       "date": "SEP 19, 2026",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9pemJKQU5BdE93QWlkQ1ZKVFcwR0lRcmJwUlRxZXI4TEJEOUU5TWlfaFFUMVo4R2pxV01kSHFOU1FTUWNOcFVHWnhTTGhPanZqUjJJV2h3YU5leHpiRmdfXy1Qa1ZBMkcyTmY3TngwMjdfeFIxS091SU95ano?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Maui Surf Forecast for September 15, 2026",
+      "summary": "Maui Surf Forecast for September 15, 2026 &nbsp;&nbsp; Maui Now",
+      "date": "SEP 15, 2026",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBVX2dhVDhhcjFxaTJoQ1VCSTBBNW9VU2Fha085dmlkMmZObUJZUjNEWFVzQUZZckJVODdZdDZ2T2IwREJGSzJWdktsRTA1ZmoyWGlUd3hnSDJwMFlYeVNXV250YnZNakxYU3Bscy1IemlSSWZ0SkNONC14RUc?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -308,7 +332,7 @@
     {
       "source": "SURF NEWS",
       "title": "A Surf Forecast You Can Hang On Your Wall?",
-      "summary": "A Surf Forecast You Can Hang On Your Wall? &nbsp;&nbsp; surfer.com",
+      "summary": "A Surf Forecast You Can Hang On Your Wall? &nbsp;&nbsp; SURFER Magazine",
       "date": "AUG 03, 2026",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB1N0cteW83VE1IR2dvWDZEWWJkWnBMZmNUVTJCS2VPSW56MWFPRThubHRrMHNtZHBraHVWc2dtMTdxbWg3X3puajBDdlZpRnZOYnJtUGswZXRiLV82THlOSWx3b0QxQmNSMlBVM1M0RWNVUkx1dlVuaQ?oc=5",
       "category": "SURF NEWS"
@@ -351,14 +375,6 @@
       "summary": "Maui Surf Forecast for August 17, 2026 &nbsp;&nbsp; Maui Now",
       "date": "AUG 17, 2026",
       "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5lWjJRR0xrNUZfVlRNaEs1ZktjQW1RM3VfTWxaZm5TRTZMSHE0dG1veE85ei1uNm54VDJLRFhYLVVpSlhSTkdKMUJIZmZ2eGtqY1NOYjlsS3dxV1g4RE53eGlHdWJvd2RWeENxY3ZtZmdkZmJha3laVw?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Maui Surf Forecast for August 05, 2026",
-      "summary": "Maui Surf Forecast for August 05, 2026 &nbsp;&nbsp; Maui Now",
-      "date": "AUG 05, 2026",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1xWkFhUGtZeXNkaWpYQmN6WVRDOWdWUVZKc3pvazNiT3NOWVJUWkk1SjYybllhZWhuUnRBZmRaa1psUmNJY3dNb1ZKTXNHX0dKOEtDYXY2bTdpdzNfOXl5bmJkb24tSkJXTjFBVGdtR1hQcUtlX1dweg?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -507,6 +523,14 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Kauai Surf Forecast for August 18, 2026",
+      "summary": "Kauai Surf Forecast for August 18, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "AUG 17, 2026",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOOFdnVFMyamplM0JWUGdxQ0hHN0Y0SFBJc0c4ejk1RzdXWFNxbjlvTllfakpPdVkyYmxlMlJVclFyWF90ZmlFLXM4dWdVbG5wNmZuUnlUd2RIYnQ3T2lHWkpHd283UkM3Nmk3Z0ZVT3Npc0gtSmpZZk92UGlOMFlwLQ?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Kauai Surf Forecast for August 23, 2026",
       "summary": "Kauai Surf Forecast for August 23, 2026 &nbsp;&nbsp; Kauai Now",
       "date": "AUG 22, 2026",
@@ -556,7 +580,7 @@
     {
       "source": "SURF NEWS",
       "title": "Hawaii County Surf Forecast for August 26, 2026",
-      "summary": "Hawaii County Surf Forecast for August 26, 2026 &nbsp;&nbsp; Big Island Now",
+      "summary": "Hawaii County Surf Forecast for August 26, 2026 &nbsp;&nbsp; bigislandnow.com",
       "date": "AUG 25, 2026",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQV3M0SEtfell3Nnp5U2dIZkliY1E2bGU1OE8tajlmNGxwelpNQXVkT2FuRUhtX0tFVGFiVXA4dW1IVjFTYTVhYUhhTlJiRUZKYzY4X0Q1M2pJUVMwdW9QYXNLRnVfZHFCQVZWbXpCRXVIWGMxekNVZ05JLXRJUFRJaWJLcnpGOG5ENFlR?oc=5",
       "category": "SURF NEWS"
@@ -588,7 +612,7 @@
     {
       "source": "SURF NEWS",
       "title": "Hawaii County Surf Forecast for August 27, 2026",
-      "summary": "Hawaii County Surf Forecast for August 27, 2026 &nbsp;&nbsp; Big Island Now",
+      "summary": "Hawaii County Surf Forecast for August 27, 2026 &nbsp;&nbsp; bigislandnow.com",
       "date": "AUG 26, 2026",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOVHk3bGVXMjBjOEFOdTRrWUVuMGZVc0R5ZUFwMnd2ZlVMcGJZVDljNGQ4eEZTSWhhbXVpYVpaMlA2MmYtN0FzRU0yb1JpazVoelpuRE1iUmo3STgzd0pSWnhYQVNnckdzN052aDloSW1mWjV6UHZjZEF2cUpLMWh1OVN4dktxZlZwaUNV?oc=5",
       "category": "SURF NEWS"
@@ -615,30 +639,6 @@
       "summary": "Maui Surf Forecast for July 07, 2026 &nbsp;&nbsp; Maui Now",
       "date": "JUL 07, 2026",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5tanZHSVlGeVJJN3BzT1RyUjhfeWRtYXM2Q2tyZWl3azE4RUhMLUFmMS1oMWp5NGhtQ0VkMW90bFdGTkJ0eG5wbTU5alVNcjJJMDNSczJBaFpUdzNEcTl6bmtjM2hOZlB5M2M4eHZ5b1B1UVUxS2c?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Hawaii County Surf Forecast for August 03, 2026",
-      "summary": "Hawaii County Surf Forecast for August 03, 2026 &nbsp;&nbsp; Big Island Now",
-      "date": "AUG 02, 2026",
-      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQUVBHZXA3dWdCaGgwMFo3QlhoblFJM2UzVHZGR1V1WFo4X2l0dmpkYU95WEtkaUtQSC00aHBfQjdfSmVtZnVjcmo4dkdITEV4a3c3WHU3MVJscUowbzNUMjhGZzNlTERiYklrT0g3LUVmNFI3eWhtY0VIQmNKWkM5SWtYVGVXNTFzVDlmX0t3?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Maui Surf Forecast for August 19, 2026",
-      "summary": "Maui Surf Forecast for August 19, 2026 &nbsp;&nbsp; Maui Now",
-      "date": "AUG 19, 2026",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB0UFl3NFZGdGMtUUItYjNmS2tFdjYyT2VYbDJfUDAtWkRNbWpVWnhKTU1nT2FhejdIcGwzYUdab0owSGJFV2xIOGJYOGVhUnpvbDBNMWV5Ykh6WHRlSHNBNXNobFFKakRQdUpFWjhhNS1CUHE3X011Mw?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for August 20, 2026",
-      "summary": "Kauai Surf Forecast for August 20, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "AUG 19, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPbmtHZ2thcmR4c0FUbGlpTm5VOWUzUEVKLVN5YUJTX1JjVEd2ZnI4QzZ6Qjk5Y3Z1REljb3dHQ0dNc0NVREwyNHV6NDMwMmxlRHUwNzY0NzJQaEEyYzk0emd0cXpoUmYzWmh5VzEzM2M1cnhhRzlZWDRNeXVxRUFKNw?oc=5",
       "category": "SURF NEWS"
     }
   ]
