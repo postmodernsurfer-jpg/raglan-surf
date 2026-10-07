@@ -1,20 +1,20 @@
 {
-  "updated": "2026-10-07T17:23:00.941554+00:00",
+  "updated": "2026-10-07T17:48:32.302538+00:00",
   "stories": [
-    {
-      "source": "SURF NEWS",
-      "title": "La Jolla Shores Surf Report, Surf Forecast and Surf Cams",
-      "summary": "La Jolla Shores Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "OCT 07, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQM3hhV0ZPSno2T3NnazB2eXdHVE5xa1JObmtvaVotZDd5VVJaQi1BSjNBYW8xSU1hQS01NUNKeWJYQ0ZBNk1rNzdFV2VITUdRT0JLenpQZ2hFTjZOeE8wSjBlTHBWZW42dE9PbnpoOWpIdmRUajk3ZXp3LUdTMXhKejlmUQ?oc=5",
-      "category": "SURF NEWS"
-    },
     {
       "source": "SURF NEWS",
       "title": "Maui Surf Forecast for October 07, 2026",
       "summary": "Maui Surf Forecast for October 07, 2026 &nbsp;&nbsp; Maui Now",
       "date": "OCT 07, 2026",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBfT0lrV3JtUWIwTzRWVElxcDJSbXlrWmVJYjJ1ek1HWGxkNDlZdWoyMWhCdjRvOWVyRXdRdDRXZ1hTY05lSDduRTIteDk1elVqc1h4LS10cFpFVzl3Q20zYi1sdmdNLWJ4eU1FdTdjTmZiZXQyLWxrakd3?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Ponto Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Ponto Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "OCT 05, 2026",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1LaG04Qzc0RUNfd0tPUGdGMzBjVnpZaWpiV1Z2NjZ3djVOaHItMWJUVS1lWHdQUUF2N0hNRVYwTFdYT0JZdlVMZTFnOFdYVzB6NjdlamFZMjZuUkRIbnhBUVpoOFFfRTc0cHM1NHRhck5Uc3YwQ2c?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -43,10 +43,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Steamer Lane Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Steamer Lane Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "title": "Doheny State Beach Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Doheny State Beach Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "OCT 05, 2026",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE55QWdfbnV4ZHFoWXFZNll4SnBQcDdBSWd3a19DR1ZOMk95VDdwb1M4M29JdS1JV0hDQk44ZDBYTUJ3UzB4YS1Wa2I4QjVHUWNmY3VpeFoxcnlHWU1QN1J5WnptR3V5ZkVEYmpFS19VUmp1SElvckwzR0dIYkl2N1E?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQbmo4V0VKam5fdGw2ZF9pci1KaEZrdUI4bWswN29iRWdROXhNYW94dlZjNW9FMG9ZMFpnaE5LRklUakNpQmdvOVlUWTU1bGxaS0xlenZWX3FxejNXeXNiczUzOXkyMlBnUlFmM1lBcVlVM1d1UTJPT08yTzdPU096RUFkZFEtbm8?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -75,10 +75,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Doheny State Beach Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Doheny State Beach Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "title": "Pacific Beach Drive Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Pacific Beach Drive Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "OCT 05, 2026",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQbmo4V0VKam5fdGw2ZF9pci1KaEZrdUI4bWswN29iRWdROXhNYW94dlZjNW9FMG9ZMFpnaE5LRklUakNpQmdvOVlUWTU1bGxaS0xlenZWX3FxejNXeXNiczUzOXkyMlBnUlFmM1lBcVlVM1d1UTJPT08yTzdPU096RUFkZFEtbm8?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYjdBWkZSU2RvWjh4VGZVc2lReGtKNnJkNTM0TlQzY2J3ZkhPUFNRRWQ1bFdwWkNKZWRZVWNMRUJfNEk0cTB4QTdUdktMZkxCamlpa09tYXJubnlacjVXTmg2S3UyOFRMY2ZiR2s1SVY5Y0JHQmxKMEI0MVMybU5ESmpWSVN4NXdZ?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -87,14 +87,6 @@
       "summary": "Monday Surf Forecast | Breezy trades, easterly surf still up &nbsp;&nbsp; KITV",
       "date": "OCT 05, 2026",
       "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOYmtlWGNNUk4zcWVkY0VnTHQ2WWF2QmI1enJBN1l1OWtYempXdk1LRHZrYk5rR2lhZElTRU1yQzJvZnJncjNaX3BjektWNTBlaEpGOXJ4LTZoSndTSk01VmwzeVptS0tUVm5PclEzNTB3QjdiVGltOFpySnZBd1E3SlJyT29TRkt1YlBoelJfaTZSd0tMbzg2NU9NMUZmTXpIbnJSVktWek9xUW95clFnQlptQmFIdWFid3VfcjY1RXpvaFduRWh6VjdKTktPdUp1SVc2WUZXSQ?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for October 02, 2026",
-      "summary": "Kauai Surf Forecast for October 02, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "OCT 02, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMzcxcGEtVVk0bnAxUGdTQVhJMWw3eFFkREhTYVhWZmEtVnNvazUwTVFXbFM3cXRVc1gxNXhYc2x5QWI2YU1VNXc1SmUwdXhTSnVvcG44R1dmaElQeG5uZWdjUVBxSHNJUU5BeGRaTnZEVUg2STIwUW0teFZkZXhyZmNR?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -115,10 +107,18 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Pacific Beach Drive Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Pacific Beach Drive Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "title": "Turtle Bay West Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Turtle Bay West Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
       "date": "OCT 05, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNYjdBWkZSU2RvWjh4VGZVc2lReGtKNnJkNTM0TlQzY2J3ZkhPUFNRRWQ1bFdwWkNKZWRZVWNMRUJfNEk0cTB4QTdUdktMZkxCamlpa09tYXJubnlacjVXTmg2S3UyOFRMY2ZiR2s1SVY5Y0JHQmxKMEI0MVMybU5ESmpWSVN4NXdZ?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNc3Q3QTBwZGM4LWZ1WlUyaUtYbmJURGZfOGFsLTluTW14dkhxNnY2OGVmUmREQnVMNlNlMklCem9LX2ZnSkFFQlhqWjhOdmtsMkNaZmxzc1pob2lPeGpzTGxncU5CWFhLTGR4WWlPWlY0cGRzV2Fma29ZS2ZHTVhaWWxfNA?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Seaside Reef Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Seaside Reef Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "OCT 05, 2026",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5CR2NPWURxbnZRRklUQ1RuWHZhXzNxeEZMM2VqblYyeFVMNDg2SnZoMm1kSExORXRDRjhvaEhEeUx3SXBkUWRNZmtTU1lLZWhQMU9ZVE5iVGVheXFEOWh1QldzMDF0TFlINVJ5Z3dVRS1RZHE0MTh5QlpScXY2aTA?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -131,18 +131,18 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Salt Creek Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Salt Creek Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "title": "Tamarack Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Tamarack Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
       "date": "OCT 05, 2026",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE94cTNsOW1qazBEcDN6TV9XWjVVbDJncEs5MlBnN2ZUcmk1ZDBFczNDR09kSU5najdhWE8tQ3BrRmhiOUprbEo4ZERhWVA5QlVNTGZ5TjdDTWNGdUhhY1pxRnFfNG4zNHVLb2xtU3JGaGVpcVNCaGZCNFlBZ0k?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9HbV95YTBWNWdreUFZRUU0cTZ6dFJfMkRwMHV1TEtRQnVMUk1lSTctRHVMYjQ3WHpHY3RGSm1Eb1NCckZTRXZha2tIWFEyREpjRE5MUk1XNURIV29FT3dFVDd1REM4M0V4QWpIZ2xxRHNQaWZQZWZHNDhR?oc=5",
       "category": "SURF NEWS"
     },
     {
       "source": "SURF NEWS",
-      "title": "Pleasure Point Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Pleasure Point Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "OCT 06, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbDQtRTlYc1F3cmt5Y1FtVklnU2t4c1NUZHBZaHEzcXJTR0hrMl9fVWQyamxacnFNWjhxLU9fNG1tNlVscEgxSHpsRy0ta0IzbHVfYWhvem9rRDZvMFFENE5Rdng1cXExZldVWllZQ3cxNnlmaFNKVnR3a2RsdllLM2tR?oc=5",
+      "title": "Salt Creek Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Salt Creek Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "OCT 05, 2026",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE94cTNsOW1qazBEcDN6TV9XWjVVbDJncEs5MlBnN2ZUcmk1ZDBFczNDR09kSU5najdhWE8tQ3BrRmhiOUprbEo4ZERhWVA5QlVNTGZ5TjdDTWNGdUhhY1pxRnFfNG4zNHVLb2xtU3JGaGVpcVNCaGZCNFlBZ0k?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -155,6 +155,22 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Oceanside Harbor Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Oceanside Harbor Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "OCT 06, 2026",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWExSWnJIeDFZdzhzSTRjSnVHbHJTTTBPVUhlNUUxdGtmdl95NHlwbnhVazZxckppWGdnOXVJWVBBUHF2alA4Q0NycHVmanZXeUpHdVB2N0FQdXV2dXRJM1NLVWd3NFFRaWxkWjZpX0J4dlBOTjV2dHllLVR4akhiMnJxLVQ?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Kauai Surf Forecast for October 02, 2026",
+      "summary": "Kauai Surf Forecast for October 02, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "OCT 02, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMzcxcGEtVVk0bnAxUGdTQVhJMWw3eFFkREhTYVhWZmEtVnNvazUwTVFXbFM3cXRVc1gxNXhYc2x5QWI2YU1VNXc1SmUwdXhTSnVvcG44R1dmaElQeG5uZWdjUVBxSHNJUU5BeGRaTnZEVUg2STIwUW0teFZkZXhyZmNR?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Mike's Southeast Forecast Notes: Windows to Target This Week",
       "summary": "Mike's Southeast Forecast Notes: Windows to Target This Week &nbsp;&nbsp; Surfline",
       "date": "OCT 05, 2026",
@@ -163,10 +179,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for October 01, 2026",
-      "summary": "Kauai Surf Forecast for October 01, 2026 &nbsp;&nbsp; Kauai Now",
+      "title": "Maui Surf Forecast for October 01, 2026",
+      "summary": "Maui Surf Forecast for October 01, 2026 &nbsp;&nbsp; Maui Now",
       "date": "OCT 01, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMEMyZHBVSkFoT2pyQW5YUWw0V0p1UGRZUUdubVpWekt6aWY1OVhLMlR1SmhlSVk5eUVpVnB4VGRSdHFvZUFlSWI4VWJWbU1kSFlCNXVzby1oTHZlOXVzRWJPaURhYkk5bWltdktaU2hIYXlISUZkOV80UC1WWFFrRWtn?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1JSGttYlQ1UF9hLW00S1Q4Q2hQM2h6b3JCRVZNLWUtNU9UTUJSTV9rZzljOGNjM3R0S0pIOFpsX05qWEwxLWNmSmxtbjlBSEVYaVdBclZ6eDZJcnhQblMtekhkdldYRnpOdEJvb2lLZlY0eGctYndKd05B?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -175,6 +191,14 @@
       "summary": "Maui Surf Forecast for September 30, 2026 &nbsp;&nbsp; Maui Now",
       "date": "SEP 30, 2026",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBjWVk0ZC04R1c1czlybkZFR1V1UVc5WmJ4ekxyZWVaa2dtLXpMNXlTUXZPTm5QQjBEQWZUM0J4eElYZktnby0wemcyb0pfRmF5dUhrZzYwQ1Y4UDJvTU9Tdl9wUWs3a3lKUU9sMzczc3FzZVAxLWp4Z3M4QVc?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Hawaii County Surf Forecast for October 01, 2026",
+      "summary": "Hawaii County Surf Forecast for October 01, 2026 &nbsp;&nbsp; Big Island Now",
+      "date": "OCT 01, 2026",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTFF5bG5SdG1ZeW5Bd1Y0RTlCNnRmX3ZtX1cyM0plR0V2UC1TQi1oeS1uZ0ZlaURnZ2R2azc5Vm40MnVrSy16Z2lxa0VoMHp3U0NwMlYtaVhnV1NSQk93UDVFM3Y1SDNMS1p5aElITGxFb2dnOVNxRlpIa1hPd21VWVpsNVNGaXgxUXhhMw?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -307,26 +331,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "San Juan Beach Break Surf Report and Surf Forecast",
-      "summary": "San Juan Beach Break Surf Report and Surf Forecast &nbsp;&nbsp; Surfline",
-      "date": "JUN 04, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPU2Z2NEdDVmFkM2FoTlNhWnpqZ3R3aEU0SGd0bzJjaUw3RTZzdVVhZF94MjZIWXpFdjRlLUxDUHY2NWpBZGlaaWpsZ0ZZRl9xLWktZ3VpdGJsUnEySWJCeDdpWjhnekd2OHJsTGF4UmtHdlBZQTM4ZXp4WDhHcnB0d3oyOXdqMURQWnc?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Kauai Surf Forecast for September 20, 2026",
       "summary": "Kauai Surf Forecast for September 20, 2026 &nbsp;&nbsp; Kauai Now",
       "date": "SEP 19, 2026",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVWF4ZWQtYjdfV010Tzlyc3pxM3Y1cWhKcERUM0wxNnEybDZMaE9QMFJPVXY1X3I2SGNyY0RUTU0wX3V0Y0VJc19KZGEzX00xMEU2LWtTaTRUN3dnNE03Y25rYllHR3NFWlZVUTZ0LVBGSUFoVGc2ekUyRVc1S0M5NVA2WEY?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Virginia Beach Pier Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Virginia Beach Pier Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "APR 09, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNV2FudnZUTHdGU2ljZW1LY0dsNmpTanpEWXpBNWJ1RWU5N3NpNU5PZnU0VExfU21Pa1NDTDA0MU9DU2cyTDQ2OUh6VWt1MnFTM2NpMXBEYjB0VWNJWERMcFFnTk9HbF9PdEZsYUV2YnpneVc5eW5TZnBQb2t1NXA1NlFJU3oxMGRZ?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -343,14 +351,6 @@
       "summary": "The Pass Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "AUG 05, 2026",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9sN1VkQjBWeVBrWkdnU0ppZnlWeFhiY21FS0lzdWNFTDhqcmZWZ2J0eFUxa2REWlFpRzMxODVPR3o1cWlvVEdqcHVxc2pVUzk1Nk9uSUZZWWV1RGdTN0RYYnAwbzFtelJxREtrSEkwLUg2ZFZEd1JDbHBB?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Fletcher Cove Surf Report and Surf Forecast",
-      "summary": "Fletcher Cove Surf Report and Surf Forecast &nbsp;&nbsp; Surfline",
-      "date": "JUN 16, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOaEx1SHBNWlFRQlZ0eWh6ZnozSnI3cFRNSUlabFE3OG4xanRVc2lxc1NodkNZN1NKMkl2VnZLN2hIaFVTdHpsN1RWMWs3ckctN1ZBWFhkOGg2cGZTb0t1Sms3XzROR1FvTlB5WWtmQzBQOFdVdmNLN0liS0c2Q2xVeg?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -395,6 +395,14 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Field 2 Surf Report and Surf Forecast",
+      "summary": "Field 2 Surf Report and Surf Forecast &nbsp;&nbsp; Surfline",
+      "date": "JUN 02, 2026",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE15aERVZkdFc0JwV2hKWFgtanpSSVQwR2xLRDBCSG9tM1dYNE1jM2NadnlHT3BNRmZiT2hhLVpRbkE3WW1VOWY2LVpfMlpERXJkM1VoSlUzMzl5MUhqTVAzOWNqbFJZdnE3THZfMGw0MTRmNl9EMzhxeg?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "A Surf Forecast You Can Hang On Your Wall?",
       "summary": "A Surf Forecast You Can Hang On Your Wall? &nbsp;&nbsp; SURFER Magazine",
       "date": "AUG 03, 2026",
@@ -427,10 +435,34 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Crystal Pier Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Crystal Pier Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "APR 13, 2026",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBweVloanZYSW50Q0ZJU3NlVkNHMno3MGNObGszVTdNQjVhS1QxU015emFwOGQ0ME1UdW0ycng4a05lMHN4VDFHNHZHSVA3QnZtM3I3TW1ibVNlM1NKZS1GdENxWW9HYXVabmdqZkNiLWE0QXpXWHNkc3ozQThFcFU?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for September 06, 2026",
       "summary": "Maui Surf Forecast for September 06, 2026 &nbsp;&nbsp; Maui Now",
       "date": "SEP 06, 2026",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9NMElQeWRQektGUDA2WW1JVGtsVnlVMExrb0xOUDk1dUVKeG5FZmVvWVRyOF82MGRhZkNmOFhHdWdCeE15YTZ1b0luMDJZXzRkdGhLRF9KaTFPVVdOZzJTVVhjQzBRM3B6Z1laWkZ5SDdWTDI1N1JkcjRUUGY?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Ocean Ave Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Ocean Ave Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "JUN 02, 2026",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9BLXRHTWI2ZHJiSDNKRmtMQVRBZjA2SGZJMjRfZFh0STBOeVRXRWRFRVpOcWVkN3VSOURuRmxxNi1QVE0tRWJrRkZRSkI0S2Frb0JZMXJzOXlkVjA5WGVyZlJCOXFsQmZBWFdCT0lUUU1XaFQ0Z3daUWtTaw?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Kauai Surf Forecast for September 12, 2026",
+      "summary": "Kauai Surf Forecast for September 12, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "SEP 11, 2026",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNbHJ3bzhZMGpocl80ak12X2FJeXlvVkNRWS1oaDhnZ2ozX1RCZUN2VDBjUVVrOTVlaFYxQ0RDendXMmhheWo1dW1TUi1kZGE1N1hnZzhOckdZN2ZNT0Q5MHFPU3dheGpLVlRKeEZUcDlRZXJNUXE0NFA2blFRdWpMd3JmdkU?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -571,6 +603,14 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Kauai Surf Forecast for August 14, 2026",
+      "summary": "Kauai Surf Forecast for August 14, 2026 &nbsp;&nbsp; Kauai Now",
+      "date": "AUG 14, 2026",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNNXdHSUtvVmh6c0FnelBDcEZ0OGw2VmVtbFFpcHJpajJOODhPVmRKQlNJMjVrQ1hXM2Y5bmRKallfVlczVVAwMlhMaTRac2ZOOVpoX1cxdEt5WnhEYTVTemllWk9EeGoyUXJLZ2lxMlpZTnc1ZE9xaUQwU3V2QndvdVdESQ?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for July 11, 2026",
       "summary": "Maui Surf Forecast for July 11, 2026 &nbsp;&nbsp; Maui Now",
       "date": "JUL 11, 2026",
@@ -595,50 +635,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for August 14, 2026",
-      "summary": "Kauai Surf Forecast for August 14, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "AUG 13, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPRGVxTXM5Si1ZV3NPRzRFRjRZeHRWbXBObm9pS1RkR0RlOGJZTDFiUXEwT2xGamxZclFIbkdQeFBfX0ppN3YzaGV4ZlhqZGVlZ3BBN3JCT1JFaEYzdTIydUpQZElQa0dxQkRDSkl6TXA0TkEyM1BoeGN2ekVpbGdKdw?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for July 31, 2026",
       "summary": "Maui Surf Forecast for July 31, 2026 &nbsp;&nbsp; Maui Now",
       "date": "JUL 31, 2026",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBvd0VQam9meVRTLWstZmdEWHB3N2lTOGxIaWpMdEVaOGtCbVVJLWRvRjFuMVBhSmNMdWdYUHk3RjM5aHlndXVfejlNaDdFejlDNWNBSlpfNGpnNmFKQ0NUZkhoRDA2T2xzVTBjcVMzZ0lmVWNmSmc?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Maui Surf Forecast for July 29, 2026",
-      "summary": "Maui Surf Forecast for July 29, 2026 &nbsp;&nbsp; Maui Now",
-      "date": "JUL 29, 2026",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB4QTlScWRlVVFGNnpnVjIxUVJiLWlfTC1kam1yQVl3WXhQbzk1UmFxbFQzVmJOXy0wU09pLWNtLWJZWHBOQ2d1REd2czlQQk1zWFo3X3NiRFE1QzdpQmk0emtDM1Q1ZTFmRmFCdExoWkdVajQzV1E?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for September 05, 2026",
-      "summary": "Kauai Surf Forecast for September 05, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "SEP 04, 2026",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPcmd5MUMzdUotVDdhdDlLMGlCN2hRMTlFSFpEd3NnWlhxazRZZFBvYlJyUW1CaTFGUXppZ2xVbHVqaUZoZlBiRGdOeXpaamo0UW5aN291V2ZGZHVyVVBRSWlXN2VQc1YtenRla3g2Y2UwdEFvSFBOLUdsNGJPR1VlTjBXaUI?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for August 29, 2026",
-      "summary": "Kauai Surf Forecast for August 29, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "AUG 28, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNMXl6TFFpRjROaU9QY2szS29kMXdMZlpuUVFGMjJ2MmJPUjZSbWpaR3d6ZThTVXhIaUtJU2w3ZXdrdTVoY25tQW5ZOVN6NFZSUkI0T2dCVlRVd1RkYktjTVkxTVB6Tk11ZmJWdVZBQy1lQWg5VGVnZXlOak1pM010ZQ?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for August 24, 2026",
-      "summary": "Kauai Surf Forecast for August 24, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "AUG 23, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPM19aSE1Kb0NoRjNOQVpIMFJ5UG8weDhqdXNnMl9FLVBZZEd1MmhuY1dzMGM3cWxCUnd0SHREajJtRVFUREgtanJTSmI5U2M2bXJTOTF3TnJ0Z3ppcUZSZWVLLTY0V1FRWU9DNG9UUzQ3cFFNOUdGN0FFdGVTTHRlcg?oc=5",
       "category": "SURF NEWS"
     }
   ]
