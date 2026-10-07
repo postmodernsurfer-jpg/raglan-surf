@@ -1,5 +1,5 @@
 {
-  "updated_utc": "2026-10-07T06:20:04.964607+00:00",
+  "updated_utc": "2026-10-07T06:43:50.376588+00:00",
   "rows": [
     {
       "time": "2026-10-07T20:00",
@@ -14,7 +14,7 @@
       "time": "2026-10-07T21:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 11,
+      "wind_kmh": 10,
       "wind_dir": "SW",
       "tide_pct": 90,
       "face": "😍"
@@ -41,7 +41,7 @@
       "time": "2026-10-08T00:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 12,
+      "wind_kmh": 11,
       "wind_dir": "S",
       "tide_pct": 24,
       "face": "😍"
@@ -50,34 +50,34 @@
       "time": "2026-10-08T01:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 13,
+      "wind_kmh": 12,
       "wind_dir": "S",
       "tide_pct": 8,
-      "face": "🙂"
+      "face": "😍"
     },
     {
       "time": "2026-10-08T02:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 14,
+      "wind_kmh": 12,
       "wind_dir": "S",
       "tide_pct": 8,
-      "face": "🙂"
+      "face": "😍"
     },
     {
       "time": "2026-10-08T03:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 13,
+      "wind_kmh": 10,
       "wind_dir": "S",
       "tide_pct": 8,
-      "face": "🙂"
+      "face": "😍"
     },
     {
       "time": "2026-10-08T04:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 10,
+      "wind_kmh": 8,
       "wind_dir": "S",
       "tide_pct": 27,
       "face": "😍"
@@ -86,7 +86,7 @@
       "time": "2026-10-08T05:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 8,
+      "wind_kmh": 6,
       "wind_dir": "S",
       "tide_pct": 50,
       "face": "😍"
@@ -95,7 +95,7 @@
       "time": "2026-10-08T06:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 6,
+      "wind_kmh": 5,
       "wind_dir": "S",
       "tide_pct": 73,
       "face": "😍"
@@ -104,7 +104,7 @@
       "time": "2026-10-08T07:00",
       "wave_ft": 4,
       "period": 14,
-      "wind_kmh": 6,
+      "wind_kmh": 5,
       "wind_dir": "S",
       "tide_pct": 90,
       "face": "😍"
