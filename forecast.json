@@ -1,15 +1,6 @@
 {
-  "updated_utc": "2026-10-11T04:59:51.584484+00:00",
+  "updated_utc": "2026-10-11T05:17:54.524292+00:00",
   "rows": [
-    {
-      "time": "2026-10-11T18:00",
-      "wave_ft": 5,
-      "period": 10,
-      "wind_kmh": 16,
-      "wind_dir": "W",
-      "tide_pct": 20,
-      "face": "🙂"
-    },
     {
       "time": "2026-10-11T19:00",
       "wave_ft": 5,
@@ -107,6 +98,15 @@
       "wind_kmh": 10,
       "wind_dir": "W",
       "tide_pct": 8,
+      "face": "🙂"
+    },
+    {
+      "time": "2026-10-12T06:00",
+      "wave_ft": 5,
+      "period": 9,
+      "wind_kmh": 8,
+      "wind_dir": "W",
+      "tide_pct": 12,
       "face": "🙂"
     }
   ]
