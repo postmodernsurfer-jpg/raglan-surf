@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-13T04:52:58.955561+00:00",
+  "updated": "2026-10-13T05:20:23.742904+00:00",
   "stories": [
     {
       "source": "SURF NEWS",
@@ -235,6 +235,14 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "San Juan Beach Break Surf Report and Surf Forecast",
+      "summary": "San Juan Beach Break Surf Report and Surf Forecast &nbsp;&nbsp; Surfline",
+      "date": "JUN 04, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPU2Z2NEdDVmFkM2FoTlNhWnpqZ3R3aEU0SGd0bzJjaUw3RTZzdVVhZF94MjZIWXpFdjRlLUxDUHY2NWpBZGlaaWpsZ0ZZRl9xLWktZ3VpdGJsUnEySWJCeDdpWjhnekd2OHJsTGF4UmtHdlBZQTM4ZXp4WDhHcnB0d3oyOXdqMURQWnc?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for September 18, 2026",
       "summary": "Maui Surf Forecast for September 18, 2026 &nbsp;&nbsp; Maui Now",
       "date": "SEP 18, 2026",
@@ -287,14 +295,6 @@
       "summary": "Beach 90th Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "JUN 30, 2026",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE03V1p0XzVEVThkSmFSbDN2enpQWDJIRGgzVm1iaWhkekx1SkxqSlpCeTRkeEF6SVRlTkl6QVh0RWVHa2hyMFN2cE83Tm0xTWU2MjdFaTlyWThGT1M4NHJjblV0aGZybnI4RlExLS1lV2ppMUV6LVNDS3U2SDU?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Field 2 Surf Report and Surf Forecast",
-      "summary": "Field 2 Surf Report and Surf Forecast &nbsp;&nbsp; Surfline",
-      "date": "JUN 02, 2026",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE15aERVZkdFc0JwV2hKWFgtanpSSVQwR2xLRDBCSG9tM1dYNE1jM2NadnlHT3BNRmZiT2hhLVpRbkE3WW1VOWY2LVpfMlpERXJkM1VoSlUzMzl5MUhqTVAzOWNqbFJZdnE3THZfMGw0MTRmNl9EMzhxeg?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -555,19 +555,19 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Early Forecast: 2026 Rip Curl Pro Portugal",
-      "summary": "Early Forecast: 2026 Rip Curl Pro Portugal &nbsp;&nbsp; Swellnet",
-      "date": "OCT 08, 2026",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNejlwa19GQjd2UVl3S0RUZnRqbzlOZTZ0Z0VVbGNsTS1VeTFOQ2pHTTJuaDRKWXIzZHd2TVVzTWFmeWJuclRleGpvaWFHWXVpU2lZTkRSYWVVa2JEd3NNZFdsODI4UWxHUmN0TVU2RWUyZVNndzlPS1A5Z3ZrS2dTYlFwZmMySllqZjRzUHZLLUFTUzAtNTBkdg?oc=5",
-      "category": "SWELL & WAVES"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for July 07, 2026",
       "summary": "Maui Surf Forecast for July 07, 2026 &nbsp;&nbsp; Maui Now",
       "date": "JUL 07, 2026",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5tanZHSVlGeVJJN3BzT1RyUjhfeWRtYXM2Q2tyZWl3azE4RUhMLUFmMS1oMWp5NGhtQ0VkMW90bFdGTkJ0eG5wbTU5alVNcjJJMDNSczJBaFpUdzNEcTl6bmtjM2hOZlB5M2M4eHZ5b1B1UVUxS2c?oc=5",
       "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Early Forecast: 2026 Rip Curl Pro Portugal",
+      "summary": "Early Forecast: 2026 Rip Curl Pro Portugal &nbsp;&nbsp; Swellnet",
+      "date": "OCT 08, 2026",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNejlwa19GQjd2UVl3S0RUZnRqbzlOZTZ0Z0VVbGNsTS1VeTFOQ2pHTTJuaDRKWXIzZHd2TVVzTWFmeWJuclRleGpvaWFHWXVpU2lZTkRSYWVVa2JEd3NNZFdsODI4UWxHUmN0TVU2RWUyZVNndzlPS1A5Z3ZrS2dTYlFwZmMySllqZjRzUHZLLUFTUzAtNTBkdg?oc=5",
+      "category": "SWELL & WAVES"
     },
     {
       "source": "SURF NEWS",
@@ -635,10 +635,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Maui Surf Forecast for August 21, 2026",
-      "summary": "Maui Surf Forecast for August 21, 2026 &nbsp;&nbsp; Maui Now",
-      "date": "AUG 21, 2026",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9yUTNCZUtCQ1JsdUYyQmMtZThjUGxpVVVzeGg0cWJpUkt3TmJZSkhBQW5NZ3Bpbk83a2EyQXpGV2ktVHpNUVFqQVR6S05QTGktNXdfVDRzTzluMUh4Yk5na0dYUV8ydVA0SW9STUZqTGhmVkxQS2FXOA?oc=5",
+      "title": "Hawaii County Surf Forecast for June 10, 2026",
+      "summary": "Hawaii County Surf Forecast for June 10, 2026 &nbsp;&nbsp; Big Island Now",
+      "date": "JUN 10, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQZ2ZTVDVXeFF2U3hlcFJ1eW52YldtdFRYUE5uYm4zeU5tWnJyTG9XTEdEemJ3aDVlMWR6dXM1MGg2c0J4amVYYjFJZEhaenA0SE04M0pMVjJVRUNTY2w4LWtJaTlEaXNwYjBFRXVaZGV5MVJJLWU1bXlrSnFram1PQ3Z4RW5RdHZD?oc=5",
       "category": "SURF NEWS"
     }
   ]
