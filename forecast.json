@@ -1,8 +1,8 @@
 {
-  "updated_utc": "2026-10-13T16:57:47.643738+00:00",
+  "updated_utc": "2026-10-13T17:15:20.555346+00:00",
   "rows": [
     {
-      "time": "2026-10-14T06:00",
+      "time": "2026-10-14T07:00",
       "wave_ft": 5,
       "period": 11,
       "wind_kmh": 12,
@@ -11,21 +11,12 @@
       "face": "🙂"
     },
     {
-      "time": "2026-10-14T07:00",
-      "wave_ft": 5,
-      "period": 11,
-      "wind_kmh": 12,
-      "wind_dir": "N",
-      "tide_pct": 9,
-      "face": "🙂"
-    },
-    {
       "time": "2026-10-14T08:00",
       "wave_ft": 5,
       "period": 11,
       "wind_kmh": 15,
       "wind_dir": "N",
-      "tide_pct": 30,
+      "tide_pct": 25,
       "face": "🙂"
     },
     {
@@ -34,7 +25,7 @@
       "period": 11,
       "wind_kmh": 17,
       "wind_dir": "NW",
-      "tide_pct": 56,
+      "tide_pct": 53,
       "face": "🙂"
     },
     {
@@ -43,7 +34,7 @@
       "period": 11,
       "wind_kmh": 18,
       "wind_dir": "NW",
-      "tide_pct": 79,
+      "tide_pct": 78,
       "face": "🙂"
     },
     {
@@ -70,7 +61,7 @@
       "period": 11,
       "wind_kmh": 18,
       "wind_dir": "NW",
-      "tide_pct": 94,
+      "tide_pct": 93,
       "face": "🙂"
     },
     {
@@ -79,7 +70,7 @@
       "period": 11,
       "wind_kmh": 23,
       "wind_dir": "NW",
-      "tide_pct": 77,
+      "tide_pct": 76,
       "face": "🤯"
     },
     {
@@ -88,7 +79,7 @@
       "period": 11,
       "wind_kmh": 23,
       "wind_dir": "NW",
-      "tide_pct": 55,
+      "tide_pct": 52,
       "face": "🤯"
     },
     {
@@ -97,7 +88,7 @@
       "period": 10,
       "wind_kmh": 23,
       "wind_dir": "NW",
-      "tide_pct": 32,
+      "tide_pct": 27,
       "face": "🤯"
     },
     {
@@ -106,7 +97,16 @@
       "period": 10,
       "wind_kmh": 20,
       "wind_dir": "NW",
-      "tide_pct": 15,
+      "tide_pct": 9,
+      "face": "🙂"
+    },
+    {
+      "time": "2026-10-14T18:00",
+      "wave_ft": 5,
+      "period": 10,
+      "wind_kmh": 19,
+      "wind_dir": "NW",
+      "tide_pct": 8,
       "face": "🙂"
     }
   ]
