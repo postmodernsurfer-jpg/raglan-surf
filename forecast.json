@@ -1,49 +1,40 @@
 {
-  "updated_utc": "2026-10-14T23:56:27.627013+00:00",
+  "updated_utc": "2026-10-15T00:24:01.670607+00:00",
   "rows": [
-    {
-      "time": "2026-10-15T13:00",
-      "wave_ft": 7,
-      "period": 9,
-      "wind_kmh": 27,
-      "wind_dir": "SW",
-      "tide_pct": 100,
-      "face": "🤯"
-    },
     {
       "time": "2026-10-15T14:00",
       "wave_ft": 7,
-      "period": 9,
+      "period": 8,
       "wind_kmh": 24,
       "wind_dir": "SW",
-      "tide_pct": 89,
+      "tide_pct": 96,
       "face": "🤯"
     },
     {
       "time": "2026-10-15T15:00",
       "wave_ft": 7,
-      "period": 9,
+      "period": 8,
       "wind_kmh": 22,
       "wind_dir": "SW",
-      "tide_pct": 68,
+      "tide_pct": 74,
       "face": "🤯"
     },
     {
       "time": "2026-10-15T16:00",
       "wave_ft": 7,
-      "period": 9,
+      "period": 8,
       "wind_kmh": 23,
       "wind_dir": "SW",
-      "tide_pct": 43,
+      "tide_pct": 47,
       "face": "🤯"
     },
     {
       "time": "2026-10-15T17:00",
       "wave_ft": 7,
-      "period": 9,
+      "period": 8,
       "wind_kmh": 24,
       "wind_dir": "W",
-      "tide_pct": 20,
+      "tide_pct": 22,
       "face": "🤯"
     },
     {
@@ -79,7 +70,7 @@
       "period": 9,
       "wind_kmh": 11,
       "wind_dir": "NW",
-      "tide_pct": 29,
+      "tide_pct": 31,
       "face": "🙂"
     },
     {
@@ -88,7 +79,7 @@
       "period": 9,
       "wind_kmh": 20,
       "wind_dir": "NW",
-      "tide_pct": 53,
+      "tide_pct": 58,
       "face": "🙂"
     },
     {
@@ -97,7 +88,7 @@
       "period": 9,
       "wind_kmh": 12,
       "wind_dir": "NW",
-      "tide_pct": 75,
+      "tide_pct": 81,
       "face": "🙂"
     },
     {
@@ -106,7 +97,16 @@
       "period": 9,
       "wind_kmh": 17,
       "wind_dir": "NW",
-      "tide_pct": 88,
+      "tide_pct": 96,
+      "face": "🙂"
+    },
+    {
+      "time": "2026-10-16T01:00",
+      "wave_ft": 9,
+      "period": 9,
+      "wind_kmh": 12,
+      "wind_dir": "NW",
+      "tide_pct": 100,
       "face": "🙂"
     }
   ]
