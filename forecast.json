@@ -1,22 +1,13 @@
 {
-  "updated_utc": "2026-10-16T18:58:16.025016+00:00",
+  "updated_utc": "2026-10-16T19:25:25.991336+00:00",
   "rows": [
-    {
-      "time": "2026-10-17T08:00",
-      "wave_ft": 6,
-      "period": 10,
-      "wind_kmh": 15,
-      "wind_dir": "S",
-      "tide_pct": 8,
-      "face": "🙂"
-    },
     {
       "time": "2026-10-17T09:00",
       "wave_ft": 6,
       "period": 10,
       "wind_kmh": 14,
       "wind_dir": "S",
-      "tide_pct": 9,
+      "tide_pct": 8,
       "face": "🙂"
     },
     {
@@ -25,7 +16,7 @@
       "period": 10,
       "wind_kmh": 12,
       "wind_dir": "S",
-      "tide_pct": 29,
+      "tide_pct": 24,
       "face": "🙂"
     },
     {
@@ -34,7 +25,7 @@
       "period": 10,
       "wind_kmh": 11,
       "wind_dir": "S",
-      "tide_pct": 55,
+      "tide_pct": 51,
       "face": "🙂"
     },
     {
@@ -43,7 +34,7 @@
       "period": 9,
       "wind_kmh": 13,
       "wind_dir": "S",
-      "tide_pct": 79,
+      "tide_pct": 77,
       "face": "🙂"
     },
     {
@@ -52,7 +43,7 @@
       "period": 9,
       "wind_kmh": 13,
       "wind_dir": "S",
-      "tide_pct": 94,
+      "tide_pct": 93,
       "face": "🙂"
     },
     {
@@ -70,7 +61,7 @@
       "period": 9,
       "wind_kmh": 17,
       "wind_dir": "S",
-      "tide_pct": 96,
+      "tide_pct": 95,
       "face": "🙂"
     },
     {
@@ -79,7 +70,7 @@
       "period": 9,
       "wind_kmh": 24,
       "wind_dir": "SW",
-      "tide_pct": 80,
+      "tide_pct": 79,
       "face": "🤯"
     },
     {
@@ -88,7 +79,7 @@
       "period": 8,
       "wind_kmh": 30,
       "wind_dir": "SW",
-      "tide_pct": 58,
+      "tide_pct": 55,
       "face": "🤯"
     },
     {
@@ -97,7 +88,7 @@
       "period": 8,
       "wind_kmh": 32,
       "wind_dir": "SW",
-      "tide_pct": 35,
+      "tide_pct": 30,
       "face": "🤯"
     },
     {
@@ -106,7 +97,16 @@
       "period": 8,
       "wind_kmh": 30,
       "wind_dir": "SW",
-      "tide_pct": 17,
+      "tide_pct": 11,
+      "face": "🤯"
+    },
+    {
+      "time": "2026-10-17T20:00",
+      "wave_ft": 6,
+      "period": 8,
+      "wind_kmh": 25,
+      "wind_dir": "S",
+      "tide_pct": 8,
       "face": "🤯"
     }
   ]
