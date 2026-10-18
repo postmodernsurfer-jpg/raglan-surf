@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T15:55:29.730887+00:00",
+  "updated": "2026-10-18T16:26:04.273447+00:00",
   "stories": [
     {
       "source": "SURF NEWS",
@@ -23,6 +23,14 @@
       "summary": "Hawaii County Surf Forecast for October 17, 2026 &nbsp;&nbsp; Big Island Now",
       "date": "OCT 17, 2026",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNMW1Ec0hWMEZ2WWxJUnFGZTExTG45akN2Q3hkWExPMGVNbHM5ZnRCRHZUd2RWM3FoYWhFRjltSGlzcHVua2VqWVNaQTFZcG5Qd0ZxeTBZNlRZTU5uY0lWVlRXVng4ZWpTanVwSUtJNEZvV05hb2ZtMllGajgxVUdLcmhLTHdwQmZ1cjltag?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Ōneo Bay Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Ōneo Bay Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "OCT 18, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9zV3NRcjVQekh2SjN0S1ctbUlrWkc5cW5CY2ZuTUFLSzVvRW1Mb1M5d1JKN1FHZGZvU2Q5RHRhRzFUWE50OTBadF9QT29CZ0RmMWhEQk1NUWVscVB6dXhQMG5aclo0M1RnUWhHMHk4RC11TEs0UHdLVkF3?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -51,14 +59,6 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Rocky Point Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Rocky Point Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "OCT 16, 2026",
-      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9tTVRRSmRJYlRHWF9iN2JEWkx2Q2FTS0UyTlFaTXZtSEFhTnV2NFZuYWdOeElfNXJlRnR4Mk1lYS1hVHlKX3RpdG1fWWZIUHppUzJDWi1CbDlnSUE0ZWFpMUpGY1pPV0V3UENvakJtQ0tJN2NPZGxOamoyOXN0UQ?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for October 13, 2026",
       "summary": "Maui Surf Forecast for October 13, 2026 &nbsp;&nbsp; Maui Now",
       "date": "OCT 13, 2026",
@@ -67,10 +67,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Uluwatu Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Uluwatu Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "title": "Rocky Point Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Rocky Point Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "OCT 16, 2026",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9DQVlmb3YzVE9aQjJmR0xNR2dpOWVLREtGTVY0Ukt6YnNhT0hveng2d2N5R1oyRGcyM2JIckttTTVEalR5bG8xQ2diZlEteUx4WHF0X1BNbE8zUEI3cDF1a0tySXRraEZNQkU4LWliTVFtODQ3NUZvSw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9tTVRRSmRJYlRHWF9iN2JEWkx2Q2FTS0UyTlFaTXZtSEFhTnV2NFZuYWdOeElfNXJlRnR4Mk1lYS1hVHlKX3RpdG1fWWZIUHppUzJDWi1CbDlnSUE0ZWFpMUpGY1pPV0V3UENvakJtQ0tJN2NPZGxOamoyOXN0UQ?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -91,10 +91,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Strands Surf Report, Surf Forecast and Surf Cam",
-      "summary": "Strands Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
-      "date": "OCT 17, 2026",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE91R2dRdHF3cE9GVXZrMkEycHpJT1ZMR1NhN1ZsQzc4UWpPd1lRN1FUYnRzaVNOYU95SkQxVEZtNEhKX1hnMmYyVS1ZWW5KeXEtVk9xZFViT1hybWFfUVlBaERPYndsZjZaMnZ3RFp1SHBDcVpvYkl4MQ?oc=5",
+      "title": "Uluwatu Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Uluwatu Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "OCT 16, 2026",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9DQVlmb3YzVE9aQjJmR0xNR2dpOWVLREtGTVY0Ukt6YnNhT0hveng2d2N5R1oyRGcyM2JIckttTTVEalR5bG8xQ2diZlEteUx4WHF0X1BNbE8zUEI3cDF1a0tySXRraEZNQkU4LWliTVFtODQ3NUZvSw?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -107,10 +107,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Avon Pier Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Avon Pier Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "OCT 15, 2026",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9qQXduMTZ5NF9JWGlvdXZMOHlVNm1SaDVSWFZkNGFMaE1WX3ZtQlBoZ2RVYTYzdFd2VW1ULWttSkd2bVZYT1p5RG02TjVRRloxT1ZqcVdHUDZlWlRqMFZFbE1KeFVERFIzeVhaSzloZ2ExYkZvYnZ6RDdnZw?oc=5",
+      "title": "Strands Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Strands Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "OCT 17, 2026",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE91R2dRdHF3cE9GVXZrMkEycHpJT1ZMR1NhN1ZsQzc4UWpPd1lRN1FUYnRzaVNOYU95SkQxVEZtNEhKX1hnMmYyVS1ZWW5KeXEtVk9xZFViT1hybWFfUVlBaERPYndsZjZaMnZ3RFp1SHBDcVpvYkl4MQ?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -123,6 +123,14 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Avon Pier Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Avon Pier Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "OCT 15, 2026",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9qQXduMTZ5NF9JWGlvdXZMOHlVNm1SaDVSWFZkNGFMaE1WX3ZtQlBoZ2RVYTYzdFd2VW1ULWttSkd2bVZYT1p5RG02TjVRRloxT1ZqcVdHUDZlWlRqMFZFbE1KeFVERFIzeVhaSzloZ2ExYkZvYnZ6RDdnZw?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "El Porto Surf Report, Surf Forecast and Surf Cams",
       "summary": "El Porto Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "OCT 17, 2026",
@@ -131,18 +139,18 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Maui Surf Forecast for October 05, 2026",
-      "summary": "Maui Surf Forecast for October 05, 2026 &nbsp;&nbsp; Maui Now",
-      "date": "OCT 05, 2026",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4tOUZRM0NURXkzWXkxSTBqa20wMVp0RWNheFJLMTVMc0gxNWdjczRuY0ttYmJfbXMzOHBDS240WGZKTVpQVDRCRWtoN3ZnM0VRN2lCVXFFZENnR1VyZnk2RFIzc3diNlVldk9UWHE4WTVaRUtSV09YR1ln?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Singleton Beach Surf Report, Surf Forecast and Surf Cam",
       "summary": "Singleton Beach Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
       "date": "OCT 17, 2026",
       "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQZXNkc3JQeUNxN3VjcHAzTnllTFY1N1UycWRKNkhUc0o1RS1OWWs0SHNyTDRfa0g3bzFmV2J1SFJzSFRhM1hOdi1GbUZOV2F5WTc0Yi1KbGlrN05kY0VDQmRycU1reGhUcEJhTktBQnFYOVZNVENQcHJrX2haWHdFLUxtaw?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Maui Surf Forecast for October 05, 2026",
+      "summary": "Maui Surf Forecast for October 05, 2026 &nbsp;&nbsp; Maui Now",
+      "date": "OCT 05, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4tOUZRM0NURXkzWXkxSTBqa20wMVp0RWNheFJLMTVMc0gxNWdjczRuY0ttYmJfbXMzOHBDS240WGZKTVpQVDRCRWtoN3ZnM0VRN2lCVXFFZENnR1VyZnk2RFIzc3diNlVldk9UWHE4WTVaRUtSV09YR1ln?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -631,14 +639,6 @@
       "summary": "Kauai Surf Forecast for September 04, 2026 &nbsp;&nbsp; Kauai Now",
       "date": "SEP 03, 2026",
       "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWUxYYkxXcnhTMnU1UTFrT1Z3WHdJejFIWHpQNHJOQVlPUWYtb1MyZW5pYVhWaFp3ejV0dVN1UDUwU1dLUjVIU3dfSFpwWXU0SDRDNV9nOFpCWUt2Vl9IZl9Gb3BFUzNsNm4wVU1FTGM2MUhieFp1a3duSGZIVGowNmZVeVc?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Kauai Surf Forecast for August 26, 2026",
-      "summary": "Kauai Surf Forecast for August 26, 2026 &nbsp;&nbsp; Kauai Now",
-      "date": "AUG 25, 2026",
-      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNOFhUNVU3Wjk3R0V1UTZnajl6dEpfMGFZdEFTYS1vdzMtRkJiSjR2UDNuUTY4UmtUejkycFptVWZIcUxySDJNQTFJYVRNdE1YMUZlN1FkRktIa05HUzBsSkZhdDA2QllFaUdUbGNxaFRYdnI0LTlVQ3d0cjlBM0wzOQ?oc=5",
       "category": "SURF NEWS"
     }
   ]
