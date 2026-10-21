@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T05:04:15.512502+00:00",
+  "updated": "2026-10-21T06:02:30.068304+00:00",
   "stories": [
     {
       "source": "SURF NEWS",
@@ -27,10 +27,18 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Monday Surf Forecast",
-      "summary": "Monday Surf Forecast &nbsp;&nbsp; KITV",
+      "title": "Hawaii County Surf Forecast for October 18, 2026",
+      "summary": "Hawaii County Surf Forecast for October 18, 2026 &nbsp;&nbsp; Big Island Now",
+      "date": "OCT 18, 2026",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRFVXa0ZDOGxIa2ZLSENmT2VjNU9TalNPTllLdzhZejJLTTAwejg0MDZOUTl2bUJmTWx0ekV2RWNrUVJVaWIxOUxGYVBVbGZZZThMOXFoQ1p6UEVXWXcxOEE5dGh3S29zSHJDNjdBTEpYR29hdFdMRTViVl9INjdfMmNrd0dRd0N5eFZvTg?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Monday Surf Forecast: Small Craft Advisories Posted",
+      "summary": "Monday Surf Forecast: Small Craft Advisories Posted &nbsp;&nbsp; KITV",
       "date": "OCT 19, 2026",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOZUxPcHJ0bFhQTlhNc0Y0dUxJekdUenJHS2taS3JRRk8yRGRZbmRvREFkdHdUZjF1OWM1SWdseXpvcXNiOEdsa2lzRGhnSEVIdm45a1JYX0FUYldrYnliNm81Q0J6N1dNWFVkby1KbWI4RmZLbVBSVkExdTRaWVJUck82cEowWEhxbVZMQmhSRjVWaFhOX0tjVHNPVGpjQ0M0ZloyemZn?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPT2dMdGVSa1lQOUFhbGs4V0FwV0EzNDI3SDQ1RG11SkRyRHA1T2JMc1NRYW9idE1EZWU2ZTlXc0dxMjdrMDlqdFVCNzZCUTkyY0lrTDMwa01fdEhsNEFZbVROOHoyeEM5cnkwTUs1X0FyUWVXeTlJUWJBTG93OTNrZF85WkFZMTlnV0x3ZFh5ZUFfSHlNNi05amEzYTFidGN3M2lfLUlDajJxNk1Kbl90TXU0aWkzS3FKVFJkbmotaXh5Q3I4MzVEWlVLa3I4Zw?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -51,14 +59,6 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Hawaii County Surf Forecast for October 18, 2026",
-      "summary": "Hawaii County Surf Forecast for October 18, 2026 &nbsp;&nbsp; Big Island Now",
-      "date": "OCT 18, 2026",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRFVXa0ZDOGxIa2ZLSENmT2VjNU9TalNPTllLdzhZejJLTTAwejg0MDZOUTl2bUJmTWx0ekV2RWNrUVJVaWIxOUxGYVBVbGZZZThMOXFoQ1p6UEVXWXcxOEE5dGh3S29zSHJDNjdBTEpYR29hdFdMRTViVl9INjdfMmNrd0dRd0N5eFZvTg?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Kauai Surf Forecast for October 19, 2026",
       "summary": "Kauai Surf Forecast for October 19, 2026 &nbsp;&nbsp; Kauai Now",
       "date": "OCT 19, 2026",
@@ -67,10 +67,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Monday Surf Forecast: Small Craft Advisories Posted",
-      "summary": "Monday Surf Forecast: Small Craft Advisories Posted &nbsp;&nbsp; KITV",
+      "title": "Monday Surf Forecast",
+      "summary": "Monday Surf Forecast &nbsp;&nbsp; KITV",
       "date": "OCT 19, 2026",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPT2dMdGVSa1lQOUFhbGs4V0FwV0EzNDI3SDQ1RG11SkRyRHA1T2JMc1NRYW9idE1EZWU2ZTlXc0dxMjdrMDlqdFVCNzZCUTkyY0lrTDMwa01fdEhsNEFZbVROOHoyeEM5cnkwTUs1X0FyUWVXeTlJUWJBTG93OTNrZF85WkFZMTlnV0x3ZFh5ZUFfSHlNNi05amEzYTFidGN3M2lfLUlDajJxNk1Kbl90TXU0aWkzS3FKVFJkbmotaXh5Q3I4MzVEWlVLa3I4Zw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOZUxPcHJ0bFhQTlhNc0Y0dUxJekdUenJHS2taS3JRRk8yRGRZbmRvREFkdHdUZjF1OWM1SWdseXpvcXNiOEdsa2lzRGhnSEVIdm45a1JYX0FUYldrYnliNm81Q0J6N1dNWFVkby1KbWI4RmZLbVBSVkExdTRaWVJUck82cEowWEhxbVZMQmhSRjVWaFhOX0tjVHNPVGpjQ0M0ZloyemZn?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -139,14 +139,6 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Spinksy's SE Qld - Nth NSW Forecast Update",
-      "summary": "Spinksy's SE Qld - Nth NSW Forecast Update &nbsp;&nbsp; Surfline",
-      "date": "OCT 20, 2026",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdmpmbVU5ZFZXc3EzQWN3NzRvbE1rRHpiT0JDeEZJN25feGRSWlhnUFZRVV95UXRmbGQwQ2pfcmt0V1JYTzM3VndnNHIzdnNVVERpN0lHby04WVFldWt3TTFZdjBLQkk0Xy0wRkZSYl9sZGFSVUtoYWM0MkdqclFuTTZUMmdLMG9KaTVhMC1pWVdibjZOV3pUUE5ZMTRiQQ?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Maui Surf Forecast for October 13, 2026",
       "summary": "Maui Surf Forecast for October 13, 2026 &nbsp;&nbsp; Maui Now",
       "date": "OCT 13, 2026",
@@ -159,6 +151,14 @@
       "summary": "Maui Surf Forecast for October 12, 2026 &nbsp;&nbsp; Maui Now",
       "date": "OCT 12, 2026",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE03OW9vdDdIWTgzWmpNTXZMTm9wWUJsZEZ6Mm5SYno2UUE0TUphZTdhbEY1X1Y1U28wVjA2NWFmbTdPWWtzcWFSSHFidzVNUlZxWjBRMmNNa3c4QUowLXNXV0thZFc1bmxoV0xyWGp4VnFwc1dHUk9qZjBn?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Spinksy's SE Qld - Nth NSW Forecast Update",
+      "summary": "Spinksy's SE Qld - Nth NSW Forecast Update &nbsp;&nbsp; Surfline",
+      "date": "OCT 20, 2026",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdmpmbVU5ZFZXc3EzQWN3NzRvbE1rRHpiT0JDeEZJN25feGRSWlhnUFZRVV95UXRmbGQwQ2pfcmt0V1JYTzM3VndnNHIzdnNVVERpN0lHby04WVFldWt3TTFZdjBLQkk0Xy0wRkZSYl9sZGFSVUtoYWM0MkdqclFuTTZUMmdLMG9KaTVhMC1pWVdibjZOV3pUUE5ZMTRiQQ?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -227,14 +227,6 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Storm Austen: First Named Storm Set To Batter UK",
-      "summary": "Storm Austen: First Named Storm Set To Batter UK &nbsp;&nbsp; Wavelength Surf Magazine",
-      "date": "OCT 20, 2026",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE50NEIzWllhbEJUUFgzVzBnVjJhUlN1V2ZUWUtKSEFrb3pudGdwNnZINFNjamhrd25PdDFLcXVyNXViRE81ak5FclhTSnVleXFKWVM5eGZxOFRRWDNuU0E2ZkJHWUNsaUx6T1ZTd0NORU1KTl9NV2dNQUJLaWI5RlU?oc=5",
-      "category": "SWELL & WAVES"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Hawaii County Surf Forecast for October 11, 2026",
       "summary": "Hawaii County Surf Forecast for October 11, 2026 &nbsp;&nbsp; Big Island Now",
       "date": "OCT 10, 2026",
@@ -248,6 +240,14 @@
       "date": "SEP 30, 2026",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBjWVk0ZC04R1c1czlybkZFR1V1UVc5WmJ4ekxyZWVaa2dtLXpMNXlTUXZPTm5QQjBEQWZUM0J4eElYZktnby0wemcyb0pfRmF5dUhrZzYwQ1Y4UDJvTU9Tdl9wUWs3a3lKUU9sMzczc3FzZVAxLWp4Z3M4QVc?oc=5",
       "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Storm Austen: First Named Storm Set To Batter UK",
+      "summary": "Storm Austen: First Named Storm Set To Batter UK &nbsp;&nbsp; Wavelength Surf Magazine",
+      "date": "OCT 20, 2026",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE50NEIzWllhbEJUUFgzVzBnVjJhUlN1V2ZUWUtKSEFrb3pudGdwNnZINFNjamhrd25PdDFLcXVyNXViRE81ak5FclhTSnVleXFKWVM5eGZxOFRRWDNuU0E2ZkJHWUNsaUx6T1ZTd0NORU1KTl9NV2dNQUJLaWI5RlU?oc=5",
+      "category": "SWELL & WAVES"
     },
     {
       "source": "SURF NEWS",
