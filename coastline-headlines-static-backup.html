@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Surf News + El Niño Watch</title>
+<style>
+:root{--bg:rgba(5,12,20,.94);--line:#ffffff26;--text:#f7f8f5;--muted:#aebec8;--aqua:#68e0dc;--gold:#ffd17a;--red:#ff6b68}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:transparent;font-family:Arial,Helvetica,sans-serif;color:var(--text);overflow:hidden}
+body{display:flex;align-items:flex-end}
+.ticker{width:100%;height:68px;background:linear-gradient(90deg,rgba(4,15,23,.98),rgba(8,29,39,.96),rgba(4,15,23,.98));border-top:1px solid #68e0dcaa;box-shadow:0 -5px 24px #0005;display:flex;align-items:stretch;overflow:hidden}
+.brand{width:210px;flex:none;padding:0 17px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.brandtop{font-size:13px;font-weight:900;letter-spacing:.13em;white-space:nowrap}
+.brandbottom{font-size:9px;color:var(--muted);letter-spacing:.15em;margin-top:5px;white-space:nowrap}
+.lanes{width:160px;flex:none;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.lane{padding:7px 13px;font-size:10px;letter-spacing:.12em;font-weight:900;white-space:nowrap}
+.lane.surf{color:var(--aqua);border-bottom:1px solid #ffffff14}.lane.elnino{color:var(--gold)}
+.viewport{position:relative;min-width:0;flex:1;overflow:hidden;display:flex;align-items:center}
+.track{display:flex;align-items:center;width:max-content;animation:scroll 95s linear infinite}
+.viewport:hover .track{animation-play-state:paused}
+.item{height:42px;display:flex;align-items:center;gap:9px;padding:0 24px;border-right:1px solid var(--line);white-space:nowrap;text-decoration:none;color:var(--text);font-size:12px}
+.item:hover{background:#ffffff0b}
+.tag{font-size:9px;letter-spacing:.1em;font-weight:900;padding:4px 6px;border-radius:3px;color:#07151c;background:var(--aqua)}
+.tag.climate{background:var(--gold)}
+.headline{font-weight:700}.source{font-size:10px;color:var(--muted);margin-left:3px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:700px){.brand{width:155px;padding:0 10px}.brandtop{font-size:11px}.brandbottom{font-size:8px}.lanes{width:112px}.lane{font-size:9px;padding:7px}.item{padding:0 15px;font-size:11px}.source{display:none}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}}
+</style>
+</head>
+<body>
+<div class="ticker" role="region" aria-label="Surfing and El Niño headlines">
+  <div class="brand"><div class="brandtop">COASTLINE BRIEFING</div><div class="brandbottom">SURF NEWS + EL NIÑO WATCH</div></div>
+  <div class="lanes"><div class="lane surf">● SURFING NEWS</div><div class="lane elnino">● EL NIÑO / CLIMATE</div></div>
+  <div class="viewport">
+    <div class="track" id="track">
+      <a class="item" href="https://www.surfline.com/surf-news" target="_blank" rel="noopener"><span class="tag">SURF</span><span class="headline">Pacific storm activity stirs surf across multiple regions</span><span class="source">Surfline</span></a>
+      <a class="item" href="https://surf.co.nz/" target="_blank" rel="noopener"><span class="tag">NZ SURF</span><span class="headline">Kiwi team prepares for the ISA World Surfing Games in Peru</span><span class="source">Surfing New Zealand</span></a>
+      <a class="item" href="https://www.surfer.com/news/world-surf-league" target="_blank" rel="noopener"><span class="tag">WSL</span><span class="headline">World Surf League: latest tour news and title-race updates</span><span class="source">SURFER</span></a>
+      <a class="item" href="https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml" target="_blank" rel="noopener"><span class="tag climate">EL NIÑO</span><span class="headline">NOAA: El Niño advisory; strong event expected through early 2027</span><span class="source">NOAA · Oct 8</span></a>
+      <a class="item" href="https://www.reuters.com/business/environment/el-nio-rains-batter-latin-america-mexico-chile-2026-10-22/" target="_blank" rel="noopener"><span class="tag climate">CLIMATE</span><span class="headline">El Niño-linked storms bring flooding and coastal erosion in parts of Latin America</span><span class="source">Reuters · Oct 22</span></a>
+      <a class="item" href="https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/" target="_blank" rel="noopener"><span class="tag climate">OUTLOOK</span><span class="headline">October climate outlook points to very strong El Niño conditions into early 2027</span><span class="source">IRI · Oct 19</span></a>
+      <a class="item" href="https://www.surfline.com/surf-news" target="_blank" rel="noopener"><span class="tag">SURF</span><span class="headline">Pacific storm activity stirs surf across multiple regions</span><span class="source">Surfline</span></a>
+      <a class="item" href="https://surf.co.nz/" target="_blank" rel="noopener"><span class="tag">NZ SURF</span><span class="headline">Kiwi team prepares for the ISA World Surfing Games in Peru</span><span class="source">Surfing New Zealand</span></a>
+      <a class="item" href="https://www.surfer.com/news/world-surf-league" target="_blank" rel="noopener"><span class="tag">WSL</span><span class="headline">World Surf League: latest tour news and title-race updates</span><span class="source">SURFER</span></a>
+      <a class="item" href="https://cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml" target="_blank" rel="noopener"><span class="tag climate">EL NIÑO</span><span class="headline">NOAA: El Niño advisory; strong event expected through early 2027</span><span class="source">NOAA · Oct 8</span></a>
+      <a class="item" href="https://www.reuters.com/business/environment/el-nio-rains-batter-latin-america-mexico-chile-2026-10-22/" target="_blank" rel="noopener"><span class="tag climate">CLIMATE</span><span class="headline">El Niño-linked storms bring flooding and coastal erosion in parts of Latin America</span><span class="source">Reuters · Oct 22</span></a>
+      <a class="item" href="https://iri.columbia.edu/our-expertise/climate/forecasts/enso/current/" target="_blank" rel="noopener"><span class="tag climate">OUTLOOK</span><span class="headline">October climate outlook points to very strong El Niño conditions into early 2027</span><span class="source">IRI · Oct 19</span></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
