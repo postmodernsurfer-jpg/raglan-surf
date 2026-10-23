@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Southern California Surf & Weather Panel</title>
+<style>
+:root{--panel:rgba(7,18,28,.92);--line:rgba(255,255,255,.16);--muted:#a9c0d0;--white:#f7fbff;--cyan:#57e0e9;--green:#71e2a3;--yellow:#ffd36a}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:transparent;overflow:hidden;font-family:Arial,Helvetica,sans-serif;color:var(--white)}
+body{display:flex;align-items:flex-start;justify-content:flex-end;padding:12px}
+.panel{width:min(410px,100%);background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 38px #0008;backdrop-filter:blur(10px);overflow:hidden}
+.top{display:flex;align-items:center;gap:10px;padding:12px 14px 10px;border-bottom:1px solid var(--line);background:linear-gradient(110deg,#0a2634dd,#10202ddd)}
+.live{width:8px;height:8px;border-radius:50%;background:#ff5e66;box-shadow:0 0 10px #ff5e66;flex:none}
+.brand{font-weight:800;font-size:13px;letter-spacing:.13em;line-height:1.25}.brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.18em;margin-top:4px;font-weight:600}
+.spacer{flex:1}.clock{text-align:right;color:var(--muted);font-size:10px;line-height:1.6}
+.place{padding:14px 15px 12px}.eyebrow{font-size:9px;color:var(--cyan);letter-spacing:.18em;font-weight:800}.heading{display:flex;align-items:center;gap:8px;margin-top:4px}.city{font-size:22px;line-height:1.1;font-weight:800;letter-spacing:-.03em}.temp{margin-left:auto;font-size:29px;font-weight:800;letter-spacing:-.06em}.summary{font-size:12px;color:#d8e5ee;margin-top:7px}
+.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 15px 14px}.metric{background:#ffffff0b;border:1px solid #ffffff12;border-radius:8px;padding:9px 10px;min-height:56px}.label{font-size:9px;color:var(--muted);letter-spacing:.12em;font-weight:700}.value{font-size:15px;font-weight:800;margin-top:4px;white-space:nowrap}.detail{font-size:10px;color:#c0d0dc;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hours{padding:10px 14px 12px;border-top:1px solid var(--line);background:#020b13aa}.hours-title{font-size:9px;color:var(--muted);letter-spacing:.14em;font-weight:800;margin-bottom:8px}.hourrow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px}.hour{text-align:center;border-radius:6px;background:#ffffff08;padding:7px 2px}.hour time{font-size:9px;color:var(--muted)}.hour .ico{font-size:15px;margin:5px 0}.hour b{font-size:11px;display:block}.hour small{display:block;font-size:9px;color:#bdd0dc;margin-top:4px}
+.foot{display:flex;justify-content:space-between;gap:8px;padding:8px 14px;font-size:9px;color:var(--muted);border-top:1px solid var(--line)}.status{color:var(--green)}.warn{color:var(--yellow)}
+@media(max-width:350px){body{padding:4px}.city{font-size:19px}.temp{font-size:25px}.metrics{gap:5px;padding-left:9px;padding-right:9px}.place{padding:11px 10px}.top{padding:10px}.value{font-size:13px}}
+</style>
+</head>
+<body>
+<main class="panel" aria-live="polite">
+  <header class="top"><span class="live"></span><div class="brand">SOUTHERN CALIFORNIA SURF<small>WEATHER • SWELL • TIDES</small></div><span class="spacer"></span><div class="clock"><div id="localTime">PACIFIC TIME</div><div id="updated">Connecting to forecast…</div></div></header>
+  <section class="place">
+    <div class="eyebrow" id="counter">COASTAL REPORT 01 / 05</div>
+    <div class="heading"><div class="city" id="city">Newport Beach</div><div class="temp" id="temp">--°</div></div>
+    <div class="summary" id="summary">Loading current forecast…</div>
+  </section>
+  <section class="metrics">
+    <div class="metric"><div class="label">SURF / WAVE HEIGHT</div><div class="value" id="surf">Checking data…</div><div class="detail" id="surfDetail">Marine forecast / buoy</div></div>
+    <div class="metric"><div class="label">WIND</div><div class="value" id="wind">--</div><div class="detail" id="windDetail">Direction and speed</div></div>
+    <div class="metric"><div class="label">SWELL</div><div class="value" id="swell">--</div><div class="detail" id="swellDetail">Period / direction when available</div></div>
+    <div class="metric"><div class="label">NEXT TIDE</div><div class="value" id="tide">Loading…</div><div class="detail" id="tideDetail">NOAA tide predictions</div></div>
+  </section>
+  <section class="hours"><div class="hours-title">12-HOUR WEATHER FORECAST</div><div class="hourrow" id="hours"></div></section>
+  <footer class="foot"><span id="source" class="status">NOAA / NWS DATA</span><span>Auto-rotates every 25 sec</span></footer>
+</main>
+<script>
+const places=[
+ {name:"Newport Beach",lat:33.6189,lon:-117.9298,tide:"9410580",zone:"CAZ552"},
+ {name:"Venice Beach",lat:33.9850,lon:-118.4695,tide:"9410840",zone:"CAZ041"},
+ {name:"Huntington Beach",lat:33.6595,lon:-118.0017,tide:"9410660",zone:"CAZ552"},
+ {name:"San Clemente",lat:33.4274,lon:-117.6120,tide:"9410230",zone:"CAZ552"},
+ {name:"Santa Monica Pier",lat:34.0100,lon:-118.4960,tide:"9410840",zone:"CAZ041"}
+];
+let current=0,cache=new Map();
+const $=id=>document.getElementById(id);
+const fmtTime=s=>new Intl.DateTimeFormat("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit"}).format(new Date(s));
+const fmtHour=s=>new Intl.DateTimeFormat("en-US",{timeZone:"America/Los_Angeles",hour:"numeric"}).format(new Date(s));
+const direction=d=>{if(d==null||!Number.isFinite(Number(d)))return "—";return ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"][Math.round(Number(d)/22.5)%16]};
+const num=(v,unit="")=>v==null||!Number.isFinite(Number(v))?"—":Math.round(Number(v)*10)/10+unit;
+async function json(url){const r=await fetch(url,{headers:{"Accept":"application/geo+json, application/json","User-Agent":"SouthernCaliforniaSurfOverlay/1.0"}});if(!r.ok)throw Error("HTTP "+r.status);return r.json()}
+async function getWeather(p){
+ const key=p.name;const old=cache.get(key);if(old&&Date.now()-old.time<8*60*1000)return old.data;
+ const point=await json("https://api.weather.gov/points/"+p.lat+","+p.lon);
+ const hourly=await json(point.properties.forecastHourly);
+ const periods=hourly.properties.periods||[];
+ let grid=null;try{grid=await json(point.properties.forecastGridData)}catch(e){}
+ const data={periods,grid,point:point.properties};cache.set(key,{time:Date.now(),data});return data;
+}
+async function getTide(p){
+ const now=new Date(),begin=now.toISOString().slice(0,10).replaceAll("-","");
+ const url="https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=surf_overlay&begin_date="+begin+"&range=24&datum=MLLW&station="+p.tide+"&time_zone=lst_ldt&units=english&interval=hilo&format=json";
+ return json(url);
+}
+function gridValue(grid,key){const v=grid?.properties?.[key]?.values?.[0]?.value;return v===undefined||v===null?null:v}
+function weatherIcon(text){text=(text||"").toLowerCase();if(/thunder|storm/.test(text))return "⛈";if(/rain|shower/.test(text))return "🌦";if(/snow/.test(text))return "❄️";if(/cloud|overcast/.test(text))return "☁️";if(/fog/.test(text))return "🌫";if(/wind/.test(text))return "💨";return "☀️"}
+function renderHours(periods){
+ $("hours").innerHTML=periods.slice(0,6).map(p=>'<div class="hour"><time>'+fmtHour(p.startTime)+'</time><div class="ico">'+weatherIcon(p.shortForecast)+'</div><b>'+p.temperature+'°</b><small>'+Math.round(Number(p.probabilityOfPrecipitation?.value||0))+'% rain</small></div>').join("");
+}
+async function show(index){
+ const p=places[index];$("counter").textContent="COASTAL REPORT "+String(index+1).padStart(2,"0")+" / 05";$("city").textContent=p.name;
+ $("temp").textContent="--°";$("summary").textContent="Loading hourly conditions…";$("surf").textContent="Loading…";$("wind").textContent="Loading…";$("swell").textContent="Loading…";$("tide").textContent="Loading…";$("hours").innerHTML='<div class="hour"><time>Fetching</time><div class="ico">🌊</div><b>—</b><small>NOAA</small></div>';
+ try{
+  const d=await getWeather(p),periods=d.periods,now=periods[0];if(!now)throw Error("No hourly forecast");
+  $("temp").textContent=now.temperature+"°"+(now.temperatureUnit==="F"?"":"");$("summary").textContent=now.shortForecast+" · Feels-like conditions from NWS hourly forecast";
+  $("wind").textContent=(now.windDirection||"—")+" "+(now.windSpeed||"—");$("windDetail").textContent="NWS forecast wind";
+  const wave=gridValue(d.grid,"waveHeight"),wavePeriod=gridValue(d.grid,"wavePeriod"),waveDir=gridValue(d.grid,"waveDirection");
+  $("surf").textContent=wave!==null?num(wave," ft"):"See marine report";
+  $("surfDetail").textContent=wave!==null?"NWS coastal wave-height model":"Wave height not available at this grid point";
+  $("swell").textContent=wavePeriod!==null?num(wavePeriod," sec"):"—";
+  $("swellDetail").textContent=waveDir!==null?"Direction "+direction(waveDir):"Swell period/direction when reported";
+  renderHours(periods);
+  try{
+   const t=await getTide(p),pred=t.predictions||[],future=pred.map(x=>({...x,date:new Date(x.t.replace(" ","T")+"-07:00")})).filter(x=>x.date>new Date()).sort((a,b)=>a.date-b.date)[0];
+   if(future){$("tide").textContent=(future.type==="H"?"HIGH ":"LOW ")+num(future.v," ft");$("tideDetail").textContent=fmtTime(future.date)+" Pacific · NOAA prediction"}
+   else{$("tide").textContent="See tide table";$("tideDetail").textContent="NOAA tide predictions"}
+  }catch(e){$("tide").textContent="Unavailable";$("tideDetail").textContent="NOAA station temporarily unavailable"}
+  $("source").textContent="LIVE NWS FORECAST · NOAA TIDES";$("source").className="status";$("updated").textContent="Updated "+fmtTime(new Date());
+ }catch(e){
+  $("summary").textContent="Forecast temporarily unavailable. Retrying automatically."; $("source").textContent="DATA CONNECTION RETRY";$("source").className="warn";
+  $("surf").textContent="Unavailable";$("wind").textContent="—";$("swell").textContent="—";$("tide").textContent="—";
+ }
+}
+function updateClock(){$("localTime").textContent=new Intl.DateTimeFormat("en-US",{timeZone:"America/Los_Angeles",hour:"numeric",minute:"2-digit",second:"2-digit",hour12:true}).format(new Date())+" PT"}
+updateClock();setInterval(updateClock,1000);show(current);setInterval(()=>{current=(current+1)%places.length;show(current)},25000);setInterval(()=>{cache.clear();show(current)},10*60*1000);
+</script>
+</body></html>
