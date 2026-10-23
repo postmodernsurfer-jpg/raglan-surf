@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coastline Briefing · Live Surf News</title>
+<style>
+:root{--bg:rgba(5,12,20,.94);--line:#ffffff26;--text:#f7f8f5;--muted:#aebec8;--aqua:#68e0dc;--gold:#ffd17a;--red:#ff6b68}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:transparent;font-family:Arial,Helvetica,sans-serif;color:var(--text);overflow:hidden}
+body{display:flex;align-items:flex-end}
+.ticker{width:100%;height:72px;background:linear-gradient(90deg,rgba(4,15,23,.98),rgba(8,29,39,.96),rgba(4,15,23,.98));border-top:1px solid #68e0dcaa;box-shadow:0 -5px 24px #0005;display:flex;align-items:stretch;overflow:hidden}
+.brand{width:210px;flex:none;padding:0 17px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.brandtop{font-size:13px;font-weight:900;letter-spacing:.13em;white-space:nowrap}
+.brandbottom{font-size:9px;color:var(--muted);letter-spacing:.12em;margin-top:5px;white-space:nowrap}
+.lanes{width:145px;flex:none;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--line)}
+.lane{padding:7px 13px;font-size:10px;letter-spacing:.1em;font-weight:900;white-space:nowrap}
+.lane.surf{color:var(--aqua);border-bottom:1px solid #ffffff14}.lane.climate{color:var(--gold)}
+.viewport{position:relative;min-width:0;flex:1;overflow:hidden;display:flex;align-items:center}
+.track{display:flex;align-items:center;width:max-content;animation:scroll 110s linear infinite}
+.viewport:hover .track{animation-play-state:paused}
+.item{height:44px;display:flex;align-items:center;gap:9px;padding:0 24px;border-right:1px solid var(--line);white-space:nowrap;text-decoration:none;color:var(--text);font-size:12px;max-width:none}
+.item:hover{background:#ffffff0b}
+.tag{font-size:9px;letter-spacing:.1em;font-weight:900;padding:4px 6px;border-radius:3px;color:#07151c;background:var(--aqua);flex:none}
+.tag.climate{background:var(--gold)}
+.headline{font-weight:700}.source{font-size:10px;color:var(--muted);margin-left:3px}
+.status{position:absolute;right:8px;top:4px;font-size:8px;letter-spacing:.12em;color:var(--aqua);background:#06131bd9;padding:3px 5px;border-radius:2px;z-index:2}
+.status:before{content:'● ';color:#68e0dc}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:700px){.brand{width:155px;padding:0 10px}.brandtop{font-size:11px}.brandbottom{font-size:7px}.lanes{width:110px}.lane{font-size:8px;padding:7px}.item{padding:0 15px;font-size:11px}.source{display:none}.status{font-size:7px}}
+@media(prefers-reduced-motion:reduce){.track{animation:none}}
+</style>
+</head>
+<body>
+<div class="ticker" role="region" aria-label="Live surfing and El Niño headlines">
+  <div class="brand"><div class="brandtop">COASTLINE BRIEFING</div><div class="brandbottom">LIVE SURF NEWS + EL NIÑO</div></div>
+  <div class="lanes"><div class="lane surf">● SURF NEWS</div><div class="lane climate">● CLIMATE WATCH</div></div>
+  <div class="viewport"><div class="status" id="status">CONNECTING TO FEEDS</div><div class="track" id="track"></div></div>
+</div>
+<script>
+const track = document.getElementById('track');
+const statusEl = document.getElementById('status');
+const feeds = [
+  {label:'SURF', type:'surf', source:'Surf news', url:'https://news.google.com/rss/search?q=surfing+news&hl=en-US&gl=US&ceid=US:en'},
+  {label:'NEWPORT', type:'surf', source:'Newport Beach', url:'https://news.google.com/rss/search?q=Newport+Beach+surf+OR+The+Wedge+surfing&hl=en-US&gl=US&ceid=US:en'},
+  {label:'WSL', type:'surf', source:'World Surf League', url:'https://news.google.com/rss/search?q=World+Surf+League+surfing&hl=en-US&gl=US&ceid=US:en'},
+  {label:'EL NIÑO', type:'climate', source:'El Niño updates', url:'https://news.google.com/rss/search?q=El+Ni%C3%B1o+Pacific+climate+NOAA&hl=en-US&gl=US&ceid=US:en'}
+];
+function makeItem(item, feed) {
+  const a = document.createElement('a');
+  a.className = 'item';
+  a.href = item.link || feed.url;
+  a.target = '_blank'; a.rel = 'noopener noreferrer';
+  const tag = document.createElement('span');
+  tag.className = 'tag' + (feed.type === 'climate' ? ' climate' : '');
+  tag.textContent = feed.label;
+  const headline = document.createElement('span');
+  headline.className = 'headline';
+  headline.textContent = (item.title || 'Open source for latest updates').replace(/\s+/g,' ').trim();
+  const source = document.createElement('span');
+  source.className = 'source';
+  source.textContent = item.author || feed.source;
+  a.append(tag, headline, source);
+  return a;
+}
+async function loadFeed(feed) {
+  const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed.url);
+  const response = await fetch(api);
+  if (!response.ok) throw new Error('Feed request failed');
+  const data = await response.json();
+  if (data.status !== 'ok' || !Array.isArray(data.items)) throw new Error('Feed unavailable');
+  return data.items.slice(0, 6).map(item => ({item, feed}));
+}
+async function refresh() {
+  statusEl.textContent = 'UPDATING HEADLINES';
+  const results = await Promise.allSettled(feeds.map(loadFeed));
+  const all = results.filter(r => r.status === 'fulfilled').flatMap(r => r.value);
+  const seen = new Set();
+  const unique = all.filter(({item}) => {
+    const key = (item.title || '').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key); return true;
+  }).sort((a,b) => new Date(b.item.pubDate || 0) - new Date(a.item.pubDate || 0));
+  if (!unique.length) {
+    statusEl.textContent = 'FEED UNAVAILABLE';
+    track.replaceChildren();
+    const fallback = document.createElement('a');
+    fallback.className = 'item'; fallback.href = 'https://news.google.com/search?q=surfing+news';
+    fallback.target = '_blank'; fallback.rel = 'noopener noreferrer';
+    fallback.textContent = 'Live headlines could not load in this browser. Click to open current surf news.';
+    track.append(fallback.cloneNode(true), fallback.cloneNode(true));
+    return;
+  }
+  track.replaceChildren();
+  unique.forEach(({item,feed}) => track.appendChild(makeItem(item,feed)));
+  // Duplicate the sequence for the seamless ticker loop.
+  [...track.children].forEach(node => track.appendChild(node.cloneNode(true)));
+  statusEl.textContent = 'LIVE FEED · ' + unique.length + ' STORIES';
+}
+refresh();
+setInterval(refresh, 30 * 60 * 1000);
+</script>
+</body>
+</html>
