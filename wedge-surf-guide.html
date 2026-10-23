@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Wedge | Surf Spot Guide</title>
+<style>
+:root{--ink:#f6f3e9;--muted:#b6c4c8;--aqua:#70e0dc;--gold:#f2c879;--glass:rgba(5,18,27,.91)}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:transparent;color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow:hidden}
+body{display:flex;align-items:flex-end;justify-content:flex-start;padding:16px}
+.panel{width:min(440px,100%);border:1px solid #ffffff2a;border-radius:13px;overflow:hidden;background:var(--glass);box-shadow:0 12px 36px #0007;backdrop-filter:blur(10px)}
+header{display:flex;align-items:center;gap:10px;padding:13px 15px;border-bottom:1px solid #ffffff1c;background:linear-gradient(110deg,#0d3440e8,#101b28e8)}
+.mark{width:32px;height:32px;border:1px solid var(--aqua);border-radius:50%;display:grid;place-items:center;color:var(--aqua);font-size:17px;flex:none}
+.brand{font-size:12px;letter-spacing:.16em;font-weight:900}.sub{font-size:9px;letter-spacing:.13em;color:var(--muted);margin-top:4px}
+.live{margin-left:auto;font-size:9px;letter-spacing:.13em;color:var(--gold);white-space:nowrap}
+.content{padding:15px}
+.kicker{font-size:9px;letter-spacing:.18em;font-weight:800;color:var(--aqua)}
+h1{font-size:28px;letter-spacing:-.04em;margin:5px 0 5px;line-height:1}
+.intro{font-size:12px;color:#d6e1e2;line-height:1.5}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}
+.card{background:#ffffff0a;border:1px solid #ffffff13;border-radius:8px;padding:10px}
+.label{font-size:9px;color:var(--muted);font-weight:800;letter-spacing:.12em}
+.value{font-size:13px;font-weight:800;margin-top:6px;line-height:1.3}
+.detail{font-size:10px;color:#c3d1d4;line-height:1.45;margin-top:4px}
+.story{margin-top:9px;border-left:2px solid var(--gold);padding:8px 10px;background:#ffffff08}
+.storytitle{font-size:10px;letter-spacing:.12em;color:var(--gold);font-weight:900}
+.storytext{font-size:12px;line-height:1.5;margin-top:5px;color:#e8ece8}
+footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 15px;border-top:1px solid #ffffff19;color:var(--muted);font-size:9px;letter-spacing:.06em}
+.dots{display:flex;gap:5px}.dot{height:4px;width:15px;border-radius:3px;background:#ffffff30}.dot.on{background:var(--aqua)}
+@media(max-width:360px){body{padding:5px}.content{padding:11px}h1{font-size:24px}.grid{gap:5px}.card{padding:8px}}
+</style>
+</head>
+<body>
+<main class="panel" aria-live="polite">
+<header><div class="mark">〰</div><div><div class="brand">THE WEDGE</div><div class="sub">NEWPORT BEACH · SURF SPOT GUIDE</div></div><div class="live">LOCAL LORE / NO. <span id="num">01</span></div></header>
+<section class="content">
+<div class="kicker" id="kicker">KNOW THE BREAK</div>
+<h1 id="title">Two waves. One lineup.</h1>
+<div class="intro" id="intro">A legendary wedge-shaped wave at the entrance to Newport Harbor, known for its shifting peaks, heavy shorebreak and unpredictable closeouts.</div>
+<div class="grid">
+<div class="card"><div class="label">SWELL TO WATCH</div><div class="value">SOUTH · SOUTHWEST</div><div class="detail">Southerly swells can wrap around the jetty and help set up the classic wedge effect.</div></div>
+<div class="card"><div class="label">WHAT MAKES IT DIFFERENT</div><div class="value">REFLECTION + REBOUND</div><div class="detail">Wave energy can reflect off the rock jetty and meet incoming swell at an angle.</div></div>
+</div>
+<div class="story"><div class="storytitle" id="storytitle">WEDGE HISTORY</div><div class="storytext" id="story">The harbor jetty helped shape the wave. Over generations, The Wedge became a Southern California icon for bodysurfing, bodyboarding and spectacular wipeouts.</div></div>
+</section>
+<footer><span>RESPECT THE SHOREBREAK · WATCH FROM A SAFE DISTANCE</span><div class="dots" id="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div></footer>
+</main>
+<script>
+const slides=[
+{kick:"KNOW THE BREAK",title:"Two waves. One lineup.",intro:"A legendary wedge-shaped wave at the entrance to Newport Harbor, known for its shifting peaks, heavy shorebreak and unpredictable closeouts.",st:"WEDGE HISTORY",body:"The harbor jetty helped shape the wave. Over generations, The Wedge became a Southern California icon for bodysurfing, bodyboarding and spectacular wipeouts."},
+{kick:"READ THE SWELL",title:"Direction changes everything.",intro:"Swell angle, period, tide and the way energy wraps around the jetty all influence how The Wedge behaves. Conditions can change quickly.",st:"SOUTH SWELL LORE",body:"A south or southwest swell is often associated with classic Wedge action. The exact angle matters, and not every southerly swell produces a clean wedge."},
+{kick:"LOCAL LORE",title:"The rebound is real.",intro:"The wave is famous for its unpredictable peaks, surging water and waves that seem to collide near the sand.",st:"WHY IT WEDGES",body:"The interaction of incoming waves with energy reflecting from the jetty can create the distinctive crossed-up peaks. It is powerful, chaotic and hard to predict."},
+{kick:"FAMOUS SESSIONS",title:"Big days become legend.",intro:"When a large south swell arrives, The Wedge can draw skilled bodysurfers, bodyboarders, photographers and crowds to the sand.",st:"THE WEDGE SPECTACLE",body:"The most memorable sessions are often the days when the sets dwarf the lineup and the shorebreak detonates. Big does not automatically mean safe or rideable."},
+{kick:"SURF SMART",title:"Respect the impact zone.",intro:"The Wedge is a serious shorebreak with shallow water, strong currents and heavy waves. Conditions can overwhelm even experienced ocean users.",st:"A LOCAL RULE",body:"Watch from well back from the waterline. Never turn your back on the ocean, keep clear of the impact zone, and follow lifeguard instructions."},
+{kick:"QUICK FACT",title:"A California original.",intro:"The Wedge is part of Newport Beach's identity and one of the best-known shorebreak waves in the world.",st:"BEYOND THE RIDE",body:"The spot is as much a spectacle as a surf break. Its reputation was built by generations of local watermen, bodyboarders, bodysurfers and photographers."}
+];
+let i=0;
+function show(){const s=slides[i];document.getElementById('num').textContent=String(i+1).padStart(2,'0');document.getElementById('kicker').textContent=s.kick;document.getElementById('title').textContent=s.title;document.getElementById('intro').textContent=s.intro;document.getElementById('storytitle').textContent=s.st;document.getElementById('story').textContent=s.body;document.querySelectorAll('.dot').forEach((d,n)=>d.classList.toggle('on',n===i%5));}
+show();setInterval(()=>{i=(i+1)%slides.length;show()},12000);
+</script>
+</body>
+</html>
