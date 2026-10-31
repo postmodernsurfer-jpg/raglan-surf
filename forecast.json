@@ -1,42 +1,6 @@
 {
-  "updated_utc": "2026-10-31T15:01:28.674427+00:00",
+  "updated_utc": "2026-10-31T19:14:18.177385+00:00",
   "rows": [
-    {
-      "time": "2026-11-01T05:00",
-      "wave_ft": 9,
-      "period": 12,
-      "wind_kmh": 3,
-      "wind_dir": "E",
-      "tide_pct": 54,
-      "face": "😍"
-    },
-    {
-      "time": "2026-11-01T06:00",
-      "wave_ft": 8,
-      "period": 12,
-      "wind_kmh": 4,
-      "wind_dir": "E",
-      "tide_pct": 31,
-      "face": "😍"
-    },
-    {
-      "time": "2026-11-01T07:00",
-      "wave_ft": 8,
-      "period": 12,
-      "wind_kmh": 6,
-      "wind_dir": "E",
-      "tide_pct": 11,
-      "face": "😍"
-    },
-    {
-      "time": "2026-11-01T08:00",
-      "wave_ft": 8,
-      "period": 12,
-      "wind_kmh": 7,
-      "wind_dir": "E",
-      "tide_pct": 8,
-      "face": "😍"
-    },
     {
       "time": "2026-11-01T09:00",
       "wave_ft": 8,
@@ -52,7 +16,7 @@
       "period": 11,
       "wind_kmh": 9,
       "wind_dir": "N",
-      "tide_pct": 15,
+      "tide_pct": 14,
       "face": "😍"
     },
     {
@@ -61,7 +25,7 @@
       "period": 11,
       "wind_kmh": 11,
       "wind_dir": "N",
-      "tide_pct": 38,
+      "tide_pct": 37,
       "face": "😍"
     },
     {
@@ -108,6 +72,42 @@
       "wind_dir": "W",
       "tide_pct": 92,
       "face": "🙂"
+    },
+    {
+      "time": "2026-11-01T17:00",
+      "wave_ft": 6,
+      "period": 11,
+      "wind_kmh": 8,
+      "wind_dir": "W",
+      "tide_pct": 74,
+      "face": "😍"
+    },
+    {
+      "time": "2026-11-01T18:00",
+      "wave_ft": 6,
+      "period": 11,
+      "wind_kmh": 5,
+      "wind_dir": "W",
+      "tide_pct": 51,
+      "face": "😍"
+    },
+    {
+      "time": "2026-11-01T19:00",
+      "wave_ft": 6,
+      "period": 11,
+      "wind_kmh": 3,
+      "wind_dir": "SW",
+      "tide_pct": 28,
+      "face": "😍"
+    },
+    {
+      "time": "2026-11-01T20:00",
+      "wave_ft": 6,
+      "period": 11,
+      "wind_kmh": 1,
+      "wind_dir": "SE",
+      "tide_pct": 11,
+      "face": "😍"
     }
   ]
 }
