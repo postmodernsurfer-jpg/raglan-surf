@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-13T17:20:01.718483+00:00",
+  "updated": "2026-11-13T22:48:24.881959+00:00",
   "stories": [
     {
       "source": "SURF NEWS",
@@ -27,10 +27,26 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Bay Area weather forecast: Storm to bring rain, hazardous winds and high surf",
+      "summary": "Bay Area weather forecast: Storm to bring rain, hazardous winds and high surf &nbsp;&nbsp; NBC Bay Area",
+      "date": "NOV 13, 2026",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNZDVtbnQ2YlNGYzlMX3hXUGhMYThmZHR3NHVveTBkdXNfb0RnTUNqby1Nb1Rlczl4ZVNlXzlxeC0xTTZNTGk5V3FEZ2RaQUt5OFo5alhDc2FoQWU2ODg3X1RhV2ZjSi1XNnN1SFNTQnB0dklNcS1oY2JtRUlZZU9JU3JMdk9JLVNOZWxSZC02X0VmNDhlOElFRjdn0gGiAUFVX3lxTFA5WWpnZU9kd0ZoQ3pWaXhheUVfRXVTT3Q3WmkzXy1rbjU2TG9xdjhtMXJ3MC1KSC1HTlowTGNsUzBRNi0yY3BHblVLdWZ2YjE3YXhRWUVYNUQ5NWtkVU5Bb3pBZlV4bFhVVTJTTHlReXE1ODVDRi00LWYxYktSVm9YUkdSVzVpMkVsRkhKcHJ0dzFwbjNKSHZERkZnSUJhTWxHQQ?oc=5",
+      "category": "SWELL & WAVES"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Veterans Day Evening Forecast - Breezy winds and high surf on Thursday",
       "summary": "Veterans Day Evening Forecast - Breezy winds and high surf on Thursday &nbsp;&nbsp; KITV",
       "date": "NOV 12, 2026",
       "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQZ0xOQWw1UVBsQVZyV1VvYzhTQ3dBMUN6elJoQUUxdm5pX2FUSXR1N1VoNTM4d1pOY2I3WVVaN0ctdlVDNG9OMkZ0ZVc3QUExUHU3T2VuM0Vmb09kSHA0NS1MM3lPbXlZV255Tlpxa3kzWFFuX0VnWWRYZFdtMmFFWWVjZXpBUV8weThkTnAwMUdxbFpjcFhJMFR2dGNnaUU5QjVpREtmeEtYS3Q4OEk1dHRKRG1IbHdPQWVudVA1VWN1Rno2b3hiMWJnVV9IMDAxZmFQbUpnLWYtclo3N3EzZmwzWWx2NVptUG5NZW5LMA?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Salt Creek Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Salt Creek Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "NOV 11, 2026",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE94cTNsOW1qazBEcDN6TV9XWjVVbDJncEs5MlBnN2ZUcmk1ZDBFczNDR09kSU5najdhWE8tQ3BrRmhiOUprbEo4ZERhWVA5QlVNTGZ5TjdDTWNGdUhhY1pxRnFfNG4zNHVLb2xtU3JGaGVpcVNCaGZCNFlBZ0k?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -59,14 +75,6 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Rob's Forecast Notes: Run of Wind, Waves Upcoming",
-      "summary": "Rob's Forecast Notes: Run of Wind, Waves Upcoming &nbsp;&nbsp; Surfline",
-      "date": "NOV 12, 2026",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSk52NlF0VloxYXVOWWRDQlF2MXdabjRRd3JJYl9JZTBDcGJ1VHF2cVlHZzZpc0dNMUd3dnZSTHVOa1lNVzlBc3Z0YzdlY0RVelFvTlI3eE9wdXFhZUJTbUZsSXh5YmkzWUxBQXRYS2xzQVFtSEF6MUVOS1Z4cFZBOG9XQmJsRF9mNzhzcDlqMklFX2R2bTNlOHhZMHZDWmZBTVZuVjRpdw?oc=5",
-      "category": "SWELL & WAVES"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Monster 40-Foot ‘Biggest Waves in Years’ Heading for California in Potentially Historic Swell",
       "summary": "Monster 40-Foot ‘Biggest Waves in Years’ Heading for California in Potentially Historic Swell &nbsp;&nbsp; SURFER Magazine",
       "date": "NOV 10, 2026",
@@ -83,10 +91,34 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Rob's Forecast Notes: Run of Wind, Waves Upcoming",
+      "summary": "Rob's Forecast Notes: Run of Wind, Waves Upcoming &nbsp;&nbsp; Surfline",
+      "date": "NOV 12, 2026",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSk52NlF0VloxYXVOWWRDQlF2MXdabjRRd3JJYl9JZTBDcGJ1VHF2cVlHZzZpc0dNMUd3dnZSTHVOa1lNVzlBc3Z0YzdlY0RVelFvTlI3eE9wdXFhZUJTbUZsSXh5YmkzWUxBQXRYS2xzQVFtSEF6MUVOS1Z4cFZBOG9XQmJsRF9mNzhzcDlqMklFX2R2bTNlOHhZMHZDWmZBTVZuVjRpdw?oc=5",
+      "category": "SWELL & WAVES"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "Hawaii County Surf Forecast for November 09, 2026",
       "summary": "Hawaii County Surf Forecast for November 09, 2026 &nbsp;&nbsp; Big Island Now",
       "date": "NOV 09, 2026",
       "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOM1Jmb1pwa3dzZFE1NkFRWUhoRnp6OWhDaHE0dlZHN1Z6WWtfTlJVcFdaT09uRFdjOXJrdi1tRTRZeEttOGVUeFBjQW9yRmNmREU2clllYUh6NjN5WG52M2FCQXU4b1kwV1pMbGZjd01lM05CVXF0VEpMWVJoWkY3VkM5SGhhRlBLVWNINUp3?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "The Pass Surf Report, Surf Forecast and Surf Cams",
+      "summary": "The Pass Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "AUG 05, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9sN1VkQjBWeVBrWkdnU0ppZnlWeFhiY21FS0lzdWNFTDhqcmZWZ2J0eFUxa2REWlFpRzMxODVPR3o1cWlvVEdqcHVxc2pVUzk1Nk9uSUZZWWV1RGdTN0RYYnAwbzFtelJxREtrSEkwLUg2ZFZEd1JDbHBB?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Beach 90th Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Beach 90th Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "JUN 30, 2026",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE03V1p0XzVEVThkSmFSbDN2enpQWDJIRGgzVm1iaWhkekx1SkxqSlpCeTRkeEF6SVRlTkl6QVh0RWVHa2hyMFN2cE83Tm0xTWU2MjdFaTlyWThGT1M4NHJjblV0aGZybnI4RlExLS1lV2ppMUV6LVNDS3U2SDU?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -99,42 +131,10 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Belmar Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Belmar Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 19, 2026",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5Lb21SY28xV2hjYzlWZ0RfZzd4ZV9vZVpZUklidlNRTzdVRzBaZmFmTzJtQk9NX0ZiVmlWTV9GaURzU1FvT1dKNTZNRGJaMmpLaGRqOFQ2YWFzcG56Mk9rVFBiTS1QbXZfeTdfa3Y4LTRoSlJpY1A0?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Huntington Beach Pier Southside Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Huntington Beach Pier Southside Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "NOV 28, 2022",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQNHJrSEViUmh4dmJwbzlCOTV6a2J0SHZkX2FXeHZjRzg5THBxYXlJc2Q1SDhlT19YVExMMjFIY053RnZYaVZrVnV6M01FYXFUSmpNNkx6OU44d1dud2tEWEhWU1p3Ykl0QVd5Y3F5MFFfam5EVTJENkhzQmNDSzBPVk1VWUZLZklfTXc4blZCTFd0SERrMEhFVw?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Linda Mar Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Linda Mar Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "APR 17, 2024",
-      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1RY1FjUzBSSV96WDVjRDgtN3hIZjZhT3lIRE1Ua3dLbXZZbXpoSDBya016UE1sRkdnRFRfQ2U1RzdGd2g0Ny10NXdXemo5OXMzakROQlo4YjBWRHlXV0ptTXRvWXlaVmd2OTItOVlvalNPaFhnZ2pVZWw0OA?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Manhattan Beach Pier Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Manhattan Beach Pier Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "DEC 01, 2022",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxORjlxWnFucXVSQXRsZ00zRDRvaXEzeDBkX2hUN0lNYno5RUJFekJGRVhqcWo1b3NGODVvUXpwTl9oX2REc3JkTjhkLW9uMEdBNTBQWTJRaE5xSlBNeldoQlJZQmVQWWFBdHROQkM5c0o4NXFBUGtsX3JXNkN1TWljZXltTVg5TW9WMFE?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Ehukai Beach Park Surf Report, Surf Forecast and Surf Cam",
-      "summary": "Ehukai Beach Park Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
-      "date": "OCT 27, 2023",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOVzhnRWpwcVhGc1lYdWRFTFVYNk1BQnpPUXFsb041bEdLYnF0N214Z0FOVlJJRWJxbEdWSklmZTU5YUMxU2hvcEVXNnNHRWU2VUJ3ZG9BYzFJZU8wd21sQ3hjOFNNWTYxNlMxUFA3VlUzelpuZFFtY3l2U0YxT3FJYU9jS1pBQQ?oc=5",
+      "title": "Nazaré Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Nazaré Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "NOV 14, 2025",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE56dEFuYXVQTzd6TDFDb3RYQ3AzZkJXZWIwRzRHUmxVQV9HcTZFRXowd0hWeElTbnN2aUNkbWNOU3NwX2NpZ19nMllDZEdjQ1I2M1djTVRGZmhzTkNBU0ZVb1hLbVZpdndYcTNyeTB4a19kaTFJNU1z?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -155,27 +155,11 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Del Mar Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Del Mar Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "SEP 21, 2021",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE54TDI4aUVReVBnZFBHNGYxTzNzaWFDTjBlY1FBYW52U0R6ODUzS2pPUXZmRUhZM1ZQRTBQa3k5SzZmMzRuS0RJSjN1X0oycHdKaGtYYjZwMGk4bHFHRjk5cTRHRUp0VFpMVW1pZHpRWEUteUF2MFFuUQ?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Steamer Lane Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Steamer Lane Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "JUL 05, 2019",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE55QWdfbnV4ZHFoWXFZNll4SnBQcDdBSWd3a19DR1ZOMk95VDdwb1M4M29JdS1JV0hDQk44ZDBYTUJ3UzB4YS1Wa2I4QjVHUWNmY3VpeFoxcnlHWU1QN1J5WnptR3V5ZkVEYmpFS19VUmp1SElvckwzR0dIYkl2N1E?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Newport Upper Jetties Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Newport Upper Jetties Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "DEC 02, 2022",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNdWQwVFBTMjVQeWpmR3BtM2w3OUFNcHN2aG9yNkwxVlBMQ3g2MndmWC1qMGRCQXdFUUY4MTBPWXAwaEZLbEtaeGFZM3dYclZvb2l5U0QyT3hRcm94cXhzd2NxVDZ0RUxMc3pQMXN5V1hRUzVmRm1tRTJfWm9JMy1ScU9zUjhRMU9TWjVB?oc=5",
-      "category": "SURF NEWS"
+      "title": "Lower Trestles Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Lower Trestles Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "MAY 15, 2018",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQbEpWRDBJTzdINHoyUmlsanVyVHp6b3RoanFXMGVxMzJOS3N4WGVISS15U3I3M1otVDJfc3ViOEx4WFNSZ0NQdWdpTWlxNE9EU19odlpwT05RTnphbEdxQUZUUVYwdG9GNXBJNHNHZFVNNHd6T2R2VnR6UkJ5UGx1dlJR?oc=5",
+      "category": "FAMOUS SURF SPOTS"
     },
     {
       "source": "SURF NEWS",
@@ -183,70 +167,6 @@
       "summary": "Zuma Beach Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
       "date": "MAY 16, 2018",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1pRkRrcnpJajNCTWZURDRfcHNkRVdVX1ZYU0lhaERULWNNRDJTaU1lOWhlSlFVVHFTeVVPeHBQOUdidXFTNWlOV3lVajJDZ19ISGJJeEJlYVNEUmU2aWxkdnRGQ2VOa1RrX3Y2cENrZDdQeFVQWGl6cXJXMzE?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Sunset Beach Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Sunset Beach Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 15, 2018",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1SVjZ3cjhXNVc5QXlocjhMZ0ZkT3VTR3V0TmJjaU5fUzJzMXhfUzJMZU5lLVFHamhGWlVPS1F5cjBZdTRITGNnRkZTNVl1Q3Nmd2ZSTFlnR3lYT1RHNmljZzNiT1ptRUhWWWI3cnBpNlVtVklZTENWQXRrcXp1WjA?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Pipeline Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Pipeline Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 07, 2018",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5obFRDYzhBUzNfbWxpeXBUSnlLcDE4cE5UZWdFcTR4dzR2OEMzM3NvSnhHSVB1T2RacEhhMzlJVDEwb3Y1QWV0eThLaW5fbFlORC1rN2dkc3ZWc09zVXRQYzhHU3dlUkxIRGRqNUxDekdQWF9NbjVia3V3?oc=5",
-      "category": "FAMOUS SURF SPOTS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "SURFLINE.COM | Global Surf Reports, Surf Forecasts, Live Surf Cams and Coastal Weather",
-      "summary": "SURFLINE.COM | Global Surf Reports, Surf Forecasts, Live Surf Cams and Coastal Weather &nbsp;&nbsp; Surfline",
-      "date": "MAR 16, 2006",
-      "url": "https://news.google.com/rss/articles/CBMiPkFVX3lxTE9GWlU5Rmo4UkJHSmpGdDlPZDNQME56SUdFb3JaVkpwU0c1QjBPMERPSHdzUmtsRHRlNk9vVExB?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Jack's Surf Report, Surf Forecast and Surf Cam",
-      "summary": "Jack's Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
-      "date": "MAY 15, 2018",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1yU3VtWkdiSlhjYWMyTWZfbTBrc0lQRGJFX1kxTGZ2YTh5QVM0NU9kVEVjMVdmVHd6TTEydHhZUUxCM3hwSWo3a3hlaXdfaGN3YTFPWWNrWHIzbVZjTW1FblpuVDc5dWp6Z3ZmMndLZ245bjNCOU5R?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Oceanside Pier Northside Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Oceanside Pier Northside Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 15, 2018",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPc1I4bWpRS1hyV09ZYmt5WEgzeDF4dlBLcGg2aGZiQ0FuNFJELUYwZlVOYU1ZdkpUOWxMMGlnTmM5RzJsVVNYVkhjZzdHWjNDUF9XN2pqN0s1YlNBNmRuLXBydExXT0dqaHZiTTVrMXk2cnQxMC12dDhKejcySjNGeHlmR21uMUZJbDE1MGxUVQ?oc=5",
-      "category": "OCEAN & WEATHER"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Cowells Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Cowells Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 12, 2018",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5TU0g1bmlxM0VFZ3FZajZVOUNiVVN5SnBvYUNlOHpEOTFSS0VPQ2M0bm9GMFNSZ1ZFMm5jUGQ3RWlmaGN4dG9sMTVXLXVUNTlwWjc1aDltTC1hTnBHcERZcTNFMno1Z3dpWGp3MlpPTXIwR2ZGQ0d4ZQ?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Matunuck Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Matunuck Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 11, 2018",
-      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBva09BYmdxUHc2dWptaTFkVHdWU1I1RXM2dkdqRGxSc0xzRmxXOEJyQktCSF9uUjk0aWw5eEJGcTNxSlBxb1lvVHlnWjUtN0NhTHF3bVZSR3ZselN2MTlNZ0xvdHh0RDkwXzJGcnRJM0tRSDZjM2o4Ry13?oc=5",
-      "category": "SURF NEWS"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Blacks Surf Report, Surf Forecast and Surf Cam",
-      "summary": "Blacks Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
-      "date": "MAY 15, 2018",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE05cW1XdU9NaEUwaWN0dm0zMG1Kc0JDaHJJQXVJaElPbXltd3JiX0h3OFhqMTFXYlFnTnRhM2k3bXEycFNWVWktbmV5YldjbE5RTWs0RzgyUGlSQW1QeHBoYk0zMGhDVndkRmdEU05vZWNmV1UxRnJR?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -259,10 +179,42 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Manasquan Inlet Surf Report, Surf Forecast and Surf Cams",
-      "summary": "Manasquan Inlet Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "APR 27, 2018",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNdDI4NWdYMG1oVVJyZHotaFlxWTVZYUpCNVZVdk1PN2MyNFh2Y3RYblJQVnc0OE5abTA0emMwenJ0MGJWM253UUJDTXRyRHM3SFEtM0pLT3NTSmJ2elZFczFjMjlYX3ZiOHpGTWh0aUduaTJLTUdOR1J0V2gyU3hzY2FpMA?oc=5",
+      "title": "Blacks Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Blacks Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "MAY 15, 2018",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE05cW1XdU9NaEUwaWN0dm0zMG1Kc0JDaHJJQXVJaElPbXltd3JiX0h3OFhqMTFXYlFnTnRhM2k3bXEycFNWVWktbmV5YldjbE5RTWs0RzgyUGlSQW1QeHBoYk0zMGhDVndkRmdEU05vZWNmV1UxRnJR?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Bolsa Chica State Beach Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Bolsa Chica State Beach Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "MAY 15, 2018",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNYVdxNVZkUVZkemU2RjMyR1BxanhnU25SRWVKQ09OMXZ2dkVrRmlYOWNCd1EtcjllTHZRaUFFT2g2MEtERG1oRVY5UlZoTUVRRTc3RldYNGd0T25pM2ZoNEV0UVk2ZWM5OHgzaHpwck9wUUEwVWswRWhpQlRFMmFBc1RlV3M3QXhFMTkwczhR?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Campus Point Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Campus Point Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "MAY 12, 2018",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5LbS13YW81ay01c2Y4cEhuWDA4dnZNZTlXbUFTdjdWMkhZY3JwR3hYWDZQdm9jWkpqVTRHUzFHbGdUeU9leGtuNURiaVlCakVFRFJWOWVybEhRdXQzX20zdHRlZFBuT0s2X2UycDJHMi1HSnB0QVozXy1LdXAtVWM?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Sharp Park Surf Report, Surf Forecast and Surf Cam",
+      "summary": "Sharp Park Surf Report, Surf Forecast and Surf Cam &nbsp;&nbsp; Surfline",
+      "date": "MAY 15, 2018",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1aNmhIQVE1M3lEcVl4bTAtbWg2d1FVcGxSN3JXS0ROLWUydDN6eC0wZUJYYnRtYWMwWnRTcDNpM09ZOVh4cjZaOUxaNTk4RS1wUnh4RW8wODFJX3ZfdWlFNEU5cGcyMllmZF9ocThSYVdnb0VfaFFOY2s4bzg?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "SURFLINE.COM | Global Surf Reports, Surf Forecasts, Live Surf Cams and Coastal Weather",
+      "summary": "SURFLINE.COM | Global Surf Reports, Surf Forecasts, Live Surf Cams and Coastal Weather &nbsp;&nbsp; Surfline",
+      "date": "MAR 16, 2006",
+      "url": "https://news.google.com/rss/articles/CBMiPkFVX3lxTE9GWlU5Rmo4UkJHSmpGdDlPZDNQME56SUdFb3JaVkpwU0c1QjBPMERPSHdzUmtsRHRlNk9vVExB?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -275,10 +227,34 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "New Smyrna Beach Surf Report, Surf Forecast and Surf Cams",
-      "summary": "New Smyrna Beach Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
-      "date": "MAY 16, 2018",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNMjhxTXhYRFd3VWZBZ0NtRWhfbHpnNjh0Z3EzaUZTWTJqT25XcDNnTVV5dWdDOWtUaVZiTFI0SEJINXFUbm8yaEtSQzE2ZW54YWdBc1B6NDhSeVJHSFNZTHJlVHFBMFZoSkdiREMxY2toZlFublRyT1lyeEFzaDF3NF9HQzk?oc=5",
+      "title": "El Porto Surf Report, Surf Forecast and Surf Cams",
+      "summary": "El Porto Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "MAY 15, 2018",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFB3NkJVRW8ySjVtVm1HVDRHUlN4ckc1Y3ZVN1lSVHA5NVdrcVdzV0tCZG9jRlBMSTk5N3c4ZmlpYjlkUEZLa1V3X1c3MkQ4aEtzTXktMnNYLWNzbTJ5ZVlGRHZraHhOYi1qX2VsMzJNNmh1WURzS0NjRDhB?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Pleasure Point Surf Report, Surf Forecast and Surf Cams",
+      "summary": "Pleasure Point Surf Report, Surf Forecast and Surf Cams &nbsp;&nbsp; Surfline",
+      "date": "MAY 12, 2018",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNbDQtRTlYc1F3cmt5Y1FtVklnU2t4c1NUZHBZaHEzcXJTR0hrMl9fVWQyamxacnFNWjhxLU9fNG1tNlVscEgxSHpsRy0ta0IzbHVfYWhvem9rRDZvMFFENE5Rdng1cXExZldVWllZQ3cxNnlmaFNKVnR3a2RsdllLM2tR?oc=5",
+      "category": "SURF NEWS"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "San Diego Rain, Thunderstorms And High Surf Forecast",
+      "summary": "San Diego Rain, Thunderstorms And High Surf Forecast &nbsp;&nbsp; Hoodline",
+      "date": "NOV 13, 2026",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNaXVrNU1FRnhnd2RnOEZRdUdMc2JPcXk4dEpQVTJBUkdROUl0RHgtUktjUWh5QnR0XzduRlBRT2ZZZUU2UXM3aWtrb2RtbzJiWFlXWWgwREFreDVzVmtxUnB2SllCcGVyaHYyNDdHU2hsanp6azlDN1pxbDlraDRBc25aS3NDOWFYTXY4UVFDd1lJUjNoMk5kMVZR?oc=5",
+      "category": "SWELL & WAVES"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "California's warm waters are drawing rare sea creatures north",
+      "summary": "California's warm waters are drawing rare sea creatures north &nbsp;&nbsp; The Desert Sun",
+      "date": "NOV 13, 2026",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOREpPeFphSWlTdkx4OHVMaTNkU0ZuQ25VN190WkpRQjBLUUQ3YUh1RDdMTTNNdlZsMEpWU3FJcXZwMFRRLU8zVzh1M1pfT05sX01jYWZ3QTUyT2U1c1JteXVOWnBEN2N4WWV2YUtkeUExekpjZGV3RElnM1Q2LXRjTlhMZGZmTmNuMU5kTUtfUC15ZDFMcXlYdXNicjFyZHo2WFl3aHNDMC14bmZXMlp0OElDN3M5b3VHUlE?oc=5",
       "category": "SURF NEWS"
     },
     {
@@ -303,14 +279,6 @@
       "summary": "7 Ways El Niño and Large Marine Heatwave Could Affect West Coast Marine Species &nbsp;&nbsp; NOAA Fisheries (.gov)",
       "date": "JUN 12, 2026",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPVEFzNjkwMUNFZnhkTElibXN6TUVneDl4a3htazFZMVItOVZHc1l5b1pKdXRKS0xTdkRxZmw2dmY4M244XzV0M1B3V2dvVHN0OHROemVvUUdfeVh5ZGxvX3FPS1F0YW9tZWltUGg5a2liV1p3VWNxSHZZenBWMUx6eFFzTmJrQ2pXRWh0UkpVSDl1LXhBblFuUHFuczVrRTV4QUpsZDdwTl9pSTEtVC1xbkhKN3I5VXFLQW5tVlozakt2Zw?oc=5",
-      "category": "OCEAN & WEATHER"
-    },
-    {
-      "source": "SURF NEWS",
-      "title": "Deep Reefs No Longer Safe from Marine Heatwaves Study Finds",
-      "summary": "Deep Reefs No Longer Safe from Marine Heatwaves Study Finds &nbsp;&nbsp; environment coastal & offshore",
-      "date": "NOV 11, 2026",
-      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQLXVXTnZUeHBPS2dJSWZhZXJ2MnBYb016ZEpZd09Uek81T1VZZHpPLXozM3lYNWJoeTE1UWdENGdaOEZCVVRJaTJtZXNiQmxqelozT3k0dkQ4TUtQWEtzNkZFM0lnM291VEo0OXJScjhka19ocFhvUDdJVkxtMWgzaEZQMEdYbUNkZ19Eamd6TFFGMXhneFpRc0JEUHZlQQ?oc=5",
       "category": "OCEAN & WEATHER"
     },
     {
@@ -483,6 +451,14 @@
     },
     {
       "source": "SURF NEWS",
+      "title": "Drivers of the extreme North Atlantic marine heatwave during 2023",
+      "summary": "Drivers of the extreme North Atlantic marine heatwave during 2023 &nbsp;&nbsp; Nature",
+      "date": "JUN 04, 2025",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1KNlpvSXhndFUtNzJ1QzRhS2VkLUgtS3cwYThqd1prajJxc3hOM3RuMzZiYUVYeFNqVFBwMDNPRy1DdldJOGdLUFA5bUFYN2JGYWYwQklSbFNFTHdPQTFN?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
       "title": "An increase in marine heatwaves without significant changes in surface ocean temperature variability",
       "summary": "An increase in marine heatwaves without significant changes in surface ocean temperature variability &nbsp;&nbsp; Nature",
       "date": "DEC 01, 2022",
@@ -603,18 +579,18 @@
     },
     {
       "source": "SURF NEWS",
-      "title": "Marine heatwaves",
-      "summary": "Marine heatwaves &nbsp;&nbsp; International Union for Conservation of Nature",
-      "date": "MAR 20, 2024",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5rdHNMWUlQVmJma0E3YUdub091U2c1dlRmOXhBZG9UQU9rMjBmLUdlakZFT2JMOUlyVTFOSnEzaUFvTU12blpFUFBNVFc2OFRCZGh4YnBmQWx2LWlCejNjM2dhYmcwODQ?oc=5",
-      "category": "OCEAN & WEATHER"
-    },
-    {
-      "source": "SURF NEWS",
       "title": "Recent European marine heatwaves are unprecedented but not unexpected | Communications Earth & Environment",
       "summary": "Recent European marine heatwaves are unprecedented but not unexpected | Communications Earth & Environment &nbsp;&nbsp; Nature",
       "date": "OCT 07, 2025",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4zOW5IRkFNTEdxcldzdThYWUVsRl90MmxlbXdWZ3RDUER1ZTNwcE1rNkI5T0xWQ2swVzVZdVlFWXFZNHJPRjNIc0VDZXY5MVVKY0REdjJwNFpsaFk3UU5Z?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Marine heatwaves",
+      "summary": "Marine heatwaves &nbsp;&nbsp; International Union for Conservation of Nature",
+      "date": "MAR 20, 2024",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5rdHNMWUlQVmJma0E3YUdub091U2c1dlRmOXhBZG9UQU9rMjBmLUdlakZFT2JMOUlyVTFOSnEzaUFvTU12blpFUFBNVFc2OFRCZGh4YnBmQWx2LWlCejNjM2dhYmcwODQ?oc=5",
       "category": "OCEAN & WEATHER"
     },
     {
@@ -639,6 +615,30 @@
       "summary": "Physical drivers of the summer 2019 North Pacific marine heatwave &nbsp;&nbsp; Nature",
       "date": "APR 20, 2020",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBjLXlkNFRCYXFUeFh0M3FGcEl5dko1TGlhcHFSNmJmNnRocmxVcnVJOXNJWFJLOVFSNjQyajlWLS1nU0cwcVVWaVNkM2RTcVlRbmhScmZCYTQ4d0Q5eFdV?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Marine heatwaves are shaping the vertical structure of phytoplankton in the global ocean",
+      "summary": "Marine heatwaves are shaping the vertical structure of phytoplankton in the global ocean &nbsp;&nbsp; Nature",
+      "date": "AUG 29, 2025",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5rN0E4TVVLZ3B1eHhoS1hWd29sTUJKcWRvbVpnSzBtbnQ2bjhpZWdyS25xS29GblItMlFBdW1TZVBUTlhWSWE0cjh2OHhRS2p1Y2Z5Y3dDanNLNEo3Z2Zz?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Characteristics and drivers of marine heatwaves in the western South Atlantic | Communications Earth & Environment",
+      "summary": "Characteristics and drivers of marine heatwaves in the western South Atlantic | Communications Earth & Environment &nbsp;&nbsp; Nature",
+      "date": "OCT 03, 2024",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5OdGJidzRhcUNwb1Vpc2dELTFwYjdnd3hiTEN0aFFOV0plNVhJQzJ5TTNWZmVPcVgyNkhsc1ROSkdiZjVGaFE3dmI3Q2pyLWNxejJQdjc0eDdYOHh3YzQw?oc=5",
+      "category": "OCEAN & WEATHER"
+    },
+    {
+      "source": "SURF NEWS",
+      "title": "Drivers and impacts of the most extreme marine heatwave events - Scientific Reports",
+      "summary": "Drivers and impacts of the most extreme marine heatwave events - Scientific Reports &nbsp;&nbsp; Nature",
+      "date": "NOV 09, 2020",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE15TVVONzFvWlFxM3cyd2RHQ1JiSGp4UFkteEtpdkJTTFpHejl4QUtaLWl0MGtmWGlDSG1vOVl3Q0YzTGcxa0pvUGs5SU1EYnl3MHhNejZmS0ZzRnNrNGpJ?oc=5",
       "category": "OCEAN & WEATHER"
     }
   ]
