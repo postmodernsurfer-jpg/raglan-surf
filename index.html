@@ -3,214 +3,182 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Raglan Surf Cam</title>
+<title>El Niño Surf Conditions Overlay</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent;font-family:Arial,Helvetica,sans-serif}
+:root{--gold:#ffc400;--red:#ef2018;--white:#f7f7f7;--dark:#071017;--line:rgba(255,255,255,.22)}
 
-.bar{
- position:fixed;left:0;right:0;bottom:0;height:78px;color:#fff;overflow:hidden;
- background:linear-gradient(90deg,rgba(2,18,25,.97),rgba(3,43,56,.92) 50%,rgba(2,18,25,.97));
- border-top:1px solid rgba(70,220,240,.82);
- box-shadow:0 -5px 24px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.10);
+.overlay{
+ position:fixed;left:0;right:0;bottom:0;height:132px;color:var(--white);
+ background:linear-gradient(90deg,rgba(3,13,19,.98),rgba(7,25,34,.97) 52%,rgba(3,13,19,.98));
+ border-top:3px solid var(--gold);
+ box-shadow:0 -8px 30px rgba(0,0,0,.45);
 }
-.bar:after{
- content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
- background:linear-gradient(90deg,transparent,rgba(30,210,235,.9),transparent);
+.topline{height:34px;display:flex;align-items:center;border-bottom:1px solid var(--line)}
+.brand{width:260px;flex:none;padding-left:20px;font-weight:900;font-style:italic;letter-spacing:.08em;font-size:17px}
+.brand span{color:var(--red)}
+.update{height:100%;display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.badge{background:var(--red);padding:6px 14px;font-size:12px;font-weight:900;font-style:italic;letter-spacing:.05em;transform:skew(-10deg)}
+.updateText{font-size:12px;font-weight:800;letter-spacing:.08em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.location{margin-left:auto;padding-right:20px;font-size:11px;font-weight:900;letter-spacing:.12em;white-space:nowrap}
+
+.metrics{height:66px;display:flex;align-items:stretch}
+.metric{flex:1;min-width:0;padding:7px 14px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
+.metric:last-child{border-right:0}
+.label{font-size:9px;font-weight:900;letter-spacing:.16em;opacity:.68}
+.value{font-size:21px;font-weight:900;line-height:1.05;margin-top:4px;white-space:nowrap}
+.sub{font-size:8px;font-weight:700;letter-spacing:.06em;opacity:.55;margin-top:3px;white-space:nowrap}
+.surf{color:#45ef63}
+.windGood{color:#48d8ff}
+.wave{font-size:23px}
+
+.ticker{height:32px;display:flex;align-items:center;background:rgba(0,0,0,.52);border-top:1px solid rgba(255,255,255,.12);overflow:hidden}
+.tickerLabel{height:100%;display:flex;align-items:center;background:var(--gold);color:#05090b;padding:0 18px;font-size:11px;font-weight:1000;font-style:italic;letter-spacing:.08em;flex:none}
+.tickerText{font-size:10px;font-weight:800;letter-spacing:.06em;white-space:nowrap;padding-left:18px}
+.dotSep{color:var(--gold);padding:0 11px}
+
+@media(max-width:1050px){
+ .brand{width:210px;font-size:14px}.location{display:none}.metric{padding:7px 9px}
+ .value{font-size:18px}.sub{font-size:7px}
 }
-.inner{position:relative;height:100%;display:flex;align-items:center;padding:0 20px}
-.brand{width:205px;flex:none;padding-right:18px;border-right:1px solid rgba(255,255,255,.20)}
-.name{font-size:21px;font-weight:800;letter-spacing:.22em;line-height:1}
-.sub{font-size:7px;letter-spacing:.30em;opacity:.58;margin-top:5px}
-
-.live{width:105px;flex:none;padding:0 14px;border-right:1px solid rgba(255,255,255,.17)}
-.liveLine{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.16em}
-.dot{width:7px;height:7px;border-radius:50%;background:#ff1644;box-shadow:0 0 8px rgba(255,22,68,.7)}
-
-.forecast{display:flex;align-items:center;justify-content:center;flex:1;height:100%;min-width:0}
-.day{
- position:relative;height:52px;flex:1;min-width:125px;padding:0 8px;
- display:flex;flex-direction:column;justify-content:center;
- border-right:1px solid rgba(255,255,255,.15);
-}
-.day:last-child{border-right:0}
-
-/* Subtle condition color, not a bright traffic-light block */
-.day.good:after,.day.ok:after,.day.poor:after{
- content:"";position:absolute;left:7px;right:7px;bottom:2px;height:3px;border-radius:3px;
-}
-.day.good:after{background:#36d477;box-shadow:0 0 8px rgba(54,212,119,.45)}
-.day.ok:after{background:#f0c84b;box-shadow:0 0 8px rgba(240,200,75,.35)}
-.day.poor:after{background:#ed5353;box-shadow:0 0 8px rgba(237,83,83,.35)}
-
-.top,.bottom{display:flex;align-items:center;justify-content:center;gap:5px;white-space:nowrap}
-.bottom{margin-top:5px;gap:6px}
-.date{font-size:9px;font-weight:800;letter-spacing:.10em;opacity:.78}
-.wind{font-size:10px;font-weight:700;opacity:.9}
-.temp{font-size:12px;font-weight:800}
-.swell{font-size:12px;font-weight:800}
-.wave{font-size:15px}
-
-.time{width:112px;flex:none;padding-left:14px;border-left:1px solid rgba(255,255,255,.17)}
-.clock{font-size:16px;font-weight:800;white-space:nowrap}
-.zone{font-size:6px;letter-spacing:.14em;opacity:.55;margin-top:4px}
-.loading{font-size:10px;opacity:.6}
-
-@media(max-width:1100px){
- .brand{width:155px}.name{font-size:17px}.sub{font-size:6px}
- .live{width:75px;padding:0 8px}.day{min-width:100px;padding:0 4px}
- .date{font-size:8px}.wind{font-size:8px}.temp,.swell{font-size:10px}.wave{font-size:13px}
- .time{width:82px}.clock{font-size:13px}
-}
-@media(max-width:800px){
- .bar{height:68px}.inner{padding:0 8px}.brand{width:115px}.name{font-size:13px}.sub{font-size:5px}
- .live{display:none}.day{min-width:88px}.day:nth-child(n+6){display:none}
- .date{font-size:7px}.wind{font-size:7px}.temp,.swell{font-size:9px}.wave{font-size:11px}
- .time{width:70px;padding-left:6px}.clock{font-size:10px}
-}
-@media(max-width:560px){
- .brand{width:82px}.name{font-size:10px}.sub{display:none}
- .day{min-width:76px}.day:nth-child(n+5){display:none}.time{display:none}
+@media(max-width:760px){
+ .overlay{height:112px}.topline{height:28px}.brand{width:160px;font-size:11px;padding-left:10px}
+ .badge{font-size:9px;padding:5px 9px}.updateText{font-size:9px}
+ .metrics{height:56px}.metric:nth-child(n+5){display:none}.value{font-size:15px}
+ .ticker{height:28px}.tickerLabel{font-size:9px;padding:0 10px}.tickerText{font-size:8px}
 }
 </style>
 </head>
-
 <body>
-<div class="bar">
- <div class="inner">
-
-  <div class="brand">
-   <div class="name">RAGLAN</div>
-   <div class="sub">SURF CAM · NEW ZEALAND</div>
+<div class="overlay">
+  <div class="topline">
+    <div class="brand"><span>EL NIÑO</span> SURF WATCH</div>
+    <div class="update">
+      <div class="badge">EL NIÑO UPDATE</div>
+      <div class="updateText" id="updateText">PACIFIC PATTERN • SURF CONDITIONS UPDATING</div>
+    </div>
+    <div class="location">SOUTHERN CALIFORNIA</div>
   </div>
 
-  <div class="live">
-   <div class="liveLine"><span class="dot"></span> LIVE</div>
+  <div class="metrics">
+    <div class="metric">
+      <div class="label">SWELL</div>
+      <div class="value"><span class="wave">🌊</span> <span id="swell">--</span></div>
+      <div class="sub" id="swellDir">HEIGHT</div>
+    </div>
+    <div class="metric">
+      <div class="label">PERIOD</div>
+      <div class="value" id="period">--</div>
+      <div class="sub">SECONDS</div>
+    </div>
+    <div class="metric">
+      <div class="label">WIND</div>
+      <div class="value windGood" id="wind">--</div>
+      <div class="sub" id="windSub">LIVE COASTAL WIND</div>
+    </div>
+    <div class="metric">
+      <div class="label">SURF CONDITIONS</div>
+      <div class="value surf" id="condition">--</div>
+      <div class="sub" id="conditionSub">SOUTHERN CALIFORNIA</div>
+    </div>
+    <div class="metric">
+      <div class="label">WATER TEMP</div>
+      <div class="value" id="water">--</div>
+      <div class="sub">PACIFIC OCEAN</div>
+    </div>
+    <div class="metric">
+      <div class="label">LOCAL TIME</div>
+      <div class="value" id="clock">--:--</div>
+      <div class="sub">CALIFORNIA / PST-PDT</div>
+    </div>
   </div>
 
-  <div id="forecast" class="forecast">
-   <div class="loading">Loading forecast…</div>
+  <div class="ticker">
+    <div class="tickerLabel">SURF ALERTS</div>
+    <div class="tickerText" id="ticker">
+      XL SWELLS • MAVERICKS • SANTA MONICA PIER • MALIBU • RINCON • HUNTINGTON BEACH • THE WEDGE
+    </div>
   </div>
-
-  <div class="time">
-   <div id="clock" class="clock">--:--</div>
-   <div class="zone">RAGLAN LOCAL TIME</div>
-  </div>
-
- </div>
 </div>
 
 <script>
-const LAT=-37.8016,LON=174.8711,TZ="Pacific/Auckland";
+const LAT=34.0259, LON=-118.7798;
+const TZ="America/Los_Angeles";
 
-const WEATHER=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=8&daily=temperature_2m_max,temperature_2m_min,wind_speed_10m_max,wind_direction_10m_dominant`;
+const MARINE =
+  "https://marine-api.open-meteo.com/v1/marine" +
+  "?latitude="+LAT+"&longitude="+LON+
+  "&timezone="+encodeURIComponent(TZ)+
+  "&forecast_days=2"+
+  "&current=wave_height,wave_period,swell_wave_height,swell_wave_period,swell_wave_direction,sea_surface_temperature"+
+  "&hourly=swell_wave_height,swell_wave_period,swell_wave_direction";
 
-const MARINE=`https://marine-api.open-meteo.com/v1/marine?latitude=${LAT}&longitude=${LON}&timezone=${encodeURIComponent(TZ)}&forecast_days=8&hourly=swell_wave_height,swell_wave_period,swell_wave_direction`;
+const WEATHER =
+  "https://api.open-meteo.com/v1/forecast" +
+  "?latitude="+LAT+"&longitude="+LON+
+  "&timezone="+encodeURIComponent(TZ)+
+  "&forecast_days=2"+
+  "&current=wind_speed_10m,wind_direction_10m";
 
-function dayName(s){
- return new Date(s+"T12:00:00").toLocaleDateString("en-NZ",{weekday:"short"}).toUpperCase();
+function dir(deg){
+ if(!Number.isFinite(deg))return "--";
+ return ["N","NE","E","SE","S","SW","W","NW"][Math.round(deg/45)%8];
 }
 
-function direction(d){
- if(d==null)return"--";
- return["N","NE","E","SE","S","SW","W","NW"][Math.round(d/45)%8];
+function surfGrade(h,p,w){
+ if(!Number.isFinite(h)||!Number.isFinite(p))return ["--",""];
+ let score=0;
+ if(h>=8)score+=4; else if(h>=5)score+=3; else if(h>=3)score+=2; else if(h>=1.5)score+=1;
+ if(p>=16)score+=4; else if(p>=13)score+=3; else if(p>=10)score+=2; else if(p>=8)score+=1;
+ if(w<=8)score+=2; else if(w<=15)score+=1; else score-=2;
+ if(score>=9)return ["EPIC","XL / POWERFUL"];
+ if(score>=7)return ["EXCELLENT","VERY GOOD SURF"];
+ if(score>=5)return ["GOOD","FUN SURF"];
+ if(score>=3)return ["FAIR","MIXED CONDITIONS"];
+ return ["POOR","ROUGH / WINDY"];
 }
 
 function updateClock(){
- document.getElementById("clock").textContent =
- new Intl.DateTimeFormat("en-NZ",{
-   timeZone:TZ,hour:"numeric",minute:"2-digit",hour12:true
- }).format(new Date());
+ const s=new Intl.DateTimeFormat("en-US",{timeZone:TZ,hour:"numeric",minute:"2-digit",hour12:true}).format(new Date());
+ document.getElementById("clock").textContent=s;
 }
-updateClock();
-setInterval(updateClock,1000);
-
-/*
-  Condition indicator:
-  GREEN = stronger swell/period with manageable wind
-  YELLOW = mixed/moderate conditions
-  RED = small/short-period swell or stronger wind
-
-  This is a simple forecast indicator, not a substitute for a local
-  surf report or a surfer's judgment.
-*/
-function conditionClass(feet,period,wind){
- let score=0;
-
- if(feet>=4) score+=3;
- else if(feet>=2.5) score+=2;
- else if(feet>=1.5) score+=1;
-
- if(period>=12) score+=3;
- else if(period>=10) score+=2;
- else if(period>=8) score+=1;
-
- if(wind<=10) score+=2;
- else if(wind<=18) score+=1;
- else score-=2;
-
- if(score>=7) return "good";
- if(score>=4) return "ok";
- return "poor";
-}
+updateClock();setInterval(updateClock,1000);
 
 async function load(){
  try{
-  const [w,m]=await Promise.all([
-   fetch(WEATHER,{cache:"no-store"}).then(r=>r.json()),
-   fetch(MARINE,{cache:"no-store"}).then(r=>r.json())
+  const [mr,wr]=await Promise.all([
+   fetch(MARINE,{cache:"no-store"}).then(r=>r.json()),
+   fetch(WEATHER,{cache:"no-store"}).then(r=>r.json())
   ]);
 
-  const cards=w.daily.time.slice(0,7).map((date,d)=>{
-   const start=d*24;
-   const end=Math.min(start+24,m.hourly.time.length);
+  const m=mr.current,w=wr.current;
+  const h=Number(m.swell_wave_height);
+  const p=Number(m.swell_wave_period);
+  const wd=Number(m.swell_wave_direction);
+  const wind=Number(w.wind_speed_10m);
+  const water=Number(m.sea_surface_temperature);
 
-   // Select the strongest swell height forecast during each day.
-   let best=start,bestHeight=-1;
+  document.getElementById("swell").textContent=Number.isFinite(h)?(h*3.28084).toFixed(1)+" ft":"--";
+  document.getElementById("swellDir").textContent=Number.isFinite(wd)?dir(wd)+" SWELL DIRECTION":"HEIGHT";
+  document.getElementById("period").textContent=Number.isFinite(p)?p.toFixed(0)+" s":"--";
+  document.getElementById("wind").textContent=Number.isFinite(wind)?dir(w.wind_direction_10m)+" "+Math.round(wind)+" km/h":"--";
+  document.getElementById("windSub").textContent="LIVE COASTAL WIND";
 
-   for(let i=start;i<end;i++){
-    const h=m.hourly.swell_wave_height[i];
-    if(h!=null && h>bestHeight){
-     bestHeight=h;
-     best=i;
-    }
-   }
+  const grade=surfGrade(Number.isFinite(h)?h*3.28084:NaN,p,wind);
+  document.getElementById("condition").textContent=grade[0];
+  document.getElementById("conditionSub").textContent=grade[1];
 
-   const metres=m.hourly.swell_wave_height[best];
-   const feet=metres==null?"--":(metres*3.28084).toFixed(1);
+  document.getElementById("water").textContent=Number.isFinite(water)
+    ? Math.round(water)+"°C / "+Math.round(water*9/5+32)+"°F":"--";
 
-   const period=m.hourly.swell_wave_period[best];
-   const p=period==null?"--":Math.round(period);
-
-   const windKts=Math.round(w.daily.wind_speed_10m_max[d]*0.539957);
-   const windDir=direction(w.daily.wind_direction_10m_dominant[d]);
-
-   const condition=
-     feet==="--" || p==="--" ? "ok" :
-     conditionClass(parseFloat(feet),parseFloat(p),windKts);
-
-   return `
-    <div class="day ${condition}">
-      <div class="top">
-       <span class="date">${dayName(date)} ${new Date(date+"T12:00:00").getDate()}</span>
-       <span class="wind">↗ ${windKts}kt ${windDir}</span>
-      </div>
-      <div class="bottom">
-       <span class="temp">${Math.round(w.daily.temperature_2m_max[d])}°</span>
-       <span class="wave">🌊</span>
-       <span class="swell">${feet}ft @ ${p}s</span>
-      </div>
-    </div>`;
-  }).join("");
-
-  document.getElementById("forecast").innerHTML=cards;
+  document.getElementById("updateText").textContent=
+    "PACIFIC PATTERN • SWELL + WIND CONDITIONS UPDATED LIVE";
 
  }catch(e){
-  document.getElementById("forecast").innerHTML=
-    '<div class="loading">Forecast temporarily unavailable</div>';
+  document.getElementById("updateText").textContent="SURF DATA TEMPORARILY UNAVAILABLE";
  }
 }
-
 load();
 setInterval(load,300000);
 </script>
